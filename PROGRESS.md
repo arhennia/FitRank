@@ -119,7 +119,15 @@ Budget, stock, and size on the image index returned the fail-safe errors. A coat
 
 ## Next concrete task
 
-The active execution plan is the sprint section of `PLAN.md`. T0 is done. The next task is T1, the Fashion-MNIST adapter and seeded splits, using index 2,000, validation 300, and test 500. The train split is not on disk yet.
+The active execution plan is the sprint section of `PLAN.md`. T1 is done. The next task is T2, the embedding cache. The sprint split is index 2,000, validation 300, and test 500, in `ml/data/splits/fmnist.v1.json`.
+
+## Sprint T1, 12 Oct 2026
+
+`npm run ml:split` checked the four Fashion-MNIST gzip files against the MD5 values in the official README. The train files were downloaded from `zalandoresearch/fashion-mnist`. The test files already on disk matched those checksums. No query pixel hash collided with the index or the other query split. Two runs wrote the same split file, SHA-256 `ce6408f8bec115dcdefe9fcac045b2a607233f88a99880f36c8f03d7333520b7`.
+
+`npm test`: 69 passed, 0 failed. The five new tests cover truncated IDX files, deterministic splits, a pixel-hash collision, and the committed split.
+
+Pullover, Sandal, Bag, and Ankle boot have `mapped: null`. The other six classes map onto a FitRank category. Price, brand, color, size, stock, and rating are null on all 2,800 rows. The Zalando MIT license text is in `ml/data/fashion-mnist-LICENSE.txt`.
 
 ## Sprint audit, 12 Oct 2026
 

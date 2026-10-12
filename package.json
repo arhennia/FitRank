@@ -1,11 +1,15 @@
 {
   "name": "fitrank",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
-  "description": "Rules-based fashion product recommendation prototype",
+  "description": "Explainable fashion decision and recommendation engine",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "prepare-mnist": "node experiments/prepare-mnist.mjs",
+    "ml:split": "node ml/src/data/build.mjs",
+    "embed-retrieval": "node experiments/embed.mjs",
+    "evaluate-retrieval": "node experiments/evaluate.mjs"
   }
 }

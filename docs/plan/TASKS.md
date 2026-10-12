@@ -2,10 +2,10 @@
 
 Status after T0 on 12 Oct 2026. The plan text is in `PLAN.md`. Measured facts are in `docs/AUDIT.md` and `ml/results/env.json`.
 
-Set sizes chosen by the T0 rule: index 2,000 (200 per class), validation 300 (30 per class), test 500 (50 per class). Batch-1 throughput was 45.834 ms/image. The Fashion-MNIST train split is not on disk.
+Set sizes chosen by the T0 rule: index 2,000 (200 per class), validation 300 (30 per class), test 500 (50 per class). Those sizes are the committed split in `ml/data/splits/fmnist.v1.json`. The train gzip files were checked against the official README and are stored locally under `ml/data/idx/`, which is gitignored.
 
 - [x] T0 Audit and baseline reproduction
-- [ ] T1 Dataset adapter and seeded splits
+- [x] T1 Dataset adapter and seeded splits
 - [ ] T2 Embedding pipeline and cache
 - [ ] T3 Retrieval core in `js/retrieval/`
 - [ ] T4 Metrics, harness, and validation tuning

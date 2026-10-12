@@ -1,0 +1,44 @@
+{
+  "items": 2800,
+  "attributes": {
+    "price": {
+      "present": 0,
+      "missing": 2800
+    },
+    "brand": {
+      "present": 0,
+      "missing": 2800
+    },
+    "color": {
+      "present": 0,
+      "missing": 2800
+    },
+    "size": {
+      "present": 0,
+      "missing": 2800
+    },
+    "stock": {
+      "present": 0,
+      "missing": 2800
+    },
+    "rating": {
+      "present": 0,
+      "missing": 2800
+    }
+  },
+  "mapped": {
+    "T-shirt/top": "Tops",
+    "Trouser": "Trousers",
+    "Dress": "Dresses and skirts",
+    "Coat": "Jackets and coats",
+    "Shirt": "Tops",
+    "Sneaker": "Sneakers"
+  },
+  "unmapped": [
+    "Pullover",
+    "Sandal",
+    "Bag",
+    "Ankle boot"
+  ],
+  "note": "price, brand, color, size, stock, and rating are absent on Fashion-MNIST and are stored as null."
+}

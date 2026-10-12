@@ -1,0 +1,7 @@
+node_modules/
+prototypes/moodboard/.cache/
+prototypes/moodboard/data/*.gz
+experiments/cache/
+experiments/fashion-mnist/images/
+experiments/fashion-mnist/data/
+ml/data/idx/
