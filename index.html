@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FitRank</title>
+    <meta name="description" content="FitRank ranks fashion products against your occasion, style, colour, and budget.">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="eyebrow">Portfolio prototype</p>
+      <h1>FitRank</h1>
+      <p class="lede">
+        Tell FitRank the occasion, the look, and the budget. It filters a small
+        illustrative catalogue and ranks what remains.
+      </p>
+    </header>
+
+    <main>
+      <section id="preferences-view" aria-labelledby="preferences-heading">
+        <h2 id="preferences-heading">Preferences</h2>
+        <form id="preferences-form">
+          <div id="form-errors" role="alert"></div>
+
+          <fieldset>
+            <legend>Occasion</legend>
+            <p class="hint">Choose at least one. A product scores higher when it covers more of your selections.</p>
+            <div class="choices">
+              <label><input type="checkbox" name="occasion" value="everyday"> Everyday</label>
+              <label><input type="checkbox" name="occasion" value="work"> Work</label>
+              <label><input type="checkbox" name="occasion" value="evening"> Evening</label>
+              <label><input type="checkbox" name="occasion" value="travel"> Travel</label>
+              <label><input type="checkbox" name="occasion" value="special"> Special occasion</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Style</legend>
+            <p class="hint">Optional. Leave this blank if you do not want style to affect the score.</p>
+            <div class="choices">
+              <label><input type="checkbox" name="style" value="minimalist"> Minimalist</label>
+              <label><input type="checkbox" name="style" value="structured"> Structured</label>
+              <label><input type="checkbox" name="style" value="classic"> Classic</label>
+              <label><input type="checkbox" name="style" value="bold"> Bold</label>
+              <label><input type="checkbox" name="style" value="artistic"> Artistic</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Category</legend>
+            <p class="hint">Optional. Selected categories are required. Leave them blank to search the whole catalogue.</p>
+            <div class="choices">
+              <label><input type="checkbox" name="category" value="Handbags"> Handbags</label>
+              <label><input type="checkbox" name="category" value="Jackets and coats"> Jackets and coats</label>
+              <label><input type="checkbox" name="category" value="Dresses and skirts"> Dresses and skirts</label>
+              <label><input type="checkbox" name="category" value="Heels"> Heels</label>
+              <label><input type="checkbox" name="category" value="Flats and loafers"> Flats and loafers</label>
+              <label><input type="checkbox" name="category" value="Accessories"> Accessories</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Colour</legend>
+            <p class="hint">Optional. A product matches if its colour is one of the colours you tick.</p>
+            <div class="choices">
+              <label><input type="checkbox" name="colour" value="black"> <span class="swatch" data-colour="black"></span> Black</label>
+              <label><input type="checkbox" name="colour" value="brown"> <span class="swatch" data-colour="brown"></span> Brown</label>
+              <label><input type="checkbox" name="colour" value="navy"> <span class="swatch" data-colour="navy"></span> Navy</label>
+              <label><input type="checkbox" name="colour" value="beige"> <span class="swatch" data-colour="beige"></span> Beige</label>
+              <label><input type="checkbox" name="colour" value="white"> <span class="swatch" data-colour="white"></span> White</label>
+              <label><input type="checkbox" name="colour" value="burgundy"> <span class="swatch" data-colour="burgundy"></span> Burgundy</label>
+              <label><input type="checkbox" name="colour" value="green"> <span class="swatch" data-colour="green"></span> Green</label>
+              <label><input type="checkbox" name="colour" value="red"> <span class="swatch" data-colour="red"></span> Red</label>
+              <label><input type="checkbox" name="colour" value="tan"> <span class="swatch" data-colour="tan"></span> Tan</label>
+              <label><input type="checkbox" name="colour" value="grey"> <span class="swatch" data-colour="grey"></span> Grey</label>
+            </div>
+          </fieldset>
+
+          <div class="split">
+            <label class="stack" for="max-budget">
+              Maximum budget (INR)
+              <input id="max-budget" name="maxBudget" type="text" inputmode="numeric" value="15000" required>
+            </label>
+            <label class="stack" for="priority">
+              Priority
+              <select id="priority" name="priority">
+                <option value="">No priority</option>
+                <option value="comfort">Comfort</option>
+                <option value="versatility">Versatility</option>
+                <option value="craftsmanship">Craftsmanship</option>
+                <option value="statement">Statement design</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="primary">Show recommendations</button>
+            <button type="reset" id="reset-preferences">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="results-view" hidden aria-labelledby="results-heading">
+        <div class="view-bar">
+          <h2 id="results-heading">Recommendations</h2>
+          <div class="form-actions">
+            <button type="button" id="edit-preferences">Edit preferences</button>
+            <button type="button" id="open-comparison" class="primary">Compare selected</button>
+          </div>
+        </div>
+        <p id="results-summary"></p>
+        <p id="comparison-note" role="status"></p>
+        <div id="results"></div>
+      </section>
+
+      <section id="comparison-view" hidden aria-labelledby="comparison-heading">
+        <div class="view-bar">
+          <h2 id="comparison-heading">Comparison</h2>
+          <button type="button" id="back-to-results">Back to recommendations</button>
+        </div>
+        <div id="comparison"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Sample catalogue of 14 fictional products. Prices are illustrative INR figures, not shop listings.</p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

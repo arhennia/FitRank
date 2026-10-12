@@ -1,0 +1,11 @@
+{
+  "name": "fitrank",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Rules-based fashion product recommendation prototype",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  }
+}
