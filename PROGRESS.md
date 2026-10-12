@@ -119,7 +119,17 @@ Budget, stock, and size on the image index returned the fail-safe errors. A coat
 
 ## Next concrete task
 
-The active execution plan is the sprint section of `PLAN.md`. T2 is done. The next task is T3, the pure retrieval modules in `js/retrieval/`. Image embeddings for the sprint split are cached under `ml/artifacts/` and are gitignored.
+The active execution plan is the sprint section of `PLAN.md`. T3 is done. The next task is T4, metrics and validation-only tuning. The retrieval core is in `js/retrieval/` and does not load a model. Image embeddings for the sprint split are cached under `ml/artifacts/` and are gitignored.
+
+## Sprint T3, 12 Oct 2026
+
+`js/retrieval/` scores cached vectors in plain JavaScript. `vectorStore.js` loads `manifest.json`, `ids.json`, and `emb.f32` and checks the row count, id order, and unit norms. `topK.js` scans every row with a min-heap. A false mask entry is not scored. Equal scores break by id. CLIP image-to-image and text-to-image are dot products against the image matrix. Pixel cosine has raw and mean-centered variants. Lexical overlap uses class-name tokens only, so "tee" does not match "T-shirt/top".
+
+An active price, category, size, or stock constraint fails when that attribute is null. The null is not replaced. Across 1,000 random item and constraint pairs, the gate returned zero violations. An item with similarity 1.0 that misses a price gate is absent from the result list.
+
+Fusion z-scores the gate-eligible pool. A pool smaller than 30 rows uses a stored mean and standard deviation. A missing signal is dropped and the remaining weights are renormalized. Reciprocal rank fusion uses k = 60 and does not insert a zero for a missing list. MMR at lambda 1 matches score-then-id order. An item with no embedding gets diversity term 0 and is flagged. Explanation sentences quote the numbers on the row.
+
+`npm test`: 93 passed, 0 failed. No model weights are loaded by these tests. The shopper scorer in `js/score.js` is unchanged.
 
 ## Sprint T2, 12 Oct 2026
 
