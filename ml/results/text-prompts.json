@@ -1,0 +1,155 @@
+{
+  "note": "Three prompt templates, written before any sprint retrieval score. None of them is selected yet.",
+  "rows": [
+    {
+      "id": "6380838d58c9b02a0663b4d55453a0c8bd2ee99e5cf4d54ecf2b5cf582b15b74",
+      "templateId": "literal-photo",
+      "text": "a photo of a T-shirt/top"
+    },
+    {
+      "id": "6fa429ff92545b9e1e3bf90dd3ce2959f761f218dde4d4cc637855a284a14de7",
+      "templateId": "literal-photo",
+      "text": "a photo of a Trouser"
+    },
+    {
+      "id": "224bc5708911364cad6f07dd96f3df9f9f1d25fa87d14f78d295e93e1d65681b",
+      "templateId": "literal-photo",
+      "text": "a photo of a Pullover"
+    },
+    {
+      "id": "b0cb13afc403538c82b748cacdfa19c0794ab446fb8bfa6a754e5849088d72c2",
+      "templateId": "literal-photo",
+      "text": "a photo of a Dress"
+    },
+    {
+      "id": "3480c9576f10cafe84a8be594738f926272c8b6bef3babad674f2b407c5dca4e",
+      "templateId": "literal-photo",
+      "text": "a photo of a Coat"
+    },
+    {
+      "id": "e32e6618f55b055d4ce2235eb58a44c6314aa47cf41d585decc080bff5420f06",
+      "templateId": "literal-photo",
+      "text": "a photo of a Sandal"
+    },
+    {
+      "id": "bf6c473849149fa36c31cb57024011cca45a568612f6196c46b8dda73f01e5dc",
+      "templateId": "literal-photo",
+      "text": "a photo of a Shirt"
+    },
+    {
+      "id": "6f27b6ad547cacf8f3afd2912f91db9eaea1dbec4da6483ce7ce7218d1599ee7",
+      "templateId": "literal-photo",
+      "text": "a photo of a Sneaker"
+    },
+    {
+      "id": "822a60a150c756d63e5e4c441a3f9f71c1981fab1b75826c2f136024ab704a46",
+      "templateId": "literal-photo",
+      "text": "a photo of a Bag"
+    },
+    {
+      "id": "4258c34ce08d4dc769574e0508c1248cb2fcbb3d453c28ac6b6e880875543511",
+      "templateId": "literal-photo",
+      "text": "a photo of a Ankle boot"
+    },
+    {
+      "id": "11faaaea7893bb1f6858acea8f57a23738e3a14f1fa576033f9940b87790a937",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a T-shirt/top"
+    },
+    {
+      "id": "a9723e87ad078351025d95a3b00816c77f0f26afd580532851d163200deb667a",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Trouser"
+    },
+    {
+      "id": "23324ec1eb7855956425ed84fb4861bd40c2f845984e25cc0e7f9c34865a9d4a",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Pullover"
+    },
+    {
+      "id": "c0cc3efcba82b837839cb44c971806ccd593003d7bb33e1ae0a89979fe7a50dc",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Dress"
+    },
+    {
+      "id": "b5c7e817b9945401ddd4eb2382faddc73ca18e3561b4c090478a2e020afdc5db",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Coat"
+    },
+    {
+      "id": "41cd33aeb9963fc199a738b13dfd65fe944640507d6d4559386363043b1977f6",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Sandal"
+    },
+    {
+      "id": "ee2b0de23943fcc72ef1e52e3089471000715aca00c505860b6e2106f016c69c",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Shirt"
+    },
+    {
+      "id": "4ee6b27deb3ffe3a45577a980b08345284e5ae9ad246236c056b8e629779dde1",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Sneaker"
+    },
+    {
+      "id": "614dfb607ded62f72fea5430a400913ede876050fc7cda758fc1e083eb99bb75",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Bag"
+    },
+    {
+      "id": "5ddb6efd03c59047ede992edec16aa0f53824218e54f5190d5b7a78730661938",
+      "templateId": "literal-grayscale",
+      "text": "a grayscale photo of a Ankle boot"
+    },
+    {
+      "id": "e9d04b2fdd5035fcb82773ed9b21a9babb2ddb0d08991cf134c4de59f054418e",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a T-shirt/top"
+    },
+    {
+      "id": "291072f0b7f54dbc3bba630e885309701308ec34324df9e6fa74bde6d1ace572",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Trouser"
+    },
+    {
+      "id": "e5e413dc7ddd34f31ffcf70f2eb99e75d5bb0fb797cd4edd33c8ca0ef70f68b5",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Pullover"
+    },
+    {
+      "id": "82c5c7b686febe7a1cda05871107a56b7ddc014d212a2311560d6c4f5b321f64",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Dress"
+    },
+    {
+      "id": "50e85ae54cbc3bb3dfa9a82c6e39af40282d6e7a687bae094078ac7305195030",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Coat"
+    },
+    {
+      "id": "19d21a642c6dfc99659ff11ec81c6a86ea3fcd2766ab6054b3aa27c83d9d7547",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Sandal"
+    },
+    {
+      "id": "dc02cefa1e1d942e08c7844225d5d8f60b08db435a79c10089641cc27b1f320c",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Shirt"
+    },
+    {
+      "id": "d3ffb72c9928181158fdc8c772ae67e680e7a8f3b3fa4df0befe3d4f7a8fffb5",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Sneaker"
+    },
+    {
+      "id": "39c51803d96dad143a4e20d8753d98afe11cb98e047d011210fc11d936cae27b",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Bag"
+    },
+    {
+      "id": "b517baa1064842028935d14522da01420cbedcd453c0af31bcaff51d760c5a53",
+      "templateId": "literal-product",
+      "text": "a fashion product photo of a Ankle boot"
+    }
+  ]
+}

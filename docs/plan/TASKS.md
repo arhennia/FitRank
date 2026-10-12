@@ -6,7 +6,7 @@ Set sizes chosen by the T0 rule: index 2,000 (200 per class), validation 300 (30
 
 - [x] T0 Audit and baseline reproduction
 - [x] T1 Dataset adapter and seeded splits
-- [ ] T2 Embedding pipeline and cache
+- [x] T2 Embedding pipeline and cache
 - [ ] T3 Retrieval core in `js/retrieval/`
 - [ ] T4 Metrics, harness, and validation tuning
 - [ ] T5 Test evaluation, ablations, and failure analysis

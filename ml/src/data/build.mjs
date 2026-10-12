@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 
 import { gunzipOrThrow, readIdxImages, readIdxLabels } from "./idx.mjs";
 import { buildFashionSplit, splitContentHash } from "./split.mjs";
+import { OFFICIAL_MD5 } from "./checksums.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "../../..");
 const idxDir = join(root, "ml", "data", "idx");
@@ -23,13 +24,6 @@ const licensePath = join(root, "ml", "data", "fashion-mnist-LICENSE.txt");
 
 const REPO_FILE = "https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion";
 const LICENSE_URL = "https://raw.githubusercontent.com/zalandoresearch/fashion-mnist/master/LICENSE";
-
-export const OFFICIAL_MD5 = {
-  "train-images-idx3-ubyte.gz": "8d4fb7e6c68d591d4c3dfef9ec88bf0d",
-  "train-labels-idx1-ubyte.gz": "25c81989df183df01b3e8a0aad5dffbe",
-  "t10k-images-idx3-ubyte.gz": "bef4ecab320f06d8554ea6380940ec79",
-  "t10k-labels-idx1-ubyte.gz": "bb300cfdad3c16e7a12a480ee83cd310",
-};
 
 function md5(bytes) {
   return createHash("md5").update(bytes).digest("hex");

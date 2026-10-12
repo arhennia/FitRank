@@ -1,0 +1,22 @@
+{
+  "id": "preprocess.v1",
+  "active": "as-is",
+  "note": "The active variant is as-is. Inverted and padded are defined so a later validation run can compare them. This file does not record a metric and does not choose a winner.",
+  "processor": {
+    "source": "Xenova/clip-vit-base-patch32 preprocessor_config.json",
+    "resizeShortestEdge": 224,
+    "doCenterCrop": true,
+    "cropSize": 224,
+    "doNormalize": true,
+    "doRescale": true,
+    "doConvertRgb": true,
+    "imageMean": [0.48145466, 0.4578275, 0.40821073],
+    "imageStd": [0.26862954, 0.26130258, 0.27577711],
+    "resample": "bicubic"
+  },
+  "variants": {
+    "as-is": { "polarity": "as-is", "pad": 0, "padValue": 0 },
+    "inverted": { "polarity": "inverted", "pad": 0, "padValue": 0 },
+    "padded": { "polarity": "as-is", "pad": 14, "padValue": 0 }
+  }
+}

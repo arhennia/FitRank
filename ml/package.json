@@ -1,0 +1,9 @@
+{
+  "name": "fitrank-ml",
+  "private": true,
+  "type": "module",
+  "description": "Offline CLIP embedding for FitRank. Not imported by the shopper page.",
+  "dependencies": {
+    "@huggingface/transformers": "4.3.1"
+  }
+}

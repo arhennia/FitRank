@@ -119,7 +119,15 @@ Budget, stock, and size on the image index returned the fail-safe errors. A coat
 
 ## Next concrete task
 
-The active execution plan is the sprint section of `PLAN.md`. T1 is done. The next task is T2, the embedding cache. The sprint split is index 2,000, validation 300, and test 500, in `ml/data/splits/fmnist.v1.json`.
+The active execution plan is the sprint section of `PLAN.md`. T2 is done. The next task is T3, the pure retrieval modules in `js/retrieval/`. Image embeddings for the sprint split are cached under `ml/artifacts/` and are gitignored.
+
+## Sprint T2, 12 Oct 2026
+
+`npm run ml:embed` wrote CLIP caches for the index (2,000), validation (300), test (500), 30 prompt strings, and 60 catalogue texts. The second run of every target reported `newlyEmbedded: 0` and `inference: false`. Remote model download stayed off. The weights were read from `prototypes/moodboard/.cache`.
+
+The active preprocess variant is `as-is`. Inverted and padded are defined and were not scored. The three prompt templates were embedded and none was selected. Catalogue text uses name and description only. The audit flagged 0 of 60 products.
+
+`npm test`: 74 passed, 0 failed. The new tests cover cache reuse, a preprocess-hash change, truncation, id order, non-unit vectors, and a 20-image re-embed with cosine at least 0.9999.
 
 ## Sprint T1, 12 Oct 2026
 

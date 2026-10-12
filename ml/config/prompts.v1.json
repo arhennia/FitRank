@@ -1,0 +1,9 @@
+{
+  "id": "prompts.v1",
+  "note": "Three prompt templates, written before any sprint retrieval score. None of them is selected yet.",
+  "templates": [
+    { "id": "literal-photo", "template": "a photo of a {}" },
+    { "id": "literal-grayscale", "template": "a grayscale photo of a {}" },
+    { "id": "literal-product", "template": "a fashion product photo of a {}" }
+  ]
+}

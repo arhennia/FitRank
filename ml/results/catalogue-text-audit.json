@@ -1,0 +1,20 @@
+{
+  "fieldsUsed": [
+    "name",
+    "description"
+  ],
+  "fieldsExcluded": [
+    "category",
+    "brand",
+    "price",
+    "colour",
+    "material",
+    "styles",
+    "sizes",
+    "itemId"
+  ],
+  "products": 60,
+  "missingDescription": [],
+  "flagged": [],
+  "note": "Flagged rows contain words that would disclose an evaluation label. They are reported and still not used as relevance labels."
+}
