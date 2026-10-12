@@ -255,6 +255,51 @@ tbody th { color: var(--muted); font-weight: 600; width: 9rem; }
   outline-offset: 2px;
 }
 
+.extra { margin: 0 0 1rem; }
+.extra summary { cursor: pointer; font-weight: 650; }
+.stack-fieldset {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.25rem 0.8rem;
+  margin: 0.2rem 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.tag {
+  display: inline-block;
+  margin: 0 0.35rem 0.45rem 0;
+  padding: 0.12rem 0.5rem;
+  border-radius: 99px;
+  background: #e7efe9;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.tradeoffs { color: var(--muted); }
+.similar {
+  margin-top: 0.8rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--line);
+}
+.similar h4 { margin: 0 0 0.35rem; font-size: 1rem; }
+#evaluation-view, #retrieval-view, #experiment-view { margin-top: 1rem; }
+.retrieval-card img {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+#retrieval-status { min-height: 1.4rem; }
+#evaluation { margin-top: 0.8rem; }
+input[type="file"] { font: inherit; }
+
 @media (max-width: 720px) {
   .split { grid-template-columns: 1fr; }
   .card { grid-template-columns: 1fr; }

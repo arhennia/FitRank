@@ -1,0 +1,13 @@
+{
+  "name": "fitrank-moodboard-prototype",
+  "private": true,
+  "type": "module",
+  "description": "Local CLIP retrieval trial. Not imported by the FitRank page.",
+  "scripts": {
+    "prepare-data": "node prepare.mjs",
+    "retrieve": "node retrieve.mjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1"
+  }
+}

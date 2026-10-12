@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "frozen": true,
+  "note": "Written before any retrieval run. Validation and test paraphrases are different strings. Do not edit these after seeing test metrics.",
+  "literalTemplate": "a photo of a {}",
+  "validationParaphrases": {
+    "T-shirt/top": "a simple tee",
+    "Trouser": "full length trousers",
+    "Pullover": "a warm pullover",
+    "Dress": "a one piece dress",
+    "Coat": "a winter coat",
+    "Sandal": "a summer sandal",
+    "Shirt": "a dress shirt",
+    "Sneaker": "a sport sneaker",
+    "Bag": "a small bag",
+    "Ankle boot": "a short boot"
+  },
+  "testParaphrases": {
+    "T-shirt/top": "a casual short sleeve top",
+    "Trouser": "a pair of long pants",
+    "Pullover": "a knitted pullover sweater",
+    "Dress": "a dress worn as one piece",
+    "Coat": "a long outer coat",
+    "Sandal": "an open toe sandal",
+    "Shirt": "a collared button shirt",
+    "Sneaker": "a lace up athletic shoe",
+    "Bag": "a handheld bag",
+    "Ankle boot": "an ankle height boot"
+  }
+}

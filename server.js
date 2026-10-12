@@ -11,7 +11,9 @@ const types = {
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
+  ".csv": "text/csv; charset=utf-8",
   ".svg": "image/svg+xml",
+  ".png": "image/png",
 };
 
 function fileForRequest(urlPath) {
@@ -23,7 +25,42 @@ function fileForRequest(urlPath) {
   return filePath;
 }
 
-const server = http.createServer((req, res) => {
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    let size = 0;
+    req.on("data", (chunk) => {
+      size += chunk.length;
+      if (size > 1_500_000) {
+        reject(new Error("Request body is too large"));
+        req.destroy();
+        return;
+      }
+      chunks.push(chunk);
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+    req.on("error", reject);
+  });
+}
+
+const server = http.createServer(async (req, res) => {
+  const urlPath = (req.url || "/").split("?")[0];
+  if (req.method === "POST" && urlPath === "/api/retrieve") {
+    try {
+      const raw = await readBody(req);
+      const body = raw ? JSON.parse(raw) : {};
+      const { searchCatalogue } = await import("./experiments/search.mjs");
+      const result = await searchCatalogue(body);
+      const status = result.unavailable ? 503 : 200;
+      res.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+      res.end(JSON.stringify(result));
+    } catch (error) {
+      res.writeHead(500, { "Content-Type": "application/json; charset=utf-8" });
+      res.end(JSON.stringify({ ok: false, errors: [error.message] }));
+    }
+    return;
+  }
+
   const filePath = fileForRequest(req.url || "/");
   if (!filePath) {
     res.writeHead(403, { "Content-Type": "text/plain; charset=utf-8" });

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "fitrank-multi-listing.schema.json",
+  "title": "FitRank multi-listing catalogue",
+  "description": "Preparation for a future duplicate and conflict evaluation. One underlying item may have several seller listings. This file does not detect duplicates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "note", "declaredFields", "listings"],
+  "properties": {
+    "version": { "const": 1 },
+    "note": { "type": "string" },
+    "declaredFields": {
+      "type": "array",
+      "items": { "enum": ["category", "colour", "material", "silhouette", "price", "currency"] },
+      "minItems": 1
+    },
+    "listings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "listingId",
+          "itemId",
+          "sellerId",
+          "sellerName",
+          "name",
+          "category",
+          "colour",
+          "material",
+          "silhouette",
+          "styles",
+          "price",
+          "currency",
+          "description"
+        ],
+        "properties": {
+          "listingId": { "type": "string", "minLength": 1 },
+          "itemId": { "type": "string", "minLength": 1 },
+          "sellerId": { "type": "string", "minLength": 1 },
+          "sellerName": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "type": "string", "minLength": 1 },
+          "colour": { "type": "string", "minLength": 1 },
+          "material": { "type": "string", "minLength": 1 },
+          "silhouette": { "type": "string", "minLength": 1 },
+          "styles": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "price": { "type": "number", "exclusiveMinimum": 0 },
+          "currency": { "const": "INR" },
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

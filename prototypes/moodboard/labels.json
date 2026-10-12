@@ -1,0 +1,341 @@
+{
+  "version": 1,
+  "source": "fashion-mnist-t10k-class-ids",
+  "k": 3,
+  "note": "Relevant products are the other held-out images of the same Fashion-MNIST class. The class id is the dataset label. A retrieval model did not choose these pairs.",
+  "attribution": "Fashion-MNIST by Zalando Research, MIT License. Images are the first four test-set examples of each class.",
+  "queries": [
+    {
+      "id": "inspire-t-shirt-top",
+      "file": "images/inspire-t-shirt-top.png",
+      "classId": 0,
+      "className": "T-shirt/top",
+      "sourceIndex": 19,
+      "relevantIds": [
+        "product-t-shirt-top-1",
+        "product-t-shirt-top-2",
+        "product-t-shirt-top-3"
+      ]
+    },
+    {
+      "id": "inspire-trouser",
+      "file": "images/inspire-trouser.png",
+      "classId": 1,
+      "className": "Trouser",
+      "sourceIndex": 2,
+      "relevantIds": [
+        "product-trouser-1",
+        "product-trouser-2",
+        "product-trouser-3"
+      ]
+    },
+    {
+      "id": "inspire-pullover",
+      "file": "images/inspire-pullover.png",
+      "classId": 2,
+      "className": "Pullover",
+      "sourceIndex": 1,
+      "relevantIds": [
+        "product-pullover-1",
+        "product-pullover-2",
+        "product-pullover-3"
+      ]
+    },
+    {
+      "id": "inspire-dress",
+      "file": "images/inspire-dress.png",
+      "classId": 3,
+      "className": "Dress",
+      "sourceIndex": 13,
+      "relevantIds": [
+        "product-dress-1",
+        "product-dress-2",
+        "product-dress-3"
+      ]
+    },
+    {
+      "id": "inspire-coat",
+      "file": "images/inspire-coat.png",
+      "classId": 4,
+      "className": "Coat",
+      "sourceIndex": 6,
+      "relevantIds": [
+        "product-coat-1",
+        "product-coat-2",
+        "product-coat-3"
+      ]
+    },
+    {
+      "id": "inspire-sandal",
+      "file": "images/inspire-sandal.png",
+      "classId": 5,
+      "className": "Sandal",
+      "sourceIndex": 8,
+      "relevantIds": [
+        "product-sandal-1",
+        "product-sandal-2",
+        "product-sandal-3"
+      ]
+    },
+    {
+      "id": "inspire-shirt",
+      "file": "images/inspire-shirt.png",
+      "classId": 6,
+      "className": "Shirt",
+      "sourceIndex": 4,
+      "relevantIds": [
+        "product-shirt-1",
+        "product-shirt-2",
+        "product-shirt-3"
+      ]
+    },
+    {
+      "id": "inspire-sneaker",
+      "file": "images/inspire-sneaker.png",
+      "classId": 7,
+      "className": "Sneaker",
+      "sourceIndex": 9,
+      "relevantIds": [
+        "product-sneaker-1",
+        "product-sneaker-2",
+        "product-sneaker-3"
+      ]
+    },
+    {
+      "id": "inspire-bag",
+      "file": "images/inspire-bag.png",
+      "classId": 8,
+      "className": "Bag",
+      "sourceIndex": 18,
+      "relevantIds": [
+        "product-bag-1",
+        "product-bag-2",
+        "product-bag-3"
+      ]
+    },
+    {
+      "id": "inspire-ankle-boot",
+      "file": "images/inspire-ankle-boot.png",
+      "classId": 9,
+      "className": "Ankle boot",
+      "sourceIndex": 0,
+      "relevantIds": [
+        "product-ankle-boot-1",
+        "product-ankle-boot-2",
+        "product-ankle-boot-3"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "product-t-shirt-top-1",
+      "file": "images/product-t-shirt-top-1.png",
+      "classId": 0,
+      "className": "T-shirt/top",
+      "sourceIndex": 27
+    },
+    {
+      "id": "product-t-shirt-top-2",
+      "file": "images/product-t-shirt-top-2.png",
+      "classId": 0,
+      "className": "T-shirt/top",
+      "sourceIndex": 35
+    },
+    {
+      "id": "product-t-shirt-top-3",
+      "file": "images/product-t-shirt-top-3.png",
+      "classId": 0,
+      "className": "T-shirt/top",
+      "sourceIndex": 59
+    },
+    {
+      "id": "product-trouser-1",
+      "file": "images/product-trouser-1.png",
+      "classId": 1,
+      "className": "Trouser",
+      "sourceIndex": 3
+    },
+    {
+      "id": "product-trouser-2",
+      "file": "images/product-trouser-2.png",
+      "classId": 1,
+      "className": "Trouser",
+      "sourceIndex": 5
+    },
+    {
+      "id": "product-trouser-3",
+      "file": "images/product-trouser-3.png",
+      "classId": 1,
+      "className": "Trouser",
+      "sourceIndex": 15
+    },
+    {
+      "id": "product-pullover-1",
+      "file": "images/product-pullover-1.png",
+      "classId": 2,
+      "className": "Pullover",
+      "sourceIndex": 16
+    },
+    {
+      "id": "product-pullover-2",
+      "file": "images/product-pullover-2.png",
+      "classId": 2,
+      "className": "Pullover",
+      "sourceIndex": 20
+    },
+    {
+      "id": "product-pullover-3",
+      "file": "images/product-pullover-3.png",
+      "classId": 2,
+      "className": "Pullover",
+      "sourceIndex": 46
+    },
+    {
+      "id": "product-dress-1",
+      "file": "images/product-dress-1.png",
+      "classId": 3,
+      "className": "Dress",
+      "sourceIndex": 29
+    },
+    {
+      "id": "product-dress-2",
+      "file": "images/product-dress-2.png",
+      "classId": 3,
+      "className": "Dress",
+      "sourceIndex": 32
+    },
+    {
+      "id": "product-dress-3",
+      "file": "images/product-dress-3.png",
+      "classId": 3,
+      "className": "Dress",
+      "sourceIndex": 33
+    },
+    {
+      "id": "product-coat-1",
+      "file": "images/product-coat-1.png",
+      "classId": 4,
+      "className": "Coat",
+      "sourceIndex": 10
+    },
+    {
+      "id": "product-coat-2",
+      "file": "images/product-coat-2.png",
+      "classId": 4,
+      "className": "Coat",
+      "sourceIndex": 14
+    },
+    {
+      "id": "product-coat-3",
+      "file": "images/product-coat-3.png",
+      "classId": 4,
+      "className": "Coat",
+      "sourceIndex": 17
+    },
+    {
+      "id": "product-sandal-1",
+      "file": "images/product-sandal-1.png",
+      "classId": 5,
+      "className": "Sandal",
+      "sourceIndex": 11
+    },
+    {
+      "id": "product-sandal-2",
+      "file": "images/product-sandal-2.png",
+      "classId": 5,
+      "className": "Sandal",
+      "sourceIndex": 21
+    },
+    {
+      "id": "product-sandal-3",
+      "file": "images/product-sandal-3.png",
+      "classId": 5,
+      "className": "Sandal",
+      "sourceIndex": 37
+    },
+    {
+      "id": "product-shirt-1",
+      "file": "images/product-shirt-1.png",
+      "classId": 6,
+      "className": "Shirt",
+      "sourceIndex": 7
+    },
+    {
+      "id": "product-shirt-2",
+      "file": "images/product-shirt-2.png",
+      "classId": 6,
+      "className": "Shirt",
+      "sourceIndex": 26
+    },
+    {
+      "id": "product-shirt-3",
+      "file": "images/product-shirt-3.png",
+      "classId": 6,
+      "className": "Shirt",
+      "sourceIndex": 40
+    },
+    {
+      "id": "product-sneaker-1",
+      "file": "images/product-sneaker-1.png",
+      "classId": 7,
+      "className": "Sneaker",
+      "sourceIndex": 12
+    },
+    {
+      "id": "product-sneaker-2",
+      "file": "images/product-sneaker-2.png",
+      "classId": 7,
+      "className": "Sneaker",
+      "sourceIndex": 22
+    },
+    {
+      "id": "product-sneaker-3",
+      "file": "images/product-sneaker-3.png",
+      "classId": 7,
+      "className": "Sneaker",
+      "sourceIndex": 36
+    },
+    {
+      "id": "product-bag-1",
+      "file": "images/product-bag-1.png",
+      "classId": 8,
+      "className": "Bag",
+      "sourceIndex": 30
+    },
+    {
+      "id": "product-bag-2",
+      "file": "images/product-bag-2.png",
+      "classId": 8,
+      "className": "Bag",
+      "sourceIndex": 31
+    },
+    {
+      "id": "product-bag-3",
+      "file": "images/product-bag-3.png",
+      "classId": 8,
+      "className": "Bag",
+      "sourceIndex": 34
+    },
+    {
+      "id": "product-ankle-boot-1",
+      "file": "images/product-ankle-boot-1.png",
+      "classId": 9,
+      "className": "Ankle boot",
+      "sourceIndex": 23
+    },
+    {
+      "id": "product-ankle-boot-2",
+      "file": "images/product-ankle-boot-2.png",
+      "classId": 9,
+      "className": "Ankle boot",
+      "sourceIndex": 28
+    },
+    {
+      "id": "product-ankle-boot-3",
+      "file": "images/product-ankle-boot-3.png",
+      "classId": 9,
+      "className": "Ankle boot",
+      "sourceIndex": 39
+    }
+  ]
+}

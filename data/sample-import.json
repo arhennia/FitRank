@@ -1,0 +1,24 @@
+[
+  {
+    "id": "sample-tee",
+    "name": "Sample Cotton Tee",
+    "category": "Tops",
+    "brand": "Daymark",
+    "price": 1500,
+    "currency": "INR",
+    "colour": "white",
+    "colours": ["white"],
+    "styles": ["minimalist"],
+    "occasions": ["everyday"],
+    "material": "cotton",
+    "silhouette": "relaxed",
+    "comfortRating": 5,
+    "versatilityRating": 3,
+    "formalityRating": 1,
+    "averageRating": 4,
+    "reviewCount": 10,
+    "availability": "in_stock",
+    "sizes": ["S", "M", "L"],
+    "description": "A sample row for the import test."
+  }
+]

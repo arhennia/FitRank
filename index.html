@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FitRank</title>
-    <meta name="description" content="FitRank ranks fashion products against your occasion, style, colour, and budget.">
+    <meta name="description" content="FitRank ranks a synthetic fashion catalogue from your occasion, constraints, and trade-offs.">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
     <header class="site-header">
-      <p class="eyebrow">Portfolio prototype</p>
+      <p class="eyebrow">Decision-support demo</p>
       <h1>FitRank</h1>
       <p class="lede">
-        Tell FitRank the occasion, the look, and the budget. It filters a small
-        illustrative catalogue and ranks what remains.
+        Describe the situation, the constraints, and what you are willing to trade off.
+        FitRank filters a synthetic catalogue, scores what remains, and explains the result.
       </p>
     </header>
 
@@ -23,9 +23,36 @@
         <form id="preferences-form">
           <div id="form-errors" role="alert"></div>
 
+          <div class="split">
+            <label class="stack" for="situation">
+              Shopping situation
+              <select id="situation" name="situation">
+                <option value="">Choose a situation</option>
+                <option value="college">College</option>
+                <option value="office">Office</option>
+                <option value="evening">Evening</option>
+                <option value="travel">Travel</option>
+                <option value="wedding">Wedding</option>
+                <option value="custom">Custom</option>
+              </select>
+            </label>
+            <label class="stack" for="emphasis">
+              Emphasis
+              <select id="emphasis" name="emphasis">
+                <option value="balanced">Balanced</option>
+                <option value="comfort">Comfort</option>
+                <option value="versatility">Versatility</option>
+                <option value="appearance">Appearance</option>
+                <option value="quality">Review quality</option>
+                <option value="budgetFit">Budget fit</option>
+              </select>
+            </label>
+          </div>
+          <p id="situation-note" class="hint"></p>
+
           <fieldset>
             <legend>Occasion</legend>
-            <p class="hint">Choose at least one. A product scores higher when it covers more of your selections.</p>
+            <p class="hint">Choose at least one. A situation can suggest occasions. You can change them.</p>
             <div class="choices">
               <label><input type="checkbox" name="occasion" value="everyday"> Everyday</label>
               <label><input type="checkbox" name="occasion" value="work"> Work</label>
@@ -37,7 +64,7 @@
 
           <fieldset>
             <legend>Style</legend>
-            <p class="hint">Optional. Leave this blank if you do not want style to affect the score.</p>
+            <p class="hint">Optional. The list is a closed vocabulary. Leave it blank to ignore style.</p>
             <div class="choices">
               <label><input type="checkbox" name="style" value="minimalist"> Minimalist</label>
               <label><input type="checkbox" name="style" value="structured"> Structured</label>
@@ -49,7 +76,7 @@
 
           <fieldset>
             <legend>Category</legend>
-            <p class="hint">Optional. Selected categories are required. Leave them blank to search the whole catalogue.</p>
+            <p class="hint">Optional. Selected categories are required. They do not add score points.</p>
             <div class="choices">
               <label><input type="checkbox" name="category" value="Handbags"> Handbags</label>
               <label><input type="checkbox" name="category" value="Jackets and coats"> Jackets and coats</label>
@@ -57,12 +84,15 @@
               <label><input type="checkbox" name="category" value="Heels"> Heels</label>
               <label><input type="checkbox" name="category" value="Flats and loafers"> Flats and loafers</label>
               <label><input type="checkbox" name="category" value="Accessories"> Accessories</label>
+              <label><input type="checkbox" name="category" value="Tops"> Tops</label>
+              <label><input type="checkbox" name="category" value="Trousers"> Trousers</label>
+              <label><input type="checkbox" name="category" value="Sneakers"> Sneakers</label>
             </div>
           </fieldset>
 
           <fieldset>
             <legend>Colour</legend>
-            <p class="hint">Optional. A product matches if its colour is one of the colours you tick.</p>
+            <p class="hint">Optional. A product matches if one of its colours is ticked.</p>
             <div class="choices">
               <label><input type="checkbox" name="colour" value="black"> <span class="swatch" data-colour="black"></span> Black</label>
               <label><input type="checkbox" name="colour" value="brown"> <span class="swatch" data-colour="brown"></span> Brown</label>
@@ -77,22 +107,95 @@
             </div>
           </fieldset>
 
+          <details class="extra">
+            <summary>Dislikes, materials, and stock</summary>
+            <fieldset>
+              <legend>Disliked styles</legend>
+              <div class="choices">
+                <label><input type="checkbox" name="dislikedStyle" value="minimalist"> Minimalist</label>
+                <label><input type="checkbox" name="dislikedStyle" value="structured"> Structured</label>
+                <label><input type="checkbox" name="dislikedStyle" value="classic"> Classic</label>
+                <label><input type="checkbox" name="dislikedStyle" value="bold"> Bold</label>
+                <label><input type="checkbox" name="dislikedStyle" value="artistic"> Artistic</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Disliked colours</legend>
+              <div class="choices">
+                <label><input type="checkbox" name="dislikedColour" value="black"> Black</label>
+                <label><input type="checkbox" name="dislikedColour" value="brown"> Brown</label>
+                <label><input type="checkbox" name="dislikedColour" value="navy"> Navy</label>
+                <label><input type="checkbox" name="dislikedColour" value="beige"> Beige</label>
+                <label><input type="checkbox" name="dislikedColour" value="white"> White</label>
+                <label><input type="checkbox" name="dislikedColour" value="burgundy"> Burgundy</label>
+                <label><input type="checkbox" name="dislikedColour" value="green"> Green</label>
+                <label><input type="checkbox" name="dislikedColour" value="red"> Red</label>
+                <label><input type="checkbox" name="dislikedColour" value="tan"> Tan</label>
+                <label><input type="checkbox" name="dislikedColour" value="grey"> Grey</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Preferred materials</legend>
+              <div class="choices">
+                <label><input type="checkbox" name="material" value="leather"> Leather</label>
+                <label><input type="checkbox" name="material" value="suede"> Suede</label>
+                <label><input type="checkbox" name="material" value="wool"> Wool</label>
+                <label><input type="checkbox" name="material" value="silk"> Silk</label>
+                <label><input type="checkbox" name="material" value="cotton"> Cotton</label>
+                <label><input type="checkbox" name="material" value="linen"> Linen</label>
+                <label><input type="checkbox" name="material" value="canvas"> Canvas</label>
+                <label><input type="checkbox" name="material" value="metal"> Metal</label>
+                <label><input type="checkbox" name="material" value="synthetic"> Synthetic</label>
+              </div>
+            </fieldset>
+          </details>
+
           <div class="split">
             <label class="stack" for="max-budget">
               Maximum budget (INR)
               <input id="max-budget" name="maxBudget" type="text" inputmode="numeric" value="15000" required>
             </label>
-            <label class="stack" for="priority">
-              Priority
-              <select id="priority" name="priority">
-                <option value="">No priority</option>
-                <option value="comfort">Comfort</option>
-                <option value="versatility">Versatility</option>
-                <option value="craftsmanship">Craftsmanship</option>
-                <option value="statement">Statement design</option>
+            <label class="stack" for="size">
+              Size
+              <select id="size" name="size">
+                <option value="any">Any size</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="UK6">UK 6</option>
+                <option value="UK7">UK 7</option>
+                <option value="UK8">UK 8</option>
+                <option value="UK9">UK 9</option>
+                <option value="one-size">One size</option>
               </select>
             </label>
           </div>
+
+          <div class="split">
+            <label class="stack" for="liked-product">
+              Reference item
+              <select id="liked-product" name="likedProductId"></select>
+            </label>
+            <fieldset class="stack-fieldset">
+              <legend>Ranking</legend>
+              <label><input type="radio" name="ranking" value="relevance" checked> Relevance only</label>
+              <label><input type="radio" name="ranking" value="diverse"> Diversity-aware</label>
+            </fieldset>
+          </div>
+
+          <div class="choices">
+            <label><input type="checkbox" name="requireInStock" checked> In stock only</label>
+            <label><input type="checkbox" name="flexible"> Preferences are flexible</label>
+          </div>
+          <p class="hint">Flexible searches count style and colour less, and comfort and versatility more.</p>
+
+          <label class="stack" for="catalogue-file">
+            Import a JSON or CSV catalogue
+            <input id="catalogue-file" name="catalogueFile" type="file" accept=".json,.csv,application/json,text/csv">
+          </label>
+          <p id="import-note" class="hint"></p>
 
           <div class="form-actions">
             <button type="submit" class="primary">Show recommendations</button>
@@ -110,6 +213,7 @@
           </div>
         </div>
         <p id="results-summary"></p>
+        <p id="session-note" class="hint">More like this and Less like this change this search only. FitRank does not learn from past shoppers.</p>
         <p id="comparison-note" role="status"></p>
         <div id="results"></div>
       </section>
@@ -119,12 +223,86 @@
           <h2 id="comparison-heading">Comparison</h2>
           <button type="button" id="back-to-results">Back to recommendations</button>
         </div>
+        <p class="hint">Budget fit blends the review estimate with room under your budget. It is not a fair-price judgement.</p>
         <div id="comparison"></div>
+      </section>
+
+      <section id="retrieval-view" aria-labelledby="retrieval-heading">
+        <h2 id="retrieval-heading">Image and text search</h2>
+        <p class="hint">
+          This searches a separate Fashion-MNIST index with CLIP. It does not replace the shopper form, and class match on these 28×28 images is not a real-world fashion recommendation.
+          Budget, size, and stock are absent, so asking for them stops the search instead of inventing a value.
+        </p>
+        <form id="retrieval-form">
+          <div class="split">
+            <label class="stack" for="retrieval-text">
+              Text query
+              <input id="retrieval-text" name="text" type="text" autocomplete="off">
+            </label>
+            <label class="stack" for="retrieval-example">
+              Held-out example image
+              <select id="retrieval-example" name="exampleId">
+                <option value="">No example image</option>
+              </select>
+            </label>
+          </div>
+          <div class="split">
+            <label class="stack" for="retrieval-image">
+              Or upload an inspiration image
+              <input id="retrieval-image" name="image" type="file" accept="image/png,image/jpeg,image/webp">
+            </label>
+            <label class="stack" for="retrieval-category">
+              Category constraint
+              <select id="retrieval-category" name="category">
+                <option value="">No category constraint</option>
+              </select>
+            </label>
+          </div>
+          <div class="split">
+            <label class="stack" for="retrieval-budget">
+              Budget, optional
+              <input id="retrieval-budget" name="maxBudget" inputmode="decimal" placeholder="Not available for this index">
+            </label>
+            <fieldset class="stack-fieldset">
+              <legend>Result order</legend>
+              <label><input type="radio" name="retrievalRanking" value="relevance" checked> Retrieval score</label>
+              <label><input type="radio" name="retrievalRanking" value="diverse"> Diversity over the top 50</label>
+            </fieldset>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="primary">Search images</button>
+          </div>
+        </form>
+        <p id="retrieval-status" role="status"></p>
+        <div id="retrieval-results"></div>
+      </section>
+
+      <section id="experiment-view" aria-labelledby="experiment-heading">
+        <h2 id="experiment-heading">Retrieval experiment</h2>
+        <p class="hint">
+          Numbers come from the last saved run. They measure Fashion-MNIST class match, not shopper satisfaction.
+          Recall@10 cannot exceed 0.10 because each class has 100 index images.
+        </p>
+        <div id="experiment-report"></div>
+      </section>
+
+      <section id="evaluation-view" aria-labelledby="evaluation-heading">
+        <h2 id="evaluation-heading">Synthetic evaluation</h2>
+        <p class="hint">
+          Runs the hand-labelled shopper scenarios against the v1 baseline and the hybrid ranking.
+          The labels were written from attributes, not from the ranker. Precision, NDCG, coverage, diversity, and runtime are reported as measured, including where the hybrid ranking scores lower.
+          This is not a user study.
+        </p>
+        <button type="button" id="run-evaluation" class="primary">Run synthetic evaluation</button>
+        <div id="evaluation"></div>
       </section>
     </main>
 
     <footer>
-      <p>Sample catalogue of 14 fictional products. Prices are illustrative INR figures, not shop listings.</p>
+      <p>
+        The shopper form ranks 60 fictional products with the attribute engine. Image and text search uses a separate Fashion-MNIST index and CLIP.
+        Class match on that index is not a real-world fashion recommendation. Similarity in the shopper results still means related attributes, not a duplicate listing.
+      </p>
     </footer>
 
     <script type="module" src="js/main.js"></script>

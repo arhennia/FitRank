@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "note": "One held-out test image per class. These ids are not in the index.",
+  "queries": [
+    {
+      "id": "fm-test-t-shirt-top-000",
+      "split": "test",
+      "classId": 0,
+      "className": "T-shirt/top",
+      "sourceIndex": 1049,
+      "image": "experiments/fashion-mnist/images/fm-test-t-shirt-top-000.png"
+    },
+    {
+      "id": "fm-test-trouser-000",
+      "split": "test",
+      "classId": 1,
+      "className": "Trouser",
+      "sourceIndex": 1070,
+      "image": "experiments/fashion-mnist/images/fm-test-trouser-000.png"
+    },
+    {
+      "id": "fm-test-pullover-000",
+      "split": "test",
+      "classId": 2,
+      "className": "Pullover",
+      "sourceIndex": 991,
+      "image": "experiments/fashion-mnist/images/fm-test-pullover-000.png"
+    },
+    {
+      "id": "fm-test-dress-000",
+      "split": "test",
+      "classId": 3,
+      "className": "Dress",
+      "sourceIndex": 1220,
+      "image": "experiments/fashion-mnist/images/fm-test-dress-000.png"
+    },
+    {
+      "id": "fm-test-coat-000",
+      "split": "test",
+      "classId": 4,
+      "className": "Coat",
+      "sourceIndex": 967,
+      "image": "experiments/fashion-mnist/images/fm-test-coat-000.png"
+    },
+    {
+      "id": "fm-test-sandal-000",
+      "split": "test",
+      "classId": 5,
+      "className": "Sandal",
+      "sourceIndex": 1180,
+      "image": "experiments/fashion-mnist/images/fm-test-sandal-000.png"
+    },
+    {
+      "id": "fm-test-shirt-000",
+      "split": "test",
+      "classId": 6,
+      "className": "Shirt",
+      "sourceIndex": 1121,
+      "image": "experiments/fashion-mnist/images/fm-test-shirt-000.png"
+    },
+    {
+      "id": "fm-test-sneaker-000",
+      "split": "test",
+      "classId": 7,
+      "className": "Sneaker",
+      "sourceIndex": 1157,
+      "image": "experiments/fashion-mnist/images/fm-test-sneaker-000.png"
+    },
+    {
+      "id": "fm-test-bag-000",
+      "split": "test",
+      "classId": 8,
+      "className": "Bag",
+      "sourceIndex": 1171,
+      "image": "experiments/fashion-mnist/images/fm-test-bag-000.png"
+    },
+    {
+      "id": "fm-test-ankle-boot-000",
+      "split": "test",
+      "classId": 9,
+      "className": "Ankle boot",
+      "sourceIndex": 1155,
+      "image": "experiments/fashion-mnist/images/fm-test-ankle-boot-000.png"
+    }
+  ]
+}

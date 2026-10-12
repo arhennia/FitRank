@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "source": "hand",
+  "note": "Labels were written by hand from the listing text. They were not produced by a similarity score, a duplicate detector, or the FitRank ranker. A future detector should be scored against these labels and must not rewrite them.",
+  "labels": {
+    "similar_style": "Different underlying items with related attributes. This is not a duplicate and not a conflict.",
+    "probable_duplicate": "Two listings of the same underlying item that agree on every declared field: category, colour, material, silhouette, price, and currency.",
+    "attribute_conflict": "Two listings of the same underlying item that disagree on at least one declared field. The disagreement is the label. The values are not averaged.",
+    "unrelated": "Different underlying items in different categories. A control pair, so a future detector can be penalised for calling them the same item."
+  },
+  "pairs": [
+    {
+      "id": "pair-similar-totes",
+      "listingA": "lst-tote-northline",
+      "listingB": "lst-canvas-kite",
+      "label": "similar_style",
+      "reason": "Both are black structured totes. One is leather and one is canvas, and they are different underlying items."
+    },
+    {
+      "id": "pair-similar-evening",
+      "listingA": "lst-clutch-mira",
+      "listingB": "lst-mini-vesper",
+      "label": "similar_style",
+      "reason": "Both are burgundy silk evening bags. The framed clutch and the mini bag are different items."
+    },
+    {
+      "id": "pair-similar-loafers",
+      "listingA": "lst-loafer-field",
+      "listingB": "lst-loafer-brown",
+      "label": "similar_style",
+      "reason": "Both are leather loafers in a classic shape. Black and brown are different items."
+    },
+    {
+      "id": "pair-duplicate-tote",
+      "listingA": "lst-tote-northline",
+      "listingB": "lst-tote-second",
+      "label": "probable_duplicate",
+      "reason": "Two sellers describe the same fictional black leather work tote and agree on category, colour, material, silhouette, and price."
+    },
+    {
+      "id": "pair-duplicate-loafer",
+      "listingA": "lst-loafer-field",
+      "listingB": "lst-loafer-resale",
+      "label": "probable_duplicate",
+      "reason": "Two sellers describe the same fictional black leather loafer and agree on every declared field."
+    },
+    {
+      "id": "pair-duplicate-oxford",
+      "listingA": "lst-oxford-loom",
+      "listingB": "lst-oxford-resale",
+      "label": "probable_duplicate",
+      "reason": "Two sellers describe the same fictional white cotton shirt and agree on every declared field."
+    },
+    {
+      "id": "pair-duplicate-clutch",
+      "listingA": "lst-clutch-mira",
+      "listingB": "lst-clutch-resale",
+      "label": "probable_duplicate",
+      "reason": "Two sellers describe the same fictional burgundy silk clutch and agree on every declared field."
+    },
+    {
+      "id": "pair-conflict-tote-material",
+      "listingA": "lst-tote-northline",
+      "listingB": "lst-tote-mislabel",
+      "label": "attribute_conflict",
+      "reason": "Both listings claim the leather work tote. One says leather at ₹12,400 and the other says canvas at ₹5,400. Those values stay side by side."
+    },
+    {
+      "id": "pair-conflict-loafer-material",
+      "listingA": "lst-loafer-field",
+      "listingB": "lst-loafer-suede",
+      "label": "attribute_conflict",
+      "reason": "Both listings claim the black loafer. One says leather at ₹7,800 and the other says suede at ₹6,400."
+    },
+    {
+      "id": "pair-conflict-oxford-price",
+      "listingA": "lst-oxford-loom",
+      "listingB": "lst-oxford-price",
+      "label": "attribute_conflict",
+      "reason": "Both listings claim the same white cotton shirt and agree on material. The stated prices are ₹2,800 and ₹4,100."
+    },
+    {
+      "id": "pair-conflict-sneaker-material",
+      "listingA": "lst-sneaker-kite",
+      "listingB": "lst-sneaker-resale",
+      "label": "attribute_conflict",
+      "reason": "Both listings claim the same white court sneaker. One says a synthetic upper and the other says leather."
+    },
+    {
+      "id": "pair-unrelated-coat-sneaker",
+      "listingA": "lst-coat-archive",
+      "listingB": "lst-sneaker-kite",
+      "label": "unrelated",
+      "reason": "A wool coat and a court sneaker are different items in different categories."
+    },
+    {
+      "id": "pair-unrelated-shirt-clutch",
+      "listingA": "lst-oxford-loom",
+      "listingB": "lst-clutch-mira",
+      "label": "unrelated",
+      "reason": "A cotton shirt and a silk clutch are different items in different categories."
+    }
+  ]
+}

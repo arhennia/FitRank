@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 
 import { toggleComparison } from "../js/compare.js";
 import { products } from "../js/catalogue.js";
-import { filterProducts } from "../js/filter.js";
+import { emptyResultMessage, generateCandidates } from "../js/candidates.js";
 import { recommend } from "../js/recommend.js";
 import { scoreProduct } from "../js/score.js";
 import { validatePreferences } from "../js/validate.js";
@@ -21,6 +21,7 @@ function piece(overrides) {
     comfortRating: 4,
     formalityRating: 3,
     price: 5000,
+    availability: "in_stock",
     description: "A test product.",
     ...overrides,
   };
@@ -36,17 +37,28 @@ const validPrefs = {
 };
 
 describe("catalogue", () => {
-  it("contains 14 unique, well-formed illustrative products", () => {
-    assert.equal(products.length, 14);
+  it("contains 60 unique, well-formed illustrative products", () => {
+    assert.equal(products.length, 60);
     const ids = new Set(products.map((product) => product.id));
-    assert.equal(ids.size, 14);
+    assert.equal(ids.size, 60);
     for (const product of products) {
       assert.equal(typeof product.id, "string");
       assert.equal(typeof product.name, "string");
+      assert.equal(typeof product.brand, "string");
+      assert.equal(product.currency, "INR");
       assert.ok(CATEGORIES.includes(product.category));
       assert.equal(typeof product.price, "number");
       assert.ok(product.price > 0);
     }
+    const tote = products.find((product) => product.id === "p01");
+    const canvasTote = products.find((product) => product.id === "p15");
+    assert.equal(tote.material, "leather");
+    assert.equal(canvasTote.material, "canvas");
+    assert.equal(tote.colour, "black");
+    assert.equal(canvasTote.colour, "black");
+    assert.equal(products.filter((product) => product.availability === "out_of_stock").length, 1);
+    assert.ok(products.some((product) => product.averageRating === 5 && product.reviewCount === 2));
+    assert.ok(products.some((product) => product.averageRating === 4.2 && product.reviewCount === 200));
   });
 });
 
@@ -59,7 +71,7 @@ describe("filtering", () => {
     ];
     const result = recommend(catalogue, { ...validPrefs, categories: [], maxBudget: 1000 });
     const ids = result.products.map((item) => item.product.id);
-    assert.deepEqual(ids, ["edge", "low"]);
+    assert.deepEqual([...ids].sort(), ["edge", "low"]);
   });
 
   it("treats selected categories as a required constraint", () => {
@@ -83,11 +95,43 @@ describe("filtering", () => {
   it("skips malformed rows instead of throwing", () => {
     const catalogue = [
       { id: "", name: "Nameless", category: "Handbags", price: 10 },
-      { id: "ok", name: "Kept", category: "Handbags", price: 10 },
+      { id: "ok", name: "Kept", category: "Handbags", price: 10, availability: "in_stock" },
       null,
     ];
-    const eligible = filterProducts(catalogue, { categories: [], maxBudget: 100 });
+    const eligible = generateCandidates(catalogue, { categories: [], maxBudget: 100, requireInStock: true }).candidates;
     assert.deepEqual(eligible.map((product) => product.id), ["ok"]);
+  });
+
+  it("names the limiting hard gate and does not relax it", () => {
+    const catalogue = [
+      piece({ id: "pricey", price: 5000 }),
+      piece({ id: "also", price: 8000 }),
+    ];
+    const result = recommend(catalogue, { ...validPrefs, categories: [], maxBudget: 10 });
+    assert.equal(result.ok, true);
+    assert.deepEqual(result.products, []);
+    assert.match(result.message, /No products match/);
+    assert.equal(result.constraintReport.limiting, "overBudget");
+    assert.match(result.message, /budget/);
+  });
+
+  it("excludes a missing availability value when in-stock is required", () => {
+    const catalogue = [
+      piece({ id: "stocked" }),
+      piece({ id: "unknown", availability: undefined }),
+    ];
+    const { candidates, report } = generateCandidates(catalogue, { ...validPrefs, requireInStock: true });
+    assert.deepEqual(candidates.map((product) => product.id), ["stocked"]);
+    assert.equal(report.unavailable, 1);
+  });
+
+  it("excludes a high rating that misses the budget", () => {
+    const catalogue = [
+      piece({ id: "famous", price: 900, averageRating: 5, reviewCount: 2 }),
+      piece({ id: "affordable", price: 80, averageRating: 4.2, reviewCount: 200 }),
+    ];
+    const result = recommend(catalogue, { ...validPrefs, categories: [], maxBudget: 100 });
+    assert.deepEqual(result.products.map((item) => item.product.id), ["affordable"]);
   });
 });
 
@@ -119,12 +163,13 @@ describe("scoring and ranking", () => {
       categories: [],
       colours: [],
       priority: null,
+      maxBudget: 20000,
     });
     assert.ok(Math.abs(components.style.value - 1 / 3) < 1e-9);
   });
 
-  it("renormalises inactive optional weights", () => {
-    const { score } = scoreProduct(
+  it("renormalises inactive optional weights and scores missing attributes as 0", () => {
+    const { score, components } = scoreProduct(
       piece({
         occasions: ["work"],
         styles: [],
@@ -138,8 +183,29 @@ describe("scoring and ranking", () => {
         priority: null,
       },
     );
-    // Occasion 30/35 plus comfort-versatility (1 + 0.25) / 2 * 5/35.
-    assert.equal(score, 95);
+    assert.equal(components.style.active, false);
+    assert.equal(components.colour.active, false);
+    assert.equal(components.comfort.value, 1);
+    const active = Object.values(components).filter((component) => component.active);
+    const weight = active.reduce((sum, component) => sum + component.weight, 0);
+    const weighted = active.reduce((sum, component) => sum + component.weight * component.value, 0);
+    assert.equal(weight, 76);
+    assert.equal(score, Math.round((100 * weighted) / weight));
+    assert.equal(score, 52);
+
+    const missing = scoreProduct(
+      { id: "bare", name: "Bare", category: "Handbags", price: 100, occasions: ["work"] },
+      {
+        occasions: ["work"],
+        styles: ["minimalist"],
+        colours: ["black"],
+        maxBudget: 500,
+        priority: null,
+      },
+    );
+    assert.equal(missing.components.comfort.value, 0);
+    assert.equal(missing.components.colour.value, 0);
+    assert.notEqual(missing.components.comfort.value, 1);
   });
 
   it("returns the same ranking for identical inputs", () => {
@@ -156,6 +222,20 @@ describe("scoring and ranking", () => {
       ["p01", "p02"],
     );
     assert.equal(once.products[0].score, once.products[1].score);
+  });
+
+  it("does not describe budget fit as market value", () => {
+    const result = recommend([piece({ price: 1000, averageRating: 4.5, reviewCount: 40 })], {
+      ...validPrefs,
+      categories: [],
+      colours: [],
+      styles: [],
+      maxBudget: 10000,
+    });
+    const text = [...result.products[0].explanation, ...result.products[0].tradeoffs].join(" ");
+    assert.match(text, /not a fair-price judgement/);
+    assert.doesNotMatch(text, /market value/i);
+    assert.equal(result.products[0].labels.includes("Best budget fit"), true);
   });
 });
 
@@ -176,7 +256,7 @@ describe("validation and empty states", () => {
   });
 
   it("does not crash when optional product attributes are missing", () => {
-    const bare = { id: "bare", name: "Bare Piece", category: "Handbags", price: 100 };
+    const bare = { id: "bare", name: "Bare Piece", category: "Handbags", price: 100, availability: "in_stock" };
     const result = recommend([bare], {
       occasions: ["work"],
       styles: ["minimalist"],
@@ -192,6 +272,7 @@ describe("validation and empty states", () => {
     const text = result.products[0].explanation.join(" ");
     assert.equal(text.includes("Comfort rating"), false);
     assert.match(text, /within your/);
+    assert.equal(result.products[0].components.comfort.value, 0);
   });
 
   it("returns a useful message when nothing qualifies", () => {
@@ -199,6 +280,7 @@ describe("validation and empty states", () => {
     assert.equal(result.ok, true);
     assert.deepEqual(result.products, []);
     assert.match(result.message, /No products match/);
+    assert.match(emptyResultMessage(result.constraintReport), /No products match/);
   });
 });
 
@@ -233,6 +315,7 @@ describe("explanations", () => {
     assert.match(text, /Material leather supports your craftsmanship priority/);
     assert.match(text, /Comfort rating 4\/5/);
     assert.match(text, /₹5,000/);
+    assert.doesNotMatch(text, /duplicate/i);
   });
 });
 

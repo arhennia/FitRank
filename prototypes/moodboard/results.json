@@ -1,0 +1,470 @@
+{
+  "modelId": "Xenova/clip-vit-base-patch32",
+  "library": "@huggingface/transformers",
+  "device": "cpu",
+  "visionDtype": "q8",
+  "imageTextDtype": "q8",
+  "embeddingShape": [
+    1,
+    512
+  ],
+  "imageCount": 40,
+  "k": 3,
+  "loadMs": {
+    "vision": 537.7102,
+    "imageText": 1389.7746000000002
+  },
+  "embedMs": 1702.6140999999998,
+  "meanEmbedMs": 42.565352499999996,
+  "retrievalMs": 3.452900000000227,
+  "classMs": 733.9268000000002,
+  "meanPrecisionAtK": 0.5,
+  "meanNdcgAtK": 0.5173196815056891,
+  "classTop1Accuracy": 0.7,
+  "chancePrecisionAtK": 0.1,
+  "queries": [
+    {
+      "id": "inspire-t-shirt-top",
+      "className": "T-shirt/top",
+      "precisionAtK": 0,
+      "ndcgAtK": 0,
+      "top": [
+        {
+          "id": "product-shirt-3",
+          "className": "Shirt",
+          "score": 0.8816977386840358
+        },
+        {
+          "id": "product-shirt-2",
+          "className": "Shirt",
+          "score": 0.8525648821190625
+        },
+        {
+          "id": "product-coat-2",
+          "className": "Coat",
+          "score": 0.8511391397339807
+        }
+      ]
+    },
+    {
+      "id": "inspire-trouser",
+      "className": "Trouser",
+      "precisionAtK": 1,
+      "ndcgAtK": 1,
+      "top": [
+        {
+          "id": "product-trouser-1",
+          "className": "Trouser",
+          "score": 0.9192204281436307
+        },
+        {
+          "id": "product-trouser-3",
+          "className": "Trouser",
+          "score": 0.9134876713777134
+        },
+        {
+          "id": "product-trouser-2",
+          "className": "Trouser",
+          "score": 0.8952759025347279
+        }
+      ]
+    },
+    {
+      "id": "inspire-pullover",
+      "className": "Pullover",
+      "precisionAtK": 0.3333333333333333,
+      "ndcgAtK": 0.46927872602275644,
+      "top": [
+        {
+          "id": "product-pullover-2",
+          "className": "Pullover",
+          "score": 0.8857274219196555
+        },
+        {
+          "id": "product-shirt-2",
+          "className": "Shirt",
+          "score": 0.8798242229870181
+        },
+        {
+          "id": "product-coat-2",
+          "className": "Coat",
+          "score": 0.8783462888909886
+        }
+      ]
+    },
+    {
+      "id": "inspire-dress",
+      "className": "Dress",
+      "precisionAtK": 0.3333333333333333,
+      "ndcgAtK": 0.2960819109658652,
+      "top": [
+        {
+          "id": "product-coat-1",
+          "className": "Coat",
+          "score": 0.8619778694516197
+        },
+        {
+          "id": "product-dress-3",
+          "className": "Dress",
+          "score": 0.8590019023070776
+        },
+        {
+          "id": "product-shirt-2",
+          "className": "Shirt",
+          "score": 0.85253539319079
+        }
+      ]
+    },
+    {
+      "id": "inspire-coat",
+      "className": "Coat",
+      "precisionAtK": 0,
+      "ndcgAtK": 0,
+      "top": [
+        {
+          "id": "product-shirt-2",
+          "className": "Shirt",
+          "score": 0.9192596146910067
+        },
+        {
+          "id": "product-dress-1",
+          "className": "Dress",
+          "score": 0.9174547344697092
+        },
+        {
+          "id": "product-pullover-1",
+          "className": "Pullover",
+          "score": 0.904757680229383
+        }
+      ]
+    },
+    {
+      "id": "inspire-sandal",
+      "className": "Sandal",
+      "precisionAtK": 1,
+      "ndcgAtK": 1,
+      "top": [
+        {
+          "id": "product-sandal-3",
+          "className": "Sandal",
+          "score": 0.918216091417301
+        },
+        {
+          "id": "product-sandal-2",
+          "className": "Sandal",
+          "score": 0.9092035823253316
+        },
+        {
+          "id": "product-sandal-1",
+          "className": "Sandal",
+          "score": 0.9068514436975431
+        }
+      ]
+    },
+    {
+      "id": "inspire-shirt",
+      "className": "Shirt",
+      "precisionAtK": 0.6666666666666666,
+      "ndcgAtK": 0.7039180890341347,
+      "top": [
+        {
+          "id": "product-shirt-2",
+          "className": "Shirt",
+          "score": 0.9245651183053605
+        },
+        {
+          "id": "product-pullover-1",
+          "className": "Pullover",
+          "score": 0.9213911646133471
+        },
+        {
+          "id": "product-shirt-3",
+          "className": "Shirt",
+          "score": 0.9207665391900329
+        }
+      ]
+    },
+    {
+      "id": "inspire-sneaker",
+      "className": "Sneaker",
+      "precisionAtK": 0.6666666666666666,
+      "ndcgAtK": 0.7039180890341347,
+      "top": [
+        {
+          "id": "product-sneaker-1",
+          "className": "Sneaker",
+          "score": 0.9181284743285523
+        },
+        {
+          "id": "product-ankle-boot-1",
+          "className": "Ankle boot",
+          "score": 0.9152876160754986
+        },
+        {
+          "id": "product-sneaker-2",
+          "className": "Sneaker",
+          "score": 0.9090731641815831
+        }
+      ]
+    },
+    {
+      "id": "inspire-bag",
+      "className": "Bag",
+      "precisionAtK": 0.3333333333333333,
+      "ndcgAtK": 0.2960819109658652,
+      "top": [
+        {
+          "id": "product-sandal-1",
+          "className": "Sandal",
+          "score": 0.8806182059747046
+        },
+        {
+          "id": "product-bag-3",
+          "className": "Bag",
+          "score": 0.8770513688157467
+        },
+        {
+          "id": "product-t-shirt-top-1",
+          "className": "T-shirt/top",
+          "score": 0.873230442363649
+        }
+      ]
+    },
+    {
+      "id": "inspire-ankle-boot",
+      "className": "Ankle boot",
+      "precisionAtK": 0.6666666666666666,
+      "ndcgAtK": 0.7039180890341347,
+      "top": [
+        {
+          "id": "product-ankle-boot-2",
+          "className": "Ankle boot",
+          "score": 0.9322019202864317
+        },
+        {
+          "id": "product-sneaker-2",
+          "className": "Sneaker",
+          "score": 0.9198121325726578
+        },
+        {
+          "id": "product-ankle-boot-3",
+          "className": "Ankle boot",
+          "score": 0.9185960301696449
+        }
+      ]
+    }
+  ],
+  "classMatches": [
+    {
+      "id": "inspire-t-shirt-top",
+      "expected": "T-shirt/top",
+      "predicted": "T-shirt/top",
+      "score": 0.6433194279670715,
+      "correct": true,
+      "top3": [
+        {
+          "label": "T-shirt/top",
+          "score": 0.6433194279670715
+        },
+        {
+          "label": "Shirt",
+          "score": 0.3219898045063019
+        },
+        {
+          "label": "Trouser",
+          "score": 0.011628974229097366
+        }
+      ]
+    },
+    {
+      "id": "inspire-trouser",
+      "expected": "Trouser",
+      "predicted": "Ankle boot",
+      "score": 0.1976717859506607,
+      "correct": false,
+      "top3": [
+        {
+          "label": "Ankle boot",
+          "score": 0.1976717859506607
+        },
+        {
+          "label": "Trouser",
+          "score": 0.15838268399238586
+        },
+        {
+          "label": "Coat",
+          "score": 0.12959527969360352
+        }
+      ]
+    },
+    {
+      "id": "inspire-pullover",
+      "expected": "Pullover",
+      "predicted": "T-shirt/top",
+      "score": 0.5768827795982361,
+      "correct": false,
+      "top3": [
+        {
+          "label": "T-shirt/top",
+          "score": 0.5768827795982361
+        },
+        {
+          "label": "Shirt",
+          "score": 0.30886319279670715
+        },
+        {
+          "label": "Coat",
+          "score": 0.045756746083498
+        }
+      ]
+    },
+    {
+      "id": "inspire-dress",
+      "expected": "Dress",
+      "predicted": "Dress",
+      "score": 0.773542046546936,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Dress",
+          "score": 0.773542046546936
+        },
+        {
+          "label": "T-shirt/top",
+          "score": 0.041425950825214386
+        },
+        {
+          "label": "Shirt",
+          "score": 0.0394185408949852
+        }
+      ]
+    },
+    {
+      "id": "inspire-coat",
+      "expected": "Coat",
+      "predicted": "Coat",
+      "score": 0.849926769733429,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Coat",
+          "score": 0.849926769733429
+        },
+        {
+          "label": "Shirt",
+          "score": 0.042216286063194275
+        },
+        {
+          "label": "Bag",
+          "score": 0.03785030171275139
+        }
+      ]
+    },
+    {
+      "id": "inspire-sandal",
+      "expected": "Sandal",
+      "predicted": "Sandal",
+      "score": 0.1766851395368576,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Sandal",
+          "score": 0.1766851395368576
+        },
+        {
+          "label": "Ankle boot",
+          "score": 0.15558868646621704
+        },
+        {
+          "label": "Pullover",
+          "score": 0.12486246228218079
+        }
+      ]
+    },
+    {
+      "id": "inspire-shirt",
+      "expected": "Shirt",
+      "predicted": "Shirt",
+      "score": 0.45644068717956543,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Shirt",
+          "score": 0.45644068717956543
+        },
+        {
+          "label": "T-shirt/top",
+          "score": 0.2931210994720459
+        },
+        {
+          "label": "Coat",
+          "score": 0.1488102674484253
+        }
+      ]
+    },
+    {
+      "id": "inspire-sneaker",
+      "expected": "Sneaker",
+      "predicted": "Sneaker",
+      "score": 0.5847396850585938,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Sneaker",
+          "score": 0.5847396850585938
+        },
+        {
+          "label": "Ankle boot",
+          "score": 0.27247485518455505
+        },
+        {
+          "label": "Sandal",
+          "score": 0.11214063316583633
+        }
+      ]
+    },
+    {
+      "id": "inspire-bag",
+      "expected": "Bag",
+      "predicted": "Bag",
+      "score": 0.3268235921859741,
+      "correct": true,
+      "top3": [
+        {
+          "label": "Bag",
+          "score": 0.3268235921859741
+        },
+        {
+          "label": "Trouser",
+          "score": 0.17381323873996735
+        },
+        {
+          "label": "T-shirt/top",
+          "score": 0.125105619430542
+        }
+      ]
+    },
+    {
+      "id": "inspire-ankle-boot",
+      "expected": "Ankle boot",
+      "predicted": "Sneaker",
+      "score": 0.5516349673271179,
+      "correct": false,
+      "top3": [
+        {
+          "label": "Sneaker",
+          "score": 0.5516349673271179
+        },
+        {
+          "label": "Ankle boot",
+          "score": 0.38988810777664185
+        },
+        {
+          "label": "Sandal",
+          "score": 0.03528058901429176
+        }
+      ]
+    }
+  ],
+  "note": "Labels come from Fashion-MNIST class ids. This trial is not wired into the FitRank page."
+}

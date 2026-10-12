@@ -1,8 +1,28 @@
 /**
  * Scoring configuration. Change weights here and nowhere else.
- * The five recommendation weights plus comfort/versatility sum to 100.
+ * Base hybrid weights sum to 100. Optional weights are added only when
+ * that signal applies, then the active set is renormalised.
  */
+
 export const WEIGHTS = {
+  occasion: 24,
+  style: 16,
+  colour: 8,
+  comfort: 14,
+  versatility: 14,
+  quality: 12,
+  budgetFit: 12,
+};
+
+/** Added before renormalisation. They are not part of the base 100. */
+export const OPTIONAL_WEIGHTS = {
+  similarity: 16,
+  material: 10,
+  statement: 10,
+};
+
+/** Frozen FitRank 1 weights. The baseline scorer is the only consumer. */
+export const WEIGHTS_V1 = {
   occasion: 30,
   style: 25,
   category: 20,
@@ -10,6 +30,25 @@ export const WEIGHTS = {
   priority: 10,
   comfortVersatility: 5,
 };
+
+/** Sum to 1. Category is the largest term so colour alone cannot dominate. */
+export const SIMILARITY_WEIGHTS = {
+  category: 0.35,
+  style: 0.2,
+  colour: 0.1,
+  material: 0.1,
+  silhouette: 0.1,
+  occasion: 0.1,
+  comfort: 0.05,
+};
+
+export const MMR_LAMBDA = 0.7;
+export const BAYES_M = 10;
+export const PRIOR_FALLBACK = 3.5;
+export const VERSATILITY_FULL_AT = 4;
+export const TRADEOFF_BELOW = 0.35;
+export const FORMALITY_MENTION_AT = 0.75;
+export const EVAL_K = 5;
 
 export const OCCASIONS = ["everyday", "work", "evening", "travel", "special"];
 
@@ -22,6 +61,9 @@ export const CATEGORIES = [
   "Heels",
   "Flats and loafers",
   "Accessories",
+  "Tops",
+  "Trousers",
+  "Sneakers",
 ];
 
 export const COLOURS = [
@@ -39,8 +81,24 @@ export const COLOURS = [
 
 export const PRIORITIES = ["comfort", "versatility", "craftsmanship", "statement"];
 
+export const EMPHASIS = ["balanced", "comfort", "versatility", "appearance", "quality", "budgetFit"];
+
+export const RANKING_MODES = ["relevance", "diverse"];
+
+export const SITUATIONS = ["college", "office", "evening", "travel", "wedding", "custom"];
+
+export const AVAILABILITY = ["in_stock", "out_of_stock"];
+
+export const FORMALITY_TARGETS = {
+  everyday: 2,
+  work: 4,
+  evening: 5,
+  travel: 2,
+  special: 5,
+};
+
 /**
- * Illustrative craftsmanship signal for the priority component.
+ * Illustrative material signal for the legacy craftsmanship priority.
  * Unknown materials score 0 so a missing lookup is not treated as a match.
  */
 export const MATERIAL_CRAFTSMANSHIP = {
@@ -55,8 +113,18 @@ export const MATERIAL_CRAFTSMANSHIP = {
   synthetic: 0.35,
 };
 
-/** Four occasions is a full versatility score. The catalogue has five occasion values. */
-export const VERSATILITY_FULL_AT = 4;
+export const COMPONENT_LABELS = {
+  occasion: "Occasion",
+  style: "Style",
+  colour: "Colour",
+  comfort: "Comfort",
+  versatility: "Versatility",
+  quality: "Review estimate",
+  budgetFit: "Budget fit",
+  similarity: "Similarity",
+  material: "Material",
+  statement: "Statement",
+};
 
 export const OCCASION_LABELS = {
   everyday: "everyday",
@@ -79,4 +147,13 @@ export const PRIORITY_LABELS = {
   versatility: "versatility",
   craftsmanship: "craftsmanship",
   statement: "statement design",
+};
+
+export const EMPHASIS_LABELS = {
+  balanced: "balanced",
+  comfort: "comfort",
+  versatility: "versatility",
+  appearance: "appearance",
+  quality: "review quality",
+  budgetFit: "budget fit",
 };
