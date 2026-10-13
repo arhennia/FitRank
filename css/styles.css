@@ -169,6 +169,100 @@ button:disabled {
 .swatch[data-colour="tan"] { background: #c4a574; }
 .swatch[data-colour="grey"] { background: #8d8a86; }
 
+.progress {
+  margin: 0 0 0.8rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.55rem;
+}
+
+.option-card,
+.chip {
+  text-align: left;
+  line-height: 1.35;
+}
+
+.option-card {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+}
+
+.option-card[aria-pressed="true"],
+.chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: #e7efe9;
+  font-weight: 650;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.9rem;
+}
+
+.chip {
+  padding: 0.4rem 0.7rem;
+}
+
+.summary-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: flex-start;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.summary-row p {
+  margin: 0;
+}
+
+.step-panel h4 {
+  margin: 1rem 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.placeholder {
+  width: 4.5rem;
+  min-height: 5.5rem;
+  display: grid;
+  place-items: center;
+  padding: 0.4rem;
+  border: 1px solid var(--line);
+  background: #f3efe8;
+  color: var(--muted);
+  font-family: Georgia, "Iowan Old Style", Palatino, serif;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.compare-name {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+#comparison th button {
+  display: inline-block;
+}
+
+.rank-label {
+  margin: 0 0 0.2rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
 .cards {
   display: grid;
   gap: 0.9rem;
@@ -303,5 +397,7 @@ input[type="file"] { font: inherit; }
 @media (max-width: 720px) {
   .split { grid-template-columns: 1fr; }
   .card { grid-template-columns: 1fr; }
+  .option-grid { grid-template-columns: 1fr; }
+  .summary-row { flex-direction: column; }
   h1 { font-size: 2rem; }
 }
