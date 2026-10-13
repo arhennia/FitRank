@@ -2,7 +2,9 @@
 
 ## Current phase
 
-FitRank 2.0 is complete, including the candidate-generation benchmark and recommendation runtime. Two 2.1 preparations exist and are not wired into the page: `data/listings/` and `prototypes/moodboard/`. Open aesthetic tags and a REST API are still only specified in `PLAN.md`.
+The shopper page is a seven-question flow. `recommendFromIntent()` interprets those answers, applies hard gates, scores the profile, and reuses MMR when discovery should be varied. `recommend()` and the synthetic evaluation still use the older preference object. Image search, the CLIP prototype, and the retrieval experiment are unchanged.
+
+FitRank 2.0 is complete, including the candidate-generation benchmark and recommendation runtime. Two 2.1 preparations exist and are not wired into the shopper ranking: `data/listings/` and `prototypes/moodboard/`. A REST API is still only specified in `PLAN.md`.
 
 ## Audit of the v1 prototype
 
