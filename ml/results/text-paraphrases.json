@@ -1,0 +1,1056 @@
+{
+  "note": "Embedded paraphrase strings. This file is not a retrieval score.",
+  "textQueries": "text-queries.v1",
+  "rows": [
+    {
+      "id": "0f5ac21ec36578ef215ea5672b0aa22f1fbf0d4e14a0189d05dd63e008a7fae6",
+      "templateId": "literal-photo",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a photo of a plain cotton jersey"
+    },
+    {
+      "id": "db024671d353cc88e6f4536b6ee1bfd4353e08e6ad95a2cc3bd8e814b2650d1c",
+      "templateId": "literal-photo",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a photo of a basic t-shirt"
+    },
+    {
+      "id": "8f137c8283067c11674a7fb06e03454de11f53d0a5336578faf9bee7d84cec42",
+      "templateId": "literal-photo",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a photo of a short sleeve cotton top"
+    },
+    {
+      "id": "90282fe44b9b9e3ee13fea0cecbb2f9ac1106c04d290ae42f4643f3d148b99ec",
+      "templateId": "literal-photo",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a photo of a lightweight cotton jersey"
+    },
+    {
+      "id": "bfc804024333edfcd4ef712001e7f64931adeb1750be517c36be09e980713766",
+      "templateId": "literal-photo",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a photo of a everyday t-shirt"
+    },
+    {
+      "id": "b5ca79633e20639ce8584476c32b77a623410fd1da18a2e865d5f99025f2efac",
+      "templateId": "literal-photo",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a photo of a full length pants"
+    },
+    {
+      "id": "4d5c8403b74270746723d0145d1cc7c685b072b8e248c1af94f3cf3fa9f37d2a",
+      "templateId": "literal-photo",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a photo of a straight leg trouser"
+    },
+    {
+      "id": "5a1a0d2fc5534c92a273d0bfb8958e7848a0405d68ace4d2285d83857c874b84",
+      "templateId": "literal-photo",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a photo of a tailored trouser"
+    },
+    {
+      "id": "13b79d8c0db9ca5aa877e55dc1c7a62288587289b21599ed1b0945dd67e407cc",
+      "templateId": "literal-photo",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a photo of a long trouser"
+    },
+    {
+      "id": "7ccac4350159ba897b9dc1fa910a4eb165f5a8ddd9fd3412146cc195fd5611aa",
+      "templateId": "literal-photo",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a photo of a pair of long pants"
+    },
+    {
+      "id": "eb43255631acd652b52a0154ec52dcae1b0f3f43d43f9095b6e503f7a4f871e0",
+      "templateId": "literal-photo",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a photo of a knitted sweater pulled over the head"
+    },
+    {
+      "id": "98298d49ae1ea14615629fb8631f3d7b6ec21887b1c79848832c8991bc62337a",
+      "templateId": "literal-photo",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a photo of a warm pullover"
+    },
+    {
+      "id": "626e55e202b87c07931cd13a5b5ec1e0bb228df9985528914ab65fa63db7e83d",
+      "templateId": "literal-photo",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a photo of a wool pullover"
+    },
+    {
+      "id": "775b9f22819b668b1c42417f3a0d8e0357a0dddf5a62fe66ac53666822f81435",
+      "templateId": "literal-photo",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a photo of a thick pullover"
+    },
+    {
+      "id": "4617dbbe4d0993591281f6eb804f8b70a9022e8ef402d84b52e13d3e095b24eb",
+      "templateId": "literal-photo",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a photo of a sweater pulled over the head"
+    },
+    {
+      "id": "5f0279d950859ffab4fcc2d64055532dfdca3fb625ccc4a70ac76edb4f9adb18",
+      "templateId": "literal-photo",
+      "className": "Dress",
+      "split": "val",
+      "text": "a photo of a one piece garment"
+    },
+    {
+      "id": "4f00b42a7607f7b8d8bfd40f2bd9896e592396ba7f436fdbfdbc59ea30be6a4d",
+      "templateId": "literal-photo",
+      "className": "Dress",
+      "split": "val",
+      "text": "a photo of a knee length dress"
+    },
+    {
+      "id": "87f09ee57e4005fd46e647e551612bd055ce3c88baeb56e5311dea444cb1beb5",
+      "templateId": "literal-photo",
+      "className": "Dress",
+      "split": "val",
+      "text": "a photo of a simple day dress"
+    },
+    {
+      "id": "f3f18cf0fba16a7803b3c4ded85e927f891f678ed9e0ad1229f57dba9dbad4e5",
+      "templateId": "literal-photo",
+      "className": "Dress",
+      "split": "test",
+      "text": "a photo of a sleeveless dress"
+    },
+    {
+      "id": "d660587e0c93a2cd6653b2b3c67e9617b23d49fde46204f885e12596f2d7e764",
+      "templateId": "literal-photo",
+      "className": "Dress",
+      "split": "test",
+      "text": "a photo of a one piece frock"
+    },
+    {
+      "id": "709612de3b940aa13cd815ef75fe624d6fdd20858f3c74d3f1ebeb3fbf025e82",
+      "templateId": "literal-photo",
+      "className": "Coat",
+      "split": "val",
+      "text": "a photo of a heavy outer layer"
+    },
+    {
+      "id": "65023b5ff2f47d2cb633edac883a369d97b05e1d1474189c98c948799194ad75",
+      "templateId": "literal-photo",
+      "className": "Coat",
+      "split": "val",
+      "text": "a photo of a winter coat"
+    },
+    {
+      "id": "cbbf95bd2d47f57695216870f415c016e2d847915ac622a4ec6aa9b05a5300a4",
+      "templateId": "literal-photo",
+      "className": "Coat",
+      "split": "val",
+      "text": "a photo of a long wool coat"
+    },
+    {
+      "id": "823278a8a9d04b85f50b3edbc7d77f684c7981608f59d715850f6d344be45d13",
+      "templateId": "literal-photo",
+      "className": "Coat",
+      "split": "test",
+      "text": "a photo of a button front coat"
+    },
+    {
+      "id": "1cb163ed6f4dc05f7911fdfd42ebfc297a554c8796a4f4a0fbf976a2f981023a",
+      "templateId": "literal-photo",
+      "className": "Coat",
+      "split": "test",
+      "text": "a photo of a heavy cold weather jacket"
+    },
+    {
+      "id": "1dcfd79fe27d2f07c61f9c8218ffdb37291c77a4b71fce547bd95322f797a81f",
+      "templateId": "literal-photo",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a photo of a open toe summer shoe"
+    },
+    {
+      "id": "76ddcaac9cf3b078a99ffa891a6650fd6b59e13cfe2c20f8b962b12657205388",
+      "templateId": "literal-photo",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a photo of a flat sandal"
+    },
+    {
+      "id": "ccafc9ee8928bb76c9d0889fac68fd51f30146ae905a25eb81fd48b0d4d68077",
+      "templateId": "literal-photo",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a photo of a strappy sandal"
+    },
+    {
+      "id": "604a21a36be33ca91b2c46f6ab51f331db5ee2d130a1cf6a2b091e86b28d1290",
+      "templateId": "literal-photo",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a photo of a beach sandal"
+    },
+    {
+      "id": "0a8039f276abbca4545c043ed465778b98c5596c918d091a9220cdabe1837e55",
+      "templateId": "literal-photo",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a photo of a open toed slip on shoe"
+    },
+    {
+      "id": "9c52cf7c65c1b4babcdd3fab19c6a1bb9b16ed35340bd0a2b4f1189f23eee135",
+      "templateId": "literal-photo",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a photo of a collared button front garment"
+    },
+    {
+      "id": "8ad5447907556a01f665a1778d6781707b3fff94ff46c9676ccb5556010f4149",
+      "templateId": "literal-photo",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a photo of a button down shirt"
+    },
+    {
+      "id": "507295ef96952176d824008c83ef812b3352c7cc3cb195c9dd194bd5cbe51fdf",
+      "templateId": "literal-photo",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a photo of a long sleeve shirt"
+    },
+    {
+      "id": "fa2f19cac2be5967459afb676ab41fdee3397bfc3b3ffc896b8c71185ee3a844",
+      "templateId": "literal-photo",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a photo of a collared shirt"
+    },
+    {
+      "id": "78b4bc1f71ea7992bf6e6e23ee1b5853ee4da57078460a00e7b385097c1bad96",
+      "templateId": "literal-photo",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a photo of a collared buttoned blouse"
+    },
+    {
+      "id": "da4286ef2af31da92625c8b457d2cb352046e172b7ee97c01e6b1fd1600a16ba",
+      "templateId": "literal-photo",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a photo of a lace up athletic shoe"
+    },
+    {
+      "id": "59c146c5a6afd314e22233f1db28f9820c7d49a8d6cc073f8cc59c040fae85b2",
+      "templateId": "literal-photo",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a photo of a canvas sneaker"
+    },
+    {
+      "id": "e1f22cd488c8083ed126ed93e720cad8556ab0b9bd63491ca20556c0d9488eac",
+      "templateId": "literal-photo",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a photo of a sport sneaker"
+    },
+    {
+      "id": "75bdf6f4a136b35f578665a5ca7718bd2c5e4f82dbe9dbc93bc27ebc8b01045c",
+      "templateId": "literal-photo",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a photo of a running sneaker"
+    },
+    {
+      "id": "cb954e512811fd317abaaa1b3b0c43746cad7075346f2902edb54f2a3efcf1b4",
+      "templateId": "literal-photo",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a photo of a lace up trainer"
+    },
+    {
+      "id": "ac4826440f0cf96b1d65379092ac0f893e05dce7790524be85d85d32c4ac84ba",
+      "templateId": "literal-photo",
+      "className": "Bag",
+      "split": "val",
+      "text": "a photo of a handheld carryall"
+    },
+    {
+      "id": "59785ee1e2376d1a3c47abbea635a427e7b9c09a9cc68880c8d8d411cfeca874",
+      "templateId": "literal-photo",
+      "className": "Bag",
+      "split": "val",
+      "text": "a photo of a small shoulder bag"
+    },
+    {
+      "id": "6a9bc0b51791377ddd2ad3d9eb7e85c2cdb785cf73396395db00885dd21126a0",
+      "templateId": "literal-photo",
+      "className": "Bag",
+      "split": "val",
+      "text": "a photo of a structured tote bag"
+    },
+    {
+      "id": "38b454321f38ebf57f2ff8e00dd9ac6a0278474a56092e8d485707ec9600b0db",
+      "templateId": "literal-photo",
+      "className": "Bag",
+      "split": "test",
+      "text": "a photo of a shopping bag"
+    },
+    {
+      "id": "b67179d284436a048d2ba39f1c5e27d6bb34ae8e064ed46202982168713f48dc",
+      "templateId": "literal-photo",
+      "className": "Bag",
+      "split": "test",
+      "text": "a photo of a handheld purse"
+    },
+    {
+      "id": "43f03487a159816e8ebcc5f12d742668c314b1c47f53401c505adec7782402ac",
+      "templateId": "literal-photo",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a photo of a footwear covering the lower leg"
+    },
+    {
+      "id": "289c18c7bb34a30c893d8728cc0777f1ccf6955efe4c8413116516d014801588",
+      "templateId": "literal-photo",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a photo of a leather ankle boot"
+    },
+    {
+      "id": "19b754016fb3729b5f244d6fd0fc1af24068dbe535eb9d87470bb648469683fb",
+      "templateId": "literal-photo",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a photo of a short ankle boot"
+    },
+    {
+      "id": "01ab7b5b30fee3238f2d47c6317e22a56391ab7de58fb6c5ec1a8db870600849",
+      "templateId": "literal-photo",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a photo of a heeled ankle boot"
+    },
+    {
+      "id": "7195e84f0ad6f6a10c5683e2f99a2d52cf14824e067b6e17180f530e3930ceae",
+      "templateId": "literal-photo",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a photo of a footwear that stops above the foot"
+    },
+    {
+      "id": "00e89803d7c9af619e730f5a22ded16b1a0da92749be44b796a545202ae3a2d1",
+      "templateId": "literal-grayscale",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a grayscale photo of a plain cotton jersey"
+    },
+    {
+      "id": "e6dfd1f4834a8ee1e5b54d0c3c1e6ad237cc213bfeb42b24870a0c26eb85d6b8",
+      "templateId": "literal-grayscale",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a grayscale photo of a basic t-shirt"
+    },
+    {
+      "id": "7829611451ef36191bf0198a651781cf26f1c0dc5f2a961afc14fdf9be2f8e0b",
+      "templateId": "literal-grayscale",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a grayscale photo of a short sleeve cotton top"
+    },
+    {
+      "id": "231490153c8ae8fdaf5cb8980539ab8f4d0ec24dcf9c6106a72606bf1ad17bc1",
+      "templateId": "literal-grayscale",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a grayscale photo of a lightweight cotton jersey"
+    },
+    {
+      "id": "367c6bc1a87cc96091a11b8a3e4226ce2630a2c1061914bf47f77811195c742f",
+      "templateId": "literal-grayscale",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a grayscale photo of a everyday t-shirt"
+    },
+    {
+      "id": "1cfbbc02f61daad9fae90583a096271a63a90c5c9ce62016f2010fe9ae8440fd",
+      "templateId": "literal-grayscale",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a grayscale photo of a full length pants"
+    },
+    {
+      "id": "21343752ddf891bc97c5ea332c2512b78c4b2a5baae4f740ed148b95570c8128",
+      "templateId": "literal-grayscale",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a grayscale photo of a straight leg trouser"
+    },
+    {
+      "id": "bbfce26359441bfea6a538c258dcc89b47714b47980c6af640083ca2afbb9273",
+      "templateId": "literal-grayscale",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a grayscale photo of a tailored trouser"
+    },
+    {
+      "id": "60be195408b99c7ab8d0e658aca1670630498f0ce6cb81e195b729ca843c3f28",
+      "templateId": "literal-grayscale",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a grayscale photo of a long trouser"
+    },
+    {
+      "id": "49b1d6ce33ce24d2618b326d631bb9a04a0259a5b6d38082e2d0e89f0988d390",
+      "templateId": "literal-grayscale",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a grayscale photo of a pair of long pants"
+    },
+    {
+      "id": "ff68126ce7444e632b14c33d36422a7af386610625c37dba568d49891bd232ea",
+      "templateId": "literal-grayscale",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a grayscale photo of a knitted sweater pulled over the head"
+    },
+    {
+      "id": "2d80084f4d50ad0d9114cf5ce5dee05a85d385810dba9f424d8e5b9bcccc4dac",
+      "templateId": "literal-grayscale",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a grayscale photo of a warm pullover"
+    },
+    {
+      "id": "dad8d87d6c9454b83cb00800e48bda79906acbf2682dfb298f5392e7418fa984",
+      "templateId": "literal-grayscale",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a grayscale photo of a wool pullover"
+    },
+    {
+      "id": "5f8c529d9b138607a9d54a74acc388ba7edab4c1576a5b689a1d48599767ea46",
+      "templateId": "literal-grayscale",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a grayscale photo of a thick pullover"
+    },
+    {
+      "id": "dba393f09be0af24b4d4ffcf487b73ccc7a9afd1c52ba59fd50bcbf763b34bbf",
+      "templateId": "literal-grayscale",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a grayscale photo of a sweater pulled over the head"
+    },
+    {
+      "id": "4c0ae371a2749c0509d2ac6eacfdae00f50bbc092535c61cd19867ab64924f02",
+      "templateId": "literal-grayscale",
+      "className": "Dress",
+      "split": "val",
+      "text": "a grayscale photo of a one piece garment"
+    },
+    {
+      "id": "9f9c0291b2e95f268976a19d2f535a8a3f4e8b86981f98f143ca423dbd39fca5",
+      "templateId": "literal-grayscale",
+      "className": "Dress",
+      "split": "val",
+      "text": "a grayscale photo of a knee length dress"
+    },
+    {
+      "id": "fdb437af0363568404a32fecd8c019af206d80c6e38439e78f81c4f0f2665ab8",
+      "templateId": "literal-grayscale",
+      "className": "Dress",
+      "split": "val",
+      "text": "a grayscale photo of a simple day dress"
+    },
+    {
+      "id": "df5005e033053ba39f779f568885348a8bd26f6b4e114a6c4dfc7a7f6ad40f32",
+      "templateId": "literal-grayscale",
+      "className": "Dress",
+      "split": "test",
+      "text": "a grayscale photo of a sleeveless dress"
+    },
+    {
+      "id": "3bce2e8277e044195c82dddbbaefafde59f8435d02e40340bdd0493ea2138f91",
+      "templateId": "literal-grayscale",
+      "className": "Dress",
+      "split": "test",
+      "text": "a grayscale photo of a one piece frock"
+    },
+    {
+      "id": "9c7fb0d065828a7d8279b6c1267aae6f244892f5842a9b80923590ed62cd577f",
+      "templateId": "literal-grayscale",
+      "className": "Coat",
+      "split": "val",
+      "text": "a grayscale photo of a heavy outer layer"
+    },
+    {
+      "id": "18f266664d66cd0d02ef082077a9b241004c04a0dc86e5d45c85ac029380d4e0",
+      "templateId": "literal-grayscale",
+      "className": "Coat",
+      "split": "val",
+      "text": "a grayscale photo of a winter coat"
+    },
+    {
+      "id": "61b1684c41072c829695bdf8f1c02349422cb4e4ce7b44e23f9ca40986bcb2a1",
+      "templateId": "literal-grayscale",
+      "className": "Coat",
+      "split": "val",
+      "text": "a grayscale photo of a long wool coat"
+    },
+    {
+      "id": "e0c9ccfef23656fa758562a16e007b20b341f18601015ae50549b929f2d2518e",
+      "templateId": "literal-grayscale",
+      "className": "Coat",
+      "split": "test",
+      "text": "a grayscale photo of a button front coat"
+    },
+    {
+      "id": "8b9cf8a1d3252a2f6d6ed452d52aa5218163d8841f1a3ac9647229f92c284f93",
+      "templateId": "literal-grayscale",
+      "className": "Coat",
+      "split": "test",
+      "text": "a grayscale photo of a heavy cold weather jacket"
+    },
+    {
+      "id": "8b874e6501c88068f71ef9c1896003f4b62679e18733c16bbc9168fc51bd72cd",
+      "templateId": "literal-grayscale",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a grayscale photo of a open toe summer shoe"
+    },
+    {
+      "id": "067e9bee4b122adb4c6ac19306b484706e8b6f1783121f54a08a4f39a07d0cf9",
+      "templateId": "literal-grayscale",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a grayscale photo of a flat sandal"
+    },
+    {
+      "id": "f53b6374633d1cf27321f96ea2e06eecbc6b926177a6208e9657ffb521c6d1e9",
+      "templateId": "literal-grayscale",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a grayscale photo of a strappy sandal"
+    },
+    {
+      "id": "24ac28bd80928e75163746c195c1fd0deed98cd63f08116e989b3c537e666675",
+      "templateId": "literal-grayscale",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a grayscale photo of a beach sandal"
+    },
+    {
+      "id": "3be9b15fe977df71f209ac48f0c60f3632b8f7aedc49facc6629a08042df0e9f",
+      "templateId": "literal-grayscale",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a grayscale photo of a open toed slip on shoe"
+    },
+    {
+      "id": "16fba94c0be72cea3699e90e0633ceeba2d2a08712f1d96d02a6d6679248bfb4",
+      "templateId": "literal-grayscale",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a grayscale photo of a collared button front garment"
+    },
+    {
+      "id": "f0c76c7df8c2de52b9da08f585c8f4de44efd22de2f0b37cb15b8bdbabf7c1a9",
+      "templateId": "literal-grayscale",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a grayscale photo of a button down shirt"
+    },
+    {
+      "id": "06e760771a90e44b15dae2de5038c8f0e792ab29e7a61f4f52543d547bfd42e8",
+      "templateId": "literal-grayscale",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a grayscale photo of a long sleeve shirt"
+    },
+    {
+      "id": "83d8517afa73319c83961dbd22316b596ffca97d67151274a88240eb24cb18e4",
+      "templateId": "literal-grayscale",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a grayscale photo of a collared shirt"
+    },
+    {
+      "id": "6eb292151de0bcf3b95fd47241d6d6a25c8f914e1037b1b72d06e07ba00e8314",
+      "templateId": "literal-grayscale",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a grayscale photo of a collared buttoned blouse"
+    },
+    {
+      "id": "c65f4774c2625153b9bfaeff1fa6a1e278f270180c68191876254dcff33291de",
+      "templateId": "literal-grayscale",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a grayscale photo of a lace up athletic shoe"
+    },
+    {
+      "id": "1fda3fd61733e5ad80cc143faed67864fae70a920b9dd267d73f6fa8baf4bc42",
+      "templateId": "literal-grayscale",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a grayscale photo of a canvas sneaker"
+    },
+    {
+      "id": "23cfb1ea08990d7f657b26f86aae579955fbaf77068be6cf15989dd1cd040cae",
+      "templateId": "literal-grayscale",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a grayscale photo of a sport sneaker"
+    },
+    {
+      "id": "5d01971418767f462a4ef9f3679d461ef9b876878787ed221c43679907b3efe6",
+      "templateId": "literal-grayscale",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a grayscale photo of a running sneaker"
+    },
+    {
+      "id": "24d0f2b0aa9bc35e25c6d60d85f0d6edf0aa6c2f8e74f8d1c522f3653c3d1d70",
+      "templateId": "literal-grayscale",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a grayscale photo of a lace up trainer"
+    },
+    {
+      "id": "fc1746cd6dc9e0c6c44c7f7c2a54d7eeb873d9b3b9f8c66a1698cefa1f83ee42",
+      "templateId": "literal-grayscale",
+      "className": "Bag",
+      "split": "val",
+      "text": "a grayscale photo of a handheld carryall"
+    },
+    {
+      "id": "1950597fe1190a70b39253d94ed6e377667f69c359b4b27fc09e4c3c37fafcd8",
+      "templateId": "literal-grayscale",
+      "className": "Bag",
+      "split": "val",
+      "text": "a grayscale photo of a small shoulder bag"
+    },
+    {
+      "id": "d8c106c38567594f9253a73d30c3e25eea2b158e4084696817f5a2da15f453ce",
+      "templateId": "literal-grayscale",
+      "className": "Bag",
+      "split": "val",
+      "text": "a grayscale photo of a structured tote bag"
+    },
+    {
+      "id": "eecb2b814f805376435f70e39db8898b0735acdd20ed884000fff66943b1d9a3",
+      "templateId": "literal-grayscale",
+      "className": "Bag",
+      "split": "test",
+      "text": "a grayscale photo of a shopping bag"
+    },
+    {
+      "id": "a19b2ac4ac6c3516710155737ddcc979aa30362c660c329fd42df2b1cb2f3d37",
+      "templateId": "literal-grayscale",
+      "className": "Bag",
+      "split": "test",
+      "text": "a grayscale photo of a handheld purse"
+    },
+    {
+      "id": "feb4cf4ea9fb791f3e9ac92be4457a53b00df54daab34f9dfe350eaee544184f",
+      "templateId": "literal-grayscale",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a grayscale photo of a footwear covering the lower leg"
+    },
+    {
+      "id": "f08a99ab5e576b29939984263c5b4bd0dfa0ea09753e08f4d3ede18c14994a5a",
+      "templateId": "literal-grayscale",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a grayscale photo of a leather ankle boot"
+    },
+    {
+      "id": "fa9dedf322a894af1f81ea4d4e5acd7abe3b3fc275c0fcff867672aa732a057b",
+      "templateId": "literal-grayscale",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a grayscale photo of a short ankle boot"
+    },
+    {
+      "id": "3ab64c917dee3b187d8ec2a51bec4f6ff0463f1cc467786417a1829965177c61",
+      "templateId": "literal-grayscale",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a grayscale photo of a heeled ankle boot"
+    },
+    {
+      "id": "744288d48eaee180799c517a413c7a97be151121c465ccc0b8452acfb518d033",
+      "templateId": "literal-grayscale",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a grayscale photo of a footwear that stops above the foot"
+    },
+    {
+      "id": "16f03385071f730bb8f1b48d4f0ea07855234b10fca951a2578bf49bb20d425b",
+      "templateId": "literal-product",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a fashion product photo of a plain cotton jersey"
+    },
+    {
+      "id": "2757320598d0382224ea6460ac45076362d5f8aee9216a2446905d171b8b4f0c",
+      "templateId": "literal-product",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a fashion product photo of a basic t-shirt"
+    },
+    {
+      "id": "d6062cbac04a6e442dd21a8dbe3c49110cea7911754c4b4191c7958180e9da4f",
+      "templateId": "literal-product",
+      "className": "T-shirt/top",
+      "split": "val",
+      "text": "a fashion product photo of a short sleeve cotton top"
+    },
+    {
+      "id": "05f8060f79e3a42b3ccebd465349819120a0c02f175c266e3fe8482ebc866f57",
+      "templateId": "literal-product",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a fashion product photo of a lightweight cotton jersey"
+    },
+    {
+      "id": "13f413a80660f2077a7d229f7b0f02181ce3ad804d6b96d7c305a44e5c14a31a",
+      "templateId": "literal-product",
+      "className": "T-shirt/top",
+      "split": "test",
+      "text": "a fashion product photo of a everyday t-shirt"
+    },
+    {
+      "id": "cc40b824555f108577f920669916a4f558f36c21a9a7c8f7d071013cc1b42235",
+      "templateId": "literal-product",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a fashion product photo of a full length pants"
+    },
+    {
+      "id": "c412c28be42d852566a902a2769011cf4eaf503579184495938a335b90ea9d98",
+      "templateId": "literal-product",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a fashion product photo of a straight leg trouser"
+    },
+    {
+      "id": "3ff4090b27f2963e200a67f8597f8512b87de79367ff16b23f2c03892e04fea3",
+      "templateId": "literal-product",
+      "className": "Trouser",
+      "split": "val",
+      "text": "a fashion product photo of a tailored trouser"
+    },
+    {
+      "id": "73220d4b1dc406336b91f378083a5fe083c67a13a1beef01303fdf6a60e4fc73",
+      "templateId": "literal-product",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a fashion product photo of a long trouser"
+    },
+    {
+      "id": "ddb253aa1ed8128c0d30125f7a6bcbb8ebbeebf83baa21ec169b41ee9fed2a84",
+      "templateId": "literal-product",
+      "className": "Trouser",
+      "split": "test",
+      "text": "a fashion product photo of a pair of long pants"
+    },
+    {
+      "id": "f9492cff8a0ca81637329ea72c432a0cf431cc2731475c5e6416a1afaae5e3d2",
+      "templateId": "literal-product",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a fashion product photo of a knitted sweater pulled over the head"
+    },
+    {
+      "id": "bf33899ccfe51ee3ddee0a9e6a9967ea3d355f22968daaa63961b5c58c38b1a0",
+      "templateId": "literal-product",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a fashion product photo of a warm pullover"
+    },
+    {
+      "id": "378c7fdec076eacd0917dd77efb1bc4162c09cfec4cd135f231caf5042434575",
+      "templateId": "literal-product",
+      "className": "Pullover",
+      "split": "val",
+      "text": "a fashion product photo of a wool pullover"
+    },
+    {
+      "id": "626115713de4aba7a8514249bf176668f026cc1be801ff7cbfa32ea37016a1f9",
+      "templateId": "literal-product",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a fashion product photo of a thick pullover"
+    },
+    {
+      "id": "16f34d8459fae22ff4321ca75e62046a8d995570e845e3ea235272733b4892d4",
+      "templateId": "literal-product",
+      "className": "Pullover",
+      "split": "test",
+      "text": "a fashion product photo of a sweater pulled over the head"
+    },
+    {
+      "id": "4a41225db29265532e324ee6f70f3d9713b310879186f2776f3538b32c0572f7",
+      "templateId": "literal-product",
+      "className": "Dress",
+      "split": "val",
+      "text": "a fashion product photo of a one piece garment"
+    },
+    {
+      "id": "06ad337194c326f93fca7e5b77558a255c06aab48a5cb530c5566b382e5c6f03",
+      "templateId": "literal-product",
+      "className": "Dress",
+      "split": "val",
+      "text": "a fashion product photo of a knee length dress"
+    },
+    {
+      "id": "22b9ea7578e1069cecf609d51d740116a9cd187063ccbbd8c8d379ec2d10695e",
+      "templateId": "literal-product",
+      "className": "Dress",
+      "split": "val",
+      "text": "a fashion product photo of a simple day dress"
+    },
+    {
+      "id": "4c5be2361a7ba4b7561123425595e7a3d56475977ba07bcca40cf310ef0e1107",
+      "templateId": "literal-product",
+      "className": "Dress",
+      "split": "test",
+      "text": "a fashion product photo of a sleeveless dress"
+    },
+    {
+      "id": "14cfb574adf44dcdc883f9b6532c96c93fa2954e1d52b837ed59699fd2dc381b",
+      "templateId": "literal-product",
+      "className": "Dress",
+      "split": "test",
+      "text": "a fashion product photo of a one piece frock"
+    },
+    {
+      "id": "3aba46c3eaec4ec6c45dd4390a9f78005ea421d32b55e6653b02e5962e19a18e",
+      "templateId": "literal-product",
+      "className": "Coat",
+      "split": "val",
+      "text": "a fashion product photo of a heavy outer layer"
+    },
+    {
+      "id": "b07894cc781c67000d47a72d1570e3fe4cdaeabb4fec3029f483c07cab8a223a",
+      "templateId": "literal-product",
+      "className": "Coat",
+      "split": "val",
+      "text": "a fashion product photo of a winter coat"
+    },
+    {
+      "id": "323e6fb179de231fb4cae3f875768c159070461ceffd6087fc158ab33ef786a9",
+      "templateId": "literal-product",
+      "className": "Coat",
+      "split": "val",
+      "text": "a fashion product photo of a long wool coat"
+    },
+    {
+      "id": "726302da9ae4306186b56181861494b1654d087526bb850f27910bde06851357",
+      "templateId": "literal-product",
+      "className": "Coat",
+      "split": "test",
+      "text": "a fashion product photo of a button front coat"
+    },
+    {
+      "id": "7c576ca8194aef1b83cedcb7f1f4e4714d86d048d540a6aa0e5e50e81b733f4c",
+      "templateId": "literal-product",
+      "className": "Coat",
+      "split": "test",
+      "text": "a fashion product photo of a heavy cold weather jacket"
+    },
+    {
+      "id": "56313209f0667b0e563295ebd88564816c1bc5e11c02c1472b1f6b3b1376b233",
+      "templateId": "literal-product",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a fashion product photo of a open toe summer shoe"
+    },
+    {
+      "id": "aeb156c7dbfec9c43ec6d1b63c1eb8b05841ff256b6fd99486c7381352bef482",
+      "templateId": "literal-product",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a fashion product photo of a flat sandal"
+    },
+    {
+      "id": "1a4981440b7810788b60696d1261fa58cb73abb035139d0f2620a6afb2a6249f",
+      "templateId": "literal-product",
+      "className": "Sandal",
+      "split": "val",
+      "text": "a fashion product photo of a strappy sandal"
+    },
+    {
+      "id": "1721e4789c9b3988d0674540ce857bdedf85f281eb1d34af8afd4d88633cf6c8",
+      "templateId": "literal-product",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a fashion product photo of a beach sandal"
+    },
+    {
+      "id": "f4f5978dca831e1710356cb644758fa6920dd712ce195f82e861a1f4c7fa256e",
+      "templateId": "literal-product",
+      "className": "Sandal",
+      "split": "test",
+      "text": "a fashion product photo of a open toed slip on shoe"
+    },
+    {
+      "id": "447724413bc4353e4c4bf46cb9857165ab01175b77a06395020094c1005afadb",
+      "templateId": "literal-product",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a fashion product photo of a collared button front garment"
+    },
+    {
+      "id": "4eb1bb4c2562f125734407673844bf86f8ef89e1d6d63a97dabe097cb9f0fd8b",
+      "templateId": "literal-product",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a fashion product photo of a button down shirt"
+    },
+    {
+      "id": "0c41b5de429e8dbbb4e170b26f13320c63d49bb46867800fa1b3cc9825e20be8",
+      "templateId": "literal-product",
+      "className": "Shirt",
+      "split": "val",
+      "text": "a fashion product photo of a long sleeve shirt"
+    },
+    {
+      "id": "f8fc6b6421169cdb20a60a58758dec976d087ee36b20fc4917b381c345c7d8b4",
+      "templateId": "literal-product",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a fashion product photo of a collared shirt"
+    },
+    {
+      "id": "1f40041c883a8aa0e619ed3dbf090919432af764f0bd794d9f236c65d4472ee5",
+      "templateId": "literal-product",
+      "className": "Shirt",
+      "split": "test",
+      "text": "a fashion product photo of a collared buttoned blouse"
+    },
+    {
+      "id": "6499cec78bb6c2b849f88ed9579d0f513bce4ebfede4ec88e18afce6a02a6d31",
+      "templateId": "literal-product",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a fashion product photo of a lace up athletic shoe"
+    },
+    {
+      "id": "5b987e6c3564a33570cdbbd6342a111820fde9fd495fb5266989bdc0be85ae78",
+      "templateId": "literal-product",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a fashion product photo of a canvas sneaker"
+    },
+    {
+      "id": "2d268e9b1ce67f5c91f27c02b9df5a2916dd805d26218541d395756ce9be0ea9",
+      "templateId": "literal-product",
+      "className": "Sneaker",
+      "split": "val",
+      "text": "a fashion product photo of a sport sneaker"
+    },
+    {
+      "id": "a4673de48c4fc6b091b1ad3d31764cfb6bffd7681b5501e165e4dbdc681202b6",
+      "templateId": "literal-product",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a fashion product photo of a running sneaker"
+    },
+    {
+      "id": "9243e65e4d9152f74aceebaa2dc2398f5214a3074995a108962dbafdfbb7b25d",
+      "templateId": "literal-product",
+      "className": "Sneaker",
+      "split": "test",
+      "text": "a fashion product photo of a lace up trainer"
+    },
+    {
+      "id": "f3c2e5d993419bce0fca37f724c2cea9f5403548322b042ad2e42e58b9699033",
+      "templateId": "literal-product",
+      "className": "Bag",
+      "split": "val",
+      "text": "a fashion product photo of a handheld carryall"
+    },
+    {
+      "id": "6bf8ac36630c91f22998ebf38509cb82922c100692b9814eca702e2cbde8c14e",
+      "templateId": "literal-product",
+      "className": "Bag",
+      "split": "val",
+      "text": "a fashion product photo of a small shoulder bag"
+    },
+    {
+      "id": "1279834593c1c165b1276373a637eab5084e418483c5563a6d8d3ea8ec1ccc86",
+      "templateId": "literal-product",
+      "className": "Bag",
+      "split": "val",
+      "text": "a fashion product photo of a structured tote bag"
+    },
+    {
+      "id": "15c136de23315c3b9c49277c51683b3c198ea42e24c0e7a9a9a6e7a0e0cee788",
+      "templateId": "literal-product",
+      "className": "Bag",
+      "split": "test",
+      "text": "a fashion product photo of a shopping bag"
+    },
+    {
+      "id": "9aa08219827677a15419b4f948574376591393f6fa243b9485aa12d4f4a8620c",
+      "templateId": "literal-product",
+      "className": "Bag",
+      "split": "test",
+      "text": "a fashion product photo of a handheld purse"
+    },
+    {
+      "id": "5491e32b75e2666487213b5ac418a15b9bbffde501f3449e3cd041b55541d0a0",
+      "templateId": "literal-product",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a fashion product photo of a footwear covering the lower leg"
+    },
+    {
+      "id": "5f06d37b7513e6b1f2e552c98231d79194b9c5544faafb36c009502dcb149e1f",
+      "templateId": "literal-product",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a fashion product photo of a leather ankle boot"
+    },
+    {
+      "id": "da0e148ff6cbdc81321c7d7b9d0a5af4e891379319ebf3789bf12844904f212f",
+      "templateId": "literal-product",
+      "className": "Ankle boot",
+      "split": "val",
+      "text": "a fashion product photo of a short ankle boot"
+    },
+    {
+      "id": "82f4b1961ab8e1968518b1482ae6ed3703dfeca0603b3680734c2dbb415f11bc",
+      "templateId": "literal-product",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a fashion product photo of a heeled ankle boot"
+    },
+    {
+      "id": "8b8bc042337fab691e2b1ab396fef2133c5c3e46d8bbcc10bd09e0fd64a3e26a",
+      "templateId": "literal-product",
+      "className": "Ankle boot",
+      "split": "test",
+      "text": "a fashion product photo of a footwear that stops above the foot"
+    }
+  ]
+}

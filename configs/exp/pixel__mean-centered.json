@@ -1,0 +1,19 @@
+{
+  "id": "pixel__mean-centered",
+  "task": "pixel",
+  "selectable": false,
+  "preprocess": null,
+  "promptTemplate": null,
+  "fusion": "zscore",
+  "alpha": null,
+  "lambda": 1,
+  "pixelVariant": "mean-centered",
+  "signals": [
+    "pixel"
+  ],
+  "weights": {
+    "pixel": 1
+  },
+  "k": 10,
+  "mmrPool": 50
+}

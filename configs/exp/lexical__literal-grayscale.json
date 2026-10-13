@@ -1,0 +1,19 @@
+{
+  "id": "lexical__literal-grayscale",
+  "task": "lexical",
+  "selectable": false,
+  "preprocess": null,
+  "promptTemplate": "literal-grayscale",
+  "fusion": "zscore",
+  "alpha": null,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "lexical"
+  ],
+  "weights": {
+    "lexical": 1
+  },
+  "k": 10,
+  "mmrPool": 50
+}

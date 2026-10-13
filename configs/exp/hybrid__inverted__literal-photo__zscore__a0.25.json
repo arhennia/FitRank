@@ -1,0 +1,21 @@
+{
+  "id": "hybrid__inverted__literal-photo__zscore__a0.25",
+  "task": "hybrid",
+  "selectable": true,
+  "preprocess": "inverted",
+  "promptTemplate": "literal-photo",
+  "fusion": "zscore",
+  "alpha": 0.25,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "img",
+    "txt"
+  ],
+  "weights": {
+    "img": 0.25,
+    "txt": 0.75
+  },
+  "k": 10,
+  "mmrPool": 50
+}

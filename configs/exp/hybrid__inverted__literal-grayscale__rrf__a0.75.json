@@ -1,0 +1,21 @@
+{
+  "id": "hybrid__inverted__literal-grayscale__rrf__a0.75",
+  "task": "hybrid",
+  "selectable": true,
+  "preprocess": "inverted",
+  "promptTemplate": "literal-grayscale",
+  "fusion": "rrf",
+  "alpha": 0.75,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "img",
+    "txt"
+  ],
+  "weights": {
+    "img": 0.75,
+    "txt": 0.25
+  },
+  "k": 10,
+  "mmrPool": 50
+}

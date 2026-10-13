@@ -1,0 +1,56 @@
+{
+  "id": "frozen.v1",
+  "schemaVersion": 1,
+  "sourceSpec": "ml/config/tuning.v1.json",
+  "task": "hybrid",
+  "dataset": "fmnist",
+  "scoredSplit": "val",
+  "testSplitScored": false,
+  "k": 10,
+  "mmrPool": 50,
+  "preprocess": "inverted",
+  "promptTemplate": "literal-product",
+  "fusion": "zscore",
+  "alpha": 0.5,
+  "lambda": 0.9,
+  "signals": [
+    "img",
+    "txt"
+  ],
+  "weights": {
+    "img": 0.5,
+    "txt": 0.5
+  },
+  "selectionRule": "Among hybrid arms at lambda 1, maximise macro NDCG@10. An exact tie breaks by preprocessOrder, then templateOrder, then fusionOrder, then alphaOrder. Then take the largest lambda whose macro intra-list diversity gain over lambda 1 is positive and whose macro NDCG@10 loss is at most 0.01. Otherwise lambda stays 1.",
+  "lambdaDecision": {
+    "lambda": 0.9,
+    "reason": "largest lambda with a diversity gain and NDCG@10 loss at or below the budget",
+    "loss": 0.000092535475619826,
+    "gain": 0.00006577486910711722,
+    "baselineNdcg": 0.7979716774053839,
+    "baselineDiversity": 0.05773605236239432,
+    "ndcg": 0.7978791419297641,
+    "diversity": 0.057801827231501436
+  },
+  "validation": {
+    "lambda1": {
+      "armId": "hybrid__inverted__literal-product__zscore__a0.5",
+      "macroNdcgAt10": 0.7979716774053839,
+      "macroDiversityAt10": 0.05773605236239432
+    },
+    "chosen": {
+      "armId": "hybrid__inverted__literal-product__zscore__a0.5__l0.9",
+      "macroNdcgAt10": 0.7978791419297641,
+      "macroDiversityAt10": 0.057801827231501436
+    }
+  },
+  "bootstrap": {
+    "samples": 1000,
+    "seed": 20261012,
+    "low": 0.025,
+    "high": 0.975
+  },
+  "queryDefinition": "Each validation image is paired with each validation paraphrase of that image's class. The text query is the prompt template with {} replaced by the paraphrase. Relevance is the shared class.",
+  "queryOrder": "Images follow the committed split file. Paraphrases follow text-queries.v1.json. A hybrid arm loops images in that order and, within each image, the validation paraphrases of its class in file order.",
+  "configHash": "5d3d774895e1a329336d6250ed4e7ad6b7f8fc806ab09c832f65547d2ceedda0"
+}

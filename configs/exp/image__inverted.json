@@ -1,0 +1,19 @@
+{
+  "id": "image__inverted",
+  "task": "image",
+  "selectable": false,
+  "preprocess": "inverted",
+  "promptTemplate": null,
+  "fusion": "zscore",
+  "alpha": null,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "img"
+  ],
+  "weights": {
+    "img": 1
+  },
+  "k": 10,
+  "mmrPool": 50
+}

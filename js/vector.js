@@ -13,11 +13,15 @@ export function l2Normalize(values) {
   return values.map((value) => value / scale);
 }
 
+function vectorLength(vector) {
+  if (Array.isArray(vector) || ArrayBuffer.isView(vector)) return vector.length;
+  return -1;
+}
+
 /** Dot product. Callers pass L2-normalized vectors when they want cosine. */
 export function cosine(left, right) {
-  if (!Array.isArray(left) || !Array.isArray(right) || left.length === 0 || left.length !== right.length) {
-    return null;
-  }
+  const length = vectorLength(left);
+  if (length <= 0 || length !== vectorLength(right)) return null;
   let sum = 0;
   for (let index = 0; index < left.length; index += 1) {
     if (!Number.isFinite(left[index]) || !Number.isFinite(right[index])) return null;
@@ -63,7 +67,7 @@ export function randomScores(ids, queryId) {
 
 /** Mean pairwise (1 - cosine). Null when fewer than two vectors are present. */
 export function meanPairwiseDiversity(vectors) {
-  const usable = (vectors || []).filter((vector) => Array.isArray(vector));
+  const usable = (vectors || []).filter((vector) => Array.isArray(vector) || ArrayBuffer.isView(vector));
   if (usable.length < 2) return null;
   let sum = 0;
   let pairs = 0;

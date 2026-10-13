@@ -1,0 +1,19 @@
+{
+  "id": "text__padded__literal-product",
+  "task": "text",
+  "selectable": false,
+  "preprocess": "padded",
+  "promptTemplate": "literal-product",
+  "fusion": "zscore",
+  "alpha": null,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "txt"
+  ],
+  "weights": {
+    "txt": 1
+  },
+  "k": 10,
+  "mmrPool": 50
+}

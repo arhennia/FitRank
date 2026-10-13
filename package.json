@@ -10,6 +10,8 @@
     "prepare-mnist": "node experiments/prepare-mnist.mjs",
     "ml:split": "node ml/src/data/build.mjs",
     "ml:embed": "node ml/src/embed/embed.mjs",
+    "eval:arm": "node ml/src/eval/runEval.mjs",
+    "eval:val": "node ml/src/eval/tuneVal.mjs",
     "embed-retrieval": "node experiments/embed.mjs",
     "evaluate-retrieval": "node experiments/evaluate.mjs"
   }

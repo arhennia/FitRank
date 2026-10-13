@@ -1,0 +1,209 @@
+{
+  "arm": {
+    "id": "text__padded__literal-photo",
+    "task": "text",
+    "selectable": false,
+    "preprocess": "padded",
+    "promptTemplate": "literal-photo",
+    "fusion": "zscore",
+    "alpha": null,
+    "lambda": 1,
+    "pixelVariant": null,
+    "signals": [
+      "txt"
+    ],
+    "weights": {
+      "txt": 1
+    },
+    "k": 10,
+    "mmrPool": 50
+  },
+  "queries": 30,
+  "diversitySpace": "clip-padded",
+  "macro": {
+    "precisionAt10": 0.65,
+    "recallAt10": 0.0325,
+    "rPrecision": 0.44333333333333336,
+    "hitAt10": 0.9666666666666666,
+    "mrr": 0.7747619047619047,
+    "ndcgAt10": 0.656047862089598,
+    "diversityAt10": 0.07552118724927075,
+    "distinctClasses": 2.466666666666667
+  },
+  "interval": {
+    "precisionAt10": {
+      "point": 0.65,
+      "low": 0.5683333333333335,
+      "high": 0.7283541666666666,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "recallAt10": {
+      "point": 0.0325,
+      "low": 0.028416666666666666,
+      "high": 0.03641770833333333,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "rPrecision": {
+      "point": 0.44333333333333336,
+      "low": 0.39156219824735455,
+      "high": 0.4913902777777778,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "hitAt10": {
+      "point": 0.9666666666666666,
+      "low": 0.9,
+      "high": 1,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "mrr": {
+      "point": 0.7747619047619047,
+      "low": 0.6683293650793649,
+      "high": 0.8750119047619047,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "ndcgAt10": {
+      "point": 0.656047862089598,
+      "low": 0.5692670480473164,
+      "high": 0.743125533791916,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "diversityAt10": {
+      "point": 0.07552118724927075,
+      "low": 0.0704822834124265,
+      "high": 0.08103723963752175,
+      "samples": 1000,
+      "seed": 20261012
+    },
+    "distinctClasses": {
+      "point": 2.466666666666667,
+      "low": 2.1682916666666667,
+      "high": 2.781708333333333,
+      "samples": 1000,
+      "seed": 20261012
+    }
+  },
+  "perClass": {
+    "T-shirt/top": {
+      "queries": 3,
+      "precisionAt10": 0.7333333333333334,
+      "recallAt10": 0.036666666666666674,
+      "rPrecision": 0.52,
+      "hitAt10": 1,
+      "mrr": 1,
+      "ndcgAt10": 0.7832924170026972,
+      "diversityAt10": 0.06267641518929067,
+      "distinctClasses": 2
+    },
+    "Trouser": {
+      "queries": 3,
+      "precisionAt10": 0.8666666666666667,
+      "recallAt10": 0.043333333333333335,
+      "rPrecision": 0.5583333333333333,
+      "hitAt10": 1,
+      "mrr": 0.7777777777777778,
+      "ndcgAt10": 0.8346870265100179,
+      "diversityAt10": 0.06586942780752479,
+      "distinctClasses": 2
+    },
+    "Pullover": {
+      "queries": 3,
+      "precisionAt10": 0.5,
+      "recallAt10": 0.025000000000000005,
+      "rPrecision": 0.42,
+      "hitAt10": 1,
+      "mrr": 0.8333333333333334,
+      "ndcgAt10": 0.5477396762554998,
+      "diversityAt10": 0.051541607601275276,
+      "distinctClasses": 3.6666666666666665
+    },
+    "Dress": {
+      "queries": 3,
+      "precisionAt10": 0.6333333333333333,
+      "recallAt10": 0.03166666666666667,
+      "rPrecision": 0.355,
+      "hitAt10": 0.6666666666666666,
+      "mrr": 0.6888888888888888,
+      "ndcgAt10": 0.6435229260210743,
+      "diversityAt10": 0.08327461532728082,
+      "distinctClasses": 2
+    },
+    "Coat": {
+      "queries": 3,
+      "precisionAt10": 0.30000000000000004,
+      "recallAt10": 0.015,
+      "rPrecision": 0.24833333333333332,
+      "hitAt10": 1,
+      "mrr": 0.1976190476190476,
+      "ndcgAt10": 0.23283145954684,
+      "diversityAt10": 0.07890037689725607,
+      "distinctClasses": 2.6666666666666665
+    },
+    "Sandal": {
+      "queries": 3,
+      "precisionAt10": 0.3333333333333333,
+      "recallAt10": 0.016666666666666666,
+      "rPrecision": 0.1566666666666667,
+      "hitAt10": 1,
+      "mrr": 0.8333333333333334,
+      "ndcgAt10": 0.37404892954148555,
+      "diversityAt10": 0.10736506742862727,
+      "distinctClasses": 3
+    },
+    "Shirt": {
+      "queries": 3,
+      "precisionAt10": 0.5,
+      "recallAt10": 0.025000000000000005,
+      "rPrecision": 0.28833333333333333,
+      "hitAt10": 1,
+      "mrr": 0.5833333333333334,
+      "ndcgAt10": 0.5019796043684321,
+      "diversityAt10": 0.07683264309670919,
+      "distinctClasses": 3
+    },
+    "Sneaker": {
+      "queries": 3,
+      "precisionAt10": 0.8333333333333334,
+      "recallAt10": 0.041666666666666664,
+      "rPrecision": 0.6316666666666667,
+      "hitAt10": 1,
+      "mrr": 1,
+      "ndcgAt10": 0.8380006105402916,
+      "diversityAt10": 0.08266037037840761,
+      "distinctClasses": 2.6666666666666665
+    },
+    "Bag": {
+      "queries": 3,
+      "precisionAt10": 0.9333333333333332,
+      "recallAt10": 0.04666666666666667,
+      "rPrecision": 0.49666666666666665,
+      "hitAt10": 1,
+      "mrr": 1,
+      "ndcgAt10": 0.9543384299005627,
+      "diversityAt10": 0.07201635182853093,
+      "distinctClasses": 1.6666666666666667
+    },
+    "Ankle boot": {
+      "queries": 3,
+      "precisionAt10": 0.8666666666666667,
+      "recallAt10": 0.043333333333333335,
+      "rPrecision": 0.7583333333333333,
+      "hitAt10": 1,
+      "mrr": 0.8333333333333334,
+      "ndcgAt10": 0.850037541209078,
+      "diversityAt10": 0.07407499693780485,
+      "distinctClasses": 2
+    }
+  },
+  "coverageAt10": 0.105,
+  "violationRate": 0,
+  "latencyMs": {
+    "p50": 0.9689499999999498,
+    "p95": 1.6730400000001726
+  }
+}

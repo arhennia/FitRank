@@ -34,3 +34,14 @@ export function activeVariant(config) {
   if (!variant) throw new Error(`Preprocess config has no active variant ${config.active}`);
   return variant;
 }
+
+/**
+ * The hashed preprocess document for one variant.
+ * The original object is returned when the name already matches, so an as-is
+ * cache key stays valid. A different variant changes only `active`.
+ */
+export function preprocessForVariant(config, variantName) {
+  if (!config?.variants?.[variantName]) throw new Error(`Unknown preprocess variant ${variantName}`);
+  if (config.active === variantName) return config;
+  return { ...config, active: variantName };
+}

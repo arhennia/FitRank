@@ -1,0 +1,21 @@
+{
+  "id": "hybrid__as-is__literal-photo__rrf__a0.5",
+  "task": "hybrid",
+  "selectable": true,
+  "preprocess": "as-is",
+  "promptTemplate": "literal-photo",
+  "fusion": "rrf",
+  "alpha": 0.5,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "img",
+    "txt"
+  ],
+  "weights": {
+    "img": 0.5,
+    "txt": 0.5
+  },
+  "k": 10,
+  "mmrPool": 50
+}

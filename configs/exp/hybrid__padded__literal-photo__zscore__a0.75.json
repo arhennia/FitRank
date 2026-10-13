@@ -1,0 +1,21 @@
+{
+  "id": "hybrid__padded__literal-photo__zscore__a0.75",
+  "task": "hybrid",
+  "selectable": true,
+  "preprocess": "padded",
+  "promptTemplate": "literal-photo",
+  "fusion": "zscore",
+  "alpha": 0.75,
+  "lambda": 1,
+  "pixelVariant": null,
+  "signals": [
+    "img",
+    "txt"
+  ],
+  "weights": {
+    "img": 0.75,
+    "txt": 0.25
+  },
+  "k": 10,
+  "mmrPool": 50
+}

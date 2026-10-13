@@ -1,0 +1,1340 @@
+{
+  "spec": "tuning.v1",
+  "scoredSplit": "val",
+  "testSplitScored": false,
+  "prepareMs": 5408.1348,
+  "arms": [
+    {
+      "id": "image__as-is",
+      "task": "image",
+      "selectable": false,
+      "macroNdcgAt10": 0.7580600569054924,
+      "ndcgInterval": {
+        "point": 0.7580600569054924,
+        "low": 0.7338352351644043,
+        "high": 0.7814655184972792,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7443333333333333,
+      "macroDiversityAt10": 0.058581257450523595,
+      "coverageAt10": 0.65,
+      "violationRate": 0
+    },
+    {
+      "id": "image__inverted",
+      "task": "image",
+      "selectable": false,
+      "macroNdcgAt10": 0.7576880224855516,
+      "ndcgInterval": {
+        "point": 0.7576880224855516,
+        "low": 0.7290654724819293,
+        "high": 0.7831890423723109,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.746,
+      "macroDiversityAt10": 0.05672234776951488,
+      "coverageAt10": 0.6645,
+      "violationRate": 0
+    },
+    {
+      "id": "image__padded",
+      "task": "image",
+      "selectable": false,
+      "macroNdcgAt10": 0.7291896098429513,
+      "ndcgInterval": {
+        "point": 0.7291896098429513,
+        "low": 0.7038218498339002,
+        "high": 0.7558211927030984,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7173333333333334,
+      "macroDiversityAt10": 0.05819943480310308,
+      "coverageAt10": 0.6595,
+      "violationRate": 0
+    },
+    {
+      "id": "text__as-is__literal-photo",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6904440918288252,
+      "ndcgInterval": {
+        "point": 0.6904440918288252,
+        "low": 0.588273701203297,
+        "high": 0.7807594576430049,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6766666666666666,
+      "macroDiversityAt10": 0.08216750535075049,
+      "coverageAt10": 0.103,
+      "violationRate": 0
+    },
+    {
+      "id": "text__as-is__literal-grayscale",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6544641221418281,
+      "ndcgInterval": {
+        "point": 0.6544641221418281,
+        "low": 0.5670463284032243,
+        "high": 0.74123609870944,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6333333333333334,
+      "macroDiversityAt10": 0.08615070531409193,
+      "coverageAt10": 0.0885,
+      "violationRate": 0
+    },
+    {
+      "id": "text__as-is__literal-product",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6619078481738928,
+      "ndcgInterval": {
+        "point": 0.6619078481738928,
+        "low": 0.554657574404355,
+        "high": 0.7607895511567253,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6466666666666667,
+      "macroDiversityAt10": 0.07464593020261823,
+      "coverageAt10": 0.089,
+      "violationRate": 0
+    },
+    {
+      "id": "text__inverted__literal-photo",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.7244460387303019,
+      "ndcgInterval": {
+        "point": 0.7244460387303019,
+        "low": 0.6309864290595012,
+        "high": 0.8089485114466713,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7133333333333333,
+      "macroDiversityAt10": 0.07366402747981443,
+      "coverageAt10": 0.1065,
+      "violationRate": 0
+    },
+    {
+      "id": "text__inverted__literal-grayscale",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.715528011959748,
+      "ndcgInterval": {
+        "point": 0.715528011959748,
+        "low": 0.6150896438468247,
+        "high": 0.8068201113079225,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7033333333333334,
+      "macroDiversityAt10": 0.07817535439970116,
+      "coverageAt10": 0.0975,
+      "violationRate": 0
+    },
+    {
+      "id": "text__inverted__literal-product",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6811357560403992,
+      "ndcgInterval": {
+        "point": 0.6811357560403992,
+        "low": 0.5751984367633882,
+        "high": 0.7744075063612976,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6766666666666666,
+      "macroDiversityAt10": 0.0682299536502491,
+      "coverageAt10": 0.096,
+      "violationRate": 0
+    },
+    {
+      "id": "text__padded__literal-photo",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.656047862089598,
+      "ndcgInterval": {
+        "point": 0.656047862089598,
+        "low": 0.5692670480473164,
+        "high": 0.743125533791916,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.65,
+      "macroDiversityAt10": 0.07552118724927075,
+      "coverageAt10": 0.105,
+      "violationRate": 0
+    },
+    {
+      "id": "text__padded__literal-grayscale",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6607223766923477,
+      "ndcgInterval": {
+        "point": 0.6607223766923477,
+        "low": 0.5566279621575982,
+        "high": 0.7560341370790042,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6366666666666667,
+      "macroDiversityAt10": 0.07906666032741025,
+      "coverageAt10": 0.0925,
+      "violationRate": 0
+    },
+    {
+      "id": "text__padded__literal-product",
+      "task": "text",
+      "selectable": false,
+      "macroNdcgAt10": 0.6083817411778235,
+      "ndcgInterval": {
+        "point": 0.6083817411778235,
+        "low": 0.5146657081807018,
+        "high": 0.6942328899397053,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.5966666666666668,
+      "macroDiversityAt10": 0.06792175752566365,
+      "coverageAt10": 0.0835,
+      "violationRate": 0
+    },
+    {
+      "id": "pixel__raw",
+      "task": "pixel",
+      "selectable": false,
+      "macroNdcgAt10": 0.6981253024762792,
+      "ndcgInterval": {
+        "point": 0.6981253024762792,
+        "low": 0.6700212177990426,
+        "high": 0.7246693636572443,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6866666666666666,
+      "macroDiversityAt10": 0.0820350204468913,
+      "coverageAt10": 0.5735,
+      "violationRate": 0
+    },
+    {
+      "id": "pixel__mean-centered",
+      "task": "pixel",
+      "selectable": false,
+      "macroNdcgAt10": 0.705283689117665,
+      "ndcgInterval": {
+        "point": 0.705283689117665,
+        "low": 0.6768603914999075,
+        "high": 0.7330758399575255,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6943333333333331,
+      "macroDiversityAt10": 0.1504012021207099,
+      "coverageAt10": 0.587,
+      "violationRate": 0
+    },
+    {
+      "id": "lexical__literal-photo",
+      "task": "lexical",
+      "selectable": false,
+      "macroNdcgAt10": 0.6666666666666667,
+      "ndcgInterval": {
+        "point": 0.6666666666666667,
+        "low": 0.47497395833333333,
+        "high": 0.8500462962962962,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6666666666666667,
+      "macroDiversityAt10": 0.11210737889414743,
+      "coverageAt10": 0.05,
+      "violationRate": 0
+    },
+    {
+      "id": "lexical__literal-grayscale",
+      "task": "lexical",
+      "selectable": false,
+      "macroNdcgAt10": 0.6666666666666667,
+      "ndcgInterval": {
+        "point": 0.6666666666666667,
+        "low": 0.47497395833333333,
+        "high": 0.8500462962962962,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6666666666666667,
+      "macroDiversityAt10": 0.11210737889414743,
+      "coverageAt10": 0.05,
+      "violationRate": 0
+    },
+    {
+      "id": "lexical__literal-product",
+      "task": "lexical",
+      "selectable": false,
+      "macroNdcgAt10": 0.6666666666666667,
+      "ndcgInterval": {
+        "point": 0.6666666666666667,
+        "low": 0.47497395833333333,
+        "high": 0.8500462962962962,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6666666666666667,
+      "macroDiversityAt10": 0.11210737889414743,
+      "coverageAt10": 0.05,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7622532333317629,
+      "ndcgInterval": {
+        "point": 0.7622532333317629,
+        "low": 0.7487117025786524,
+        "high": 0.7757819577280163,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7527777777777777,
+      "macroDiversityAt10": 0.07064320270049138,
+      "coverageAt10": 0.316,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7915873116725813,
+      "ndcgInterval": {
+        "point": 0.7915873116725813,
+        "low": 0.7785989788889284,
+        "high": 0.8041150410184695,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7813333333333333,
+      "macroDiversityAt10": 0.06150232558220568,
+      "coverageAt10": 0.569,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7853456578309596,
+      "ndcgInterval": {
+        "point": 0.7853456578309596,
+        "low": 0.7711684150405134,
+        "high": 0.798411042297549,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7724444444444444,
+      "macroDiversityAt10": 0.05808345966488846,
+      "coverageAt10": 0.69,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7176007907694195,
+      "ndcgInterval": {
+        "point": 0.7176007907694195,
+        "low": 0.7031095441290098,
+        "high": 0.7321302032551167,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7015555555555555,
+      "macroDiversityAt10": 0.07811665965511276,
+      "coverageAt10": 0.21,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7746673475737036,
+      "ndcgInterval": {
+        "point": 0.7746673475737036,
+        "low": 0.7617018417445477,
+        "high": 0.7871896447273687,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7659999999999999,
+      "macroDiversityAt10": 0.07032031925613963,
+      "coverageAt10": 0.596,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-photo__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7737995320080537,
+      "ndcgInterval": {
+        "point": 0.7737995320080537,
+        "low": 0.7596042710918092,
+        "high": 0.7869492757338328,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7575555555555555,
+      "macroDiversityAt10": 0.05834242640923955,
+      "coverageAt10": 0.6935,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7467352089467921,
+      "ndcgInterval": {
+        "point": 0.7467352089467921,
+        "low": 0.7336402135500055,
+        "high": 0.7592120605564469,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7382222222222221,
+      "macroDiversityAt10": 0.07413529276402057,
+      "coverageAt10": 0.268,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7744928871378833,
+      "ndcgInterval": {
+        "point": 0.7744928871378833,
+        "low": 0.7618740973540507,
+        "high": 0.7880803274164647,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7647777777777776,
+      "macroDiversityAt10": 0.06278537990624125,
+      "coverageAt10": 0.5145,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7760842712590312,
+      "ndcgInterval": {
+        "point": 0.7760842712590312,
+        "low": 0.7612237943751827,
+        "high": 0.789483037607799,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7649999999999999,
+      "macroDiversityAt10": 0.05838024048476548,
+      "coverageAt10": 0.6815,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7037912433585293,
+      "ndcgInterval": {
+        "point": 0.7037912433585293,
+        "low": 0.6893125362743444,
+        "high": 0.7173616970171258,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6818888888888888,
+      "macroDiversityAt10": 0.08076786057429095,
+      "coverageAt10": 0.1905,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7610181302192728,
+      "ndcgInterval": {
+        "point": 0.7610181302192728,
+        "low": 0.7478148635867568,
+        "high": 0.7736677879155932,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7511111111111111,
+      "macroDiversityAt10": 0.0693503221430795,
+      "coverageAt10": 0.546,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-grayscale__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7715602831343299,
+      "ndcgInterval": {
+        "point": 0.7715602831343299,
+        "low": 0.7568666152090505,
+        "high": 0.7850720943077116,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7585555555555553,
+      "macroDiversityAt10": 0.058532139175294914,
+      "coverageAt10": 0.689,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7660407574287255,
+      "ndcgInterval": {
+        "point": 0.7660407574287255,
+        "low": 0.7528028688325185,
+        "high": 0.7778950134775209,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7611111111111112,
+      "macroDiversityAt10": 0.06668184272827779,
+      "coverageAt10": 0.276,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7908718740653797,
+      "ndcgInterval": {
+        "point": 0.7908718740653797,
+        "low": 0.778969370477325,
+        "high": 0.8024570162345018,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.780111111111111,
+      "macroDiversityAt10": 0.059735373092706455,
+      "coverageAt10": 0.5355,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7825954751427272,
+      "ndcgInterval": {
+        "point": 0.7825954751427272,
+        "low": 0.7687142344889756,
+        "high": 0.7953858054384695,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7693333333333332,
+      "macroDiversityAt10": 0.05769636152485076,
+      "coverageAt10": 0.67,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.699257804629472,
+      "ndcgInterval": {
+        "point": 0.699257804629472,
+        "low": 0.6834389767709133,
+        "high": 0.7134017054089039,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6794444444444443,
+      "macroDiversityAt10": 0.07224577979868738,
+      "coverageAt10": 0.1685,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7679116832191252,
+      "ndcgInterval": {
+        "point": 0.7679116832191252,
+        "low": 0.7554809107946693,
+        "high": 0.779340664215135,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7588888888888888,
+      "macroDiversityAt10": 0.06891770641368325,
+      "coverageAt10": 0.566,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__as-is__literal-product__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7689227399077165,
+      "ndcgInterval": {
+        "point": 0.7689227399077165,
+        "low": 0.7550681991167097,
+        "high": 0.7824867027320183,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7542222222222221,
+      "macroDiversityAt10": 0.05821086294650794,
+      "coverageAt10": 0.6825,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7771105112710073,
+      "ndcgInterval": {
+        "point": 0.7771105112710073,
+        "low": 0.7641964981167072,
+        "high": 0.7889270169847394,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7723333333333333,
+      "macroDiversityAt10": 0.06531418951490452,
+      "coverageAt10": 0.28,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7904072046049418,
+      "ndcgInterval": {
+        "point": 0.7904072046049418,
+        "low": 0.777098358710426,
+        "high": 0.8029231525240585,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7886666666666666,
+      "macroDiversityAt10": 0.05923452633791496,
+      "coverageAt10": 0.542,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7845779856905839,
+      "ndcgInterval": {
+        "point": 0.7845779856905839,
+        "low": 0.7701489664518394,
+        "high": 0.7986467810081279,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7748888888888887,
+      "macroDiversityAt10": 0.05643472247213686,
+      "coverageAt10": 0.6895,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.755485000514652,
+      "ndcgInterval": {
+        "point": 0.755485000514652,
+        "low": 0.7414275021787182,
+        "high": 0.7685100324966306,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7446666666666668,
+      "macroDiversityAt10": 0.07147856171988998,
+      "coverageAt10": 0.2145,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7716654097407045,
+      "ndcgInterval": {
+        "point": 0.7716654097407045,
+        "low": 0.7582445609818961,
+        "high": 0.7837720128700726,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7695555555555555,
+      "macroDiversityAt10": 0.06627650670355112,
+      "coverageAt10": 0.5945,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-photo__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7677167648442229,
+      "ndcgInterval": {
+        "point": 0.7677167648442229,
+        "low": 0.7514776311004638,
+        "high": 0.7832880085712787,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7593333333333333,
+      "macroDiversityAt10": 0.05682542700893454,
+      "coverageAt10": 0.698,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7746191570153126,
+      "ndcgInterval": {
+        "point": 0.7746191570153126,
+        "low": 0.7620906639351017,
+        "high": 0.786683819252563,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7641111111111111,
+      "macroDiversityAt10": 0.06904018125748443,
+      "coverageAt10": 0.261,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7854190529739639,
+      "ndcgInterval": {
+        "point": 0.7854190529739639,
+        "low": 0.7725544981892684,
+        "high": 0.7982440850921642,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7774444444444445,
+      "macroDiversityAt10": 0.06011848882688964,
+      "coverageAt10": 0.4975,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7784166914898107,
+      "ndcgInterval": {
+        "point": 0.7784166914898107,
+        "low": 0.764042330675037,
+        "high": 0.7927195449162634,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7687777777777776,
+      "macroDiversityAt10": 0.0565527622307217,
+      "coverageAt10": 0.66,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7552430304988484,
+      "ndcgInterval": {
+        "point": 0.7552430304988484,
+        "low": 0.7414503509161324,
+        "high": 0.7689380428682094,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.742111111111111,
+      "macroDiversityAt10": 0.07429133814967762,
+      "coverageAt10": 0.1915,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7727730694655077,
+      "ndcgInterval": {
+        "point": 0.7727730694655077,
+        "low": 0.7599090402093516,
+        "high": 0.7853924415532346,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7663333333333333,
+      "macroDiversityAt10": 0.06700267853611412,
+      "coverageAt10": 0.5465,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-grayscale__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7656504638455377,
+      "ndcgInterval": {
+        "point": 0.7656504638455377,
+        "low": 0.749486108813754,
+        "high": 0.7806991381642802,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7574444444444445,
+      "macroDiversityAt10": 0.05693295707527194,
+      "coverageAt10": 0.6925,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.768526003624403,
+      "ndcgInterval": {
+        "point": 0.768526003624403,
+        "low": 0.7569102746708449,
+        "high": 0.7792793332247384,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7631111111111111,
+      "macroDiversityAt10": 0.06330574895164685,
+      "coverageAt10": 0.2535,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7979716774053839,
+      "ndcgInterval": {
+        "point": 0.7979716774053839,
+        "low": 0.7857206204071615,
+        "high": 0.8092803709488924,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7939999999999999,
+      "macroDiversityAt10": 0.05773605236239432,
+      "coverageAt10": 0.51,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7848296130106882,
+      "ndcgInterval": {
+        "point": 0.7848296130106882,
+        "low": 0.7704320219319538,
+        "high": 0.798276016115268,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7737777777777777,
+      "macroDiversityAt10": 0.056098989450269886,
+      "coverageAt10": 0.6655,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7180760358377073,
+      "ndcgInterval": {
+        "point": 0.7180760358377073,
+        "low": 0.7035075853752747,
+        "high": 0.7322327640731296,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7045555555555556,
+      "macroDiversityAt10": 0.06747447012038237,
+      "coverageAt10": 0.183,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7741421775853972,
+      "ndcgInterval": {
+        "point": 0.7741421775853972,
+        "low": 0.7608924710191035,
+        "high": 0.7860250674886342,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7664444444444445,
+      "macroDiversityAt10": 0.06645865301991438,
+      "coverageAt10": 0.573,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7647168663970387,
+      "ndcgInterval": {
+        "point": 0.7647168663970387,
+        "low": 0.7486796844787794,
+        "high": 0.7800644772244073,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7553333333333332,
+      "macroDiversityAt10": 0.056747608971004226,
+      "coverageAt10": 0.6915,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7214897326695306,
+      "ndcgInterval": {
+        "point": 0.7214897326695306,
+        "low": 0.7092303552169537,
+        "high": 0.7326550401630817,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7095555555555556,
+      "macroDiversityAt10": 0.0650611310612046,
+      "coverageAt10": 0.2685,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7486424114318835,
+      "ndcgInterval": {
+        "point": 0.7486424114318835,
+        "low": 0.7361879535885552,
+        "high": 0.7602470515799947,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7355555555555556,
+      "macroDiversityAt10": 0.06000525290720675,
+      "coverageAt10": 0.5115,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7468682430375087,
+      "ndcgInterval": {
+        "point": 0.7468682430375087,
+        "low": 0.7330922287092061,
+        "high": 0.7603036441736682,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7345555555555557,
+      "macroDiversityAt10": 0.057687908299034904,
+      "coverageAt10": 0.681,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7012046391713683,
+      "ndcgInterval": {
+        "point": 0.7012046391713683,
+        "low": 0.6881833771800366,
+        "high": 0.7132184456893425,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6914444444444443,
+      "macroDiversityAt10": 0.0717833691457898,
+      "coverageAt10": 0.196,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7378523578357588,
+      "ndcgInterval": {
+        "point": 0.7378523578357588,
+        "low": 0.7255450947526109,
+        "high": 0.7494727481372795,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7262222222222221,
+      "macroDiversityAt10": 0.06684449378307207,
+      "coverageAt10": 0.5505,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-photo__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7386444803335115,
+      "ndcgInterval": {
+        "point": 0.7386444803335115,
+        "low": 0.7241179197387404,
+        "high": 0.7526021633944638,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7254444444444444,
+      "macroDiversityAt10": 0.05808022889669834,
+      "coverageAt10": 0.6815,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7049740173693031,
+      "ndcgInterval": {
+        "point": 0.7049740173693031,
+        "low": 0.6937541548388652,
+        "high": 0.7166731146480569,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6892222222222222,
+      "macroDiversityAt10": 0.06954098034651483,
+      "coverageAt10": 0.239,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7378627666550764,
+      "ndcgInterval": {
+        "point": 0.7378627666550764,
+        "low": 0.7251605797492826,
+        "high": 0.7490337900067434,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7242222222222221,
+      "macroDiversityAt10": 0.06198044556878647,
+      "coverageAt10": 0.4835,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7423661547945871,
+      "ndcgInterval": {
+        "point": 0.7423661547945871,
+        "low": 0.7276098815755101,
+        "high": 0.7559682842777482,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7301111111111112,
+      "macroDiversityAt10": 0.058043831793761935,
+      "coverageAt10": 0.652,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.6877887975966576,
+      "ndcgInterval": {
+        "point": 0.6877887975966576,
+        "low": 0.6731474099770811,
+        "high": 0.7027558277866157,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6674444444444444,
+      "macroDiversityAt10": 0.07665163220127146,
+      "coverageAt10": 0.1815,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7307748873196791,
+      "ndcgInterval": {
+        "point": 0.7307748873196791,
+        "low": 0.7179343586424707,
+        "high": 0.7426048912496397,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7181111111111111,
+      "macroDiversityAt10": 0.06911569709164085,
+      "coverageAt10": 0.5365,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-grayscale__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7363156265998149,
+      "ndcgInterval": {
+        "point": 0.7363156265998149,
+        "low": 0.7212399708393141,
+        "high": 0.7500487528146937,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.724,
+      "macroDiversityAt10": 0.058246524049005585,
+      "coverageAt10": 0.6775,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__zscore__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.6778346726942102,
+      "ndcgInterval": {
+        "point": 0.6778346726942102,
+        "low": 0.6656999617925362,
+        "high": 0.6884791979762799,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6695555555555557,
+      "macroDiversityAt10": 0.06186737827848023,
+      "coverageAt10": 0.2345,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__zscore__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7316380347384502,
+      "ndcgInterval": {
+        "point": 0.7316380347384502,
+        "low": 0.7202328317655098,
+        "high": 0.742656591478279,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.723111111111111,
+      "macroDiversityAt10": 0.05803328399223438,
+      "coverageAt10": 0.4695,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__zscore__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7434844283555098,
+      "ndcgInterval": {
+        "point": 0.7434844283555098,
+        "low": 0.7303750442979762,
+        "high": 0.7567619627723696,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7314444444444443,
+      "macroDiversityAt10": 0.057000029293321944,
+      "coverageAt10": 0.661,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__rrf__a0.25",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.63971108792759,
+      "ndcgInterval": {
+        "point": 0.63971108792759,
+        "low": 0.6270792231061307,
+        "high": 0.651059153069528,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.6242222222222222,
+      "macroDiversityAt10": 0.06668270341425289,
+      "coverageAt10": 0.168,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__rrf__a0.5",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7160179611912072,
+      "ndcgInterval": {
+        "point": 0.7160179611912072,
+        "low": 0.7044564085786131,
+        "high": 0.7272014177176894,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.707,
+      "macroDiversityAt10": 0.06508464095985016,
+      "coverageAt10": 0.5235,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__padded__literal-product__rrf__a0.75",
+      "task": "hybrid",
+      "selectable": true,
+      "macroNdcgAt10": 0.7335719336171106,
+      "ndcgInterval": {
+        "point": 0.7335719336171106,
+        "low": 0.7195212130797405,
+        "high": 0.7469452710001598,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7208888888888889,
+      "macroDiversityAt10": 0.05781518651426112,
+      "coverageAt10": 0.6745,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.5__l0.9",
+      "task": "hybrid",
+      "selectable": false,
+      "macroNdcgAt10": 0.7978791419297641,
+      "ndcgInterval": {
+        "point": 0.7978791419297641,
+        "low": 0.7856355550724846,
+        "high": 0.8091542790984974,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7939999999999999,
+      "macroDiversityAt10": 0.057801827231501436,
+      "coverageAt10": 0.51,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.5__l0.7",
+      "task": "hybrid",
+      "selectable": false,
+      "macroNdcgAt10": 0.7975583991429099,
+      "ndcgInterval": {
+        "point": 0.7975583991429099,
+        "low": 0.785308659236683,
+        "high": 0.8086654722144351,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.7935555555555555,
+      "macroDiversityAt10": 0.05796678007146119,
+      "coverageAt10": 0.511,
+      "violationRate": 0
+    },
+    {
+      "id": "hybrid__inverted__literal-product__zscore__a0.5__l0.5",
+      "task": "hybrid",
+      "selectable": false,
+      "macroNdcgAt10": 0.7964887553312754,
+      "ndcgInterval": {
+        "point": 0.7964887553312754,
+        "low": 0.7841632987707554,
+        "high": 0.8075252557219381,
+        "samples": 1000,
+        "seed": 20261012
+      },
+      "macroPrecisionAt10": 0.792111111111111,
+      "macroDiversityAt10": 0.058251580203204534,
+      "coverageAt10": 0.5105,
+      "violationRate": 0
+    }
+  ],
+  "chosen": {
+    "id": "frozen.v1",
+    "schemaVersion": 1,
+    "sourceSpec": "ml/config/tuning.v1.json",
+    "task": "hybrid",
+    "dataset": "fmnist",
+    "scoredSplit": "val",
+    "testSplitScored": false,
+    "k": 10,
+    "mmrPool": 50,
+    "preprocess": "inverted",
+    "promptTemplate": "literal-product",
+    "fusion": "zscore",
+    "alpha": 0.5,
+    "lambda": 0.9,
+    "signals": [
+      "img",
+      "txt"
+    ],
+    "weights": {
+      "img": 0.5,
+      "txt": 0.5
+    },
+    "selectionRule": "Among hybrid arms at lambda 1, maximise macro NDCG@10. An exact tie breaks by preprocessOrder, then templateOrder, then fusionOrder, then alphaOrder. Then take the largest lambda whose macro intra-list diversity gain over lambda 1 is positive and whose macro NDCG@10 loss is at most 0.01. Otherwise lambda stays 1.",
+    "lambdaDecision": {
+      "lambda": 0.9,
+      "reason": "largest lambda with a diversity gain and NDCG@10 loss at or below the budget",
+      "loss": 0.000092535475619826,
+      "gain": 0.00006577486910711722,
+      "baselineNdcg": 0.7979716774053839,
+      "baselineDiversity": 0.05773605236239432,
+      "ndcg": 0.7978791419297641,
+      "diversity": 0.057801827231501436
+    },
+    "validation": {
+      "lambda1": {
+        "armId": "hybrid__inverted__literal-product__zscore__a0.5",
+        "macroNdcgAt10": 0.7979716774053839,
+        "macroDiversityAt10": 0.05773605236239432
+      },
+      "chosen": {
+        "armId": "hybrid__inverted__literal-product__zscore__a0.5__l0.9",
+        "macroNdcgAt10": 0.7978791419297641,
+        "macroDiversityAt10": 0.057801827231501436
+      }
+    },
+    "bootstrap": {
+      "samples": 1000,
+      "seed": 20261012,
+      "low": 0.025,
+      "high": 0.975
+    },
+    "queryDefinition": "Each validation image is paired with each validation paraphrase of that image's class. The text query is the prompt template with {} replaced by the paraphrase. Relevance is the shared class.",
+    "queryOrder": "Images follow the committed split file. Paraphrases follow text-queries.v1.json. A hybrid arm loops images in that order and, within each image, the validation paraphrases of its class in file order.",
+    "configHash": "5d3d774895e1a329336d6250ed4e7ad6b7f8fc806ab09c832f65547d2ceedda0"
+  },
+  "paired": {
+    "fusion": {
+      "point": 0.02382949981998672,
+      "low": 0.017099589826259313,
+      "high": 0.0309575015841192,
+      "samples": 1000,
+      "seed": 20261012,
+      "comparedWith": "hybrid__inverted__literal-product__rrf__a0.5"
+    },
+    "lambda": {
+      "point": -0.000092535475619826,
+      "low": -0.00040253323391307717,
+      "high": 0.0002168108582276004,
+      "samples": 1000,
+      "seed": 20261012,
+      "comparedWith": "hybrid__inverted__literal-product__zscore__a0.5"
+    }
+  }
+}

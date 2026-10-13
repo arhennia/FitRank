@@ -119,7 +119,37 @@ Budget, stock, and size on the image index returned the fail-safe errors. A coat
 
 ## Next concrete task
 
-The active execution plan is the sprint section of `PLAN.md`. T3 is done. The next task is T4, metrics and validation-only tuning. The retrieval core is in `js/retrieval/` and does not load a model. Image embeddings for the sprint split are cached under `ml/artifacts/` and are gitignored.
+The active execution plan is the sprint section of `PLAN.md`. T4 is done. The next task is T5, one test-split run against `configs/frozen.v1.json`. The test split was not scored during tuning. The frozen config hash is `5d3d774895e1a329336d6250ed4e7ad6b7f8fc806ab09c832f65547d2ceedda0`.
+
+## Sprint T4, 13 Oct 2026
+
+Section 6 metrics and a 1,000-draw query bootstrap live in `js/retrieval/`. The hand checks are in `test/retrieval-metrics.test.js`. `npm run eval:val` scored the validation grid and wrote `ml/results/val/`. `npm run eval:arm -- --split test` refuses to run. `npm test`: 106 passed, 0 failed. No model weights are loaded by the metric tests.
+
+The text queries were written before the run, in `ml/data/text-queries.v1.json`: 10 classes, 5 paraphrases each, 3 validation and 2 test. Each class has a validation paraphrase that shares no class-name token with the label. The selection rule is `ml/config/tuning.v1.json`. It was not edited after the scores existed.
+
+The as-is index and validation caches were reused with no inference. Inverted and padded embeddings were computed for the index (2,000) and validation (300) only. The test split was not embedded again. Paraphrase text was embedded once, including the held-out strings, and those strings were not used as queries.
+
+Validation, macro over classes, K = 10. Hybrid queries are each validation image paired with each validation paraphrase of its class (900 queries). Image and pixel queries are the 300 validation images. Text and lexical queries are the 30 validation paraphrases. Recall@10 cannot exceed 0.05, because each class has 200 index items. No price, size, or stock gate was active. The empty-constraint check on returned rows had violation rate 0 on every arm.
+
+| Arm | Macro NDCG@10 | 95% interval | Precision@10 |
+| --- | ---: | --- | ---: |
+| Hybrid, inverted, literal-product, z-score, alpha 0.5, lambda 1 | 0.798 | 0.786 to 0.809 | 0.794 |
+| Same arm, lambda 0.9 (frozen) | 0.798 | 0.786 to 0.809 | 0.794 |
+| Image, as-is | 0.758 | 0.734 to 0.782 | 0.744 |
+| Image, inverted | 0.758 | 0.729 to 0.783 | 0.746 |
+| Image, padded | 0.729 | 0.704 to 0.756 | 0.717 |
+| Text, inverted, literal-photo | 0.724 | 0.631 to 0.809 | 0.713 |
+| Pixel, mean-centered | 0.705 | 0.677 to 0.733 | 0.694 |
+| Pixel, raw | 0.698 | 0.670 to 0.725 | 0.687 |
+| Lexical, literal-photo | 0.667 | 0.475 to 0.850 | 0.667 |
+
+The frozen arm's other macro figures: Recall@10 0.040, R-precision 0.559, Hit@10 0.998, MRR 0.887, intra-list diversity 0.058, distinct classes 2.006, coverage@10 0.510. Diversity is cosine distance in the inverted CLIP space. Top-10 neighbours from one class sit close together, so the diversity number stays small. Coat NDCG@10 was 0.526 and Shirt was 0.532. Trouser was 1.000, Bag 0.983, Ankle boot 0.965, Sandal 0.935.
+
+Z-score minus the matched RRF arm was +0.024 macro NDCG@10. The paired interval was 0.017 to 0.031 and excluded 0. Image, text, pixel, and lexical do not share the hybrid query list, so those gaps are not paired tests. Lexical and text intervals are wide because each arm has 30 queries.
+
+The lambda rule selected 0.9. Diversity rose by 0.000066 and NDCG fell by 0.000093. The paired interval for that NDCG change was -0.0004 to +0.0002 and includes 0. The rule had no minimum gain, and it was not changed after the run. The gain is not evidence that MMR improved the lists. Search time on the frozen arm, after the score matrix was built, was p50 69.1 ms and p95 93.9 ms. The same arm at lambda 1, which does not run MMR, was p50 0.9 ms. The image-only arm was p50 1.1 ms.
+
+`configs/frozen.v1.json` records inverted polarity, the literal-product template, z-score fusion, alpha 0.5, and lambda 0.9. MMR reranks the top 50 fused-score items. That pool size was written down before the run.
 
 ## Sprint T3, 12 Oct 2026
 

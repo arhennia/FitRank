@@ -21,7 +21,7 @@ export function clipTextToImage(store, queryVector, options) {
   return tagged("clip-t2i", dotProductTopK(store, queryVector, options));
 }
 
-function pixelVector(values, variant) {
+export function pixelVector(values, variant) {
   if (!ArrayBuffer.isView(values) && !Array.isArray(values)) return null;
   const data = [];
   for (let index = 0; index < values.length; index += 1) {

@@ -8,7 +8,7 @@ import { writeCache, validateCache } from "../ml/src/embed/cache.mjs";
 import { auditCatalogue, catalogueText } from "../ml/src/embed/catalogueText.mjs";
 import { ensureEmbeddings } from "../ml/src/embed/embedTargets.mjs";
 import { idsHash, textCacheId } from "../ml/src/embed/manifest.mjs";
-import { applyVariant } from "../ml/src/embed/preprocess.mjs";
+import { applyVariant, preprocessForVariant } from "../ml/src/embed/preprocess.mjs";
 
 function expectedFor(ids, extra = {}) {
   return {
@@ -50,6 +50,21 @@ describe("preprocess", () => {
     assert.equal(padded.width, 32);
     assert.equal(padded.height, 32);
     assert.equal(padded.data.length, 32 * 32 * 3);
+  });
+
+  it("keeps the original object when the variant is already active", () => {
+    const config = {
+      active: "as-is",
+      variants: {
+        "as-is": { polarity: "as-is", pad: 0 },
+        inverted: { polarity: "inverted", pad: 0 },
+      },
+    };
+    assert.equal(preprocessForVariant(config, "as-is"), config);
+    const inverted = preprocessForVariant(config, "inverted");
+    assert.equal(inverted.active, "inverted");
+    assert.equal(config.active, "as-is");
+    assert.equal(inverted.variants, config.variants);
   });
 });
 
