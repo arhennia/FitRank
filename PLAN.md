@@ -160,6 +160,8 @@ Unknown occasions, styles, emphasis values, and priorities are validation errors
 
 ## Preference discovery
 
+The shopper page no longer opens on this form. It asks seven questions, interprets a profile in `js/shopping/profile.js`, and ranks with `recommendFromIntent()`. Category, budget, size, stock, and any optional limits the shopper sets are hard gates. The preference object below remains the input to `recommend()` and to the synthetic evaluation. `situationDefaults()` is still available for that path.
+
 `situationDefaults()` suggests editable defaults. The form applies them when the situation changes and shows the note. Later edits are kept.
 
 - College: occasion `everyday`, emphasis `comfort`. Comfort and versatility matter for daily wear.
