@@ -1,6 +1,6 @@
 # FitRank
 
-FitRank 2.0 is an explainable fashion decision engine. You describe a shopping situation, hard constraints, and what you are willing to trade off. The app filters a local catalogue of 60 fictional products, scores what remains, and explains each result from attributes on the product.
+FitRank is an explainable fashion decision engine. A seven-question flow describes the purchase you are making now. The app turns those answers into a shopping profile, filters a local catalogue of 60 fictional products, scores what remains, and explains each result from attributes on the product.
 
 It is a decision-support demo. It does not sell anything, store accounts, or call an external API. Brands, prices, ratings, and review counts are illustrative synthetic data, not shop listings.
 
@@ -14,7 +14,8 @@ It is a decision-support demo. It does not sell anything, store accounts, or cal
 
 ## Features
 
-- Preference discovery from a shopping situation, with editable defaults
+- A seven-question shopping flow that interprets a mission for this purchase, then ranks with hard constraints
+- The earlier preference object still drives `recommend()` and the synthetic evaluation
 - Hard constraints for budget, category, availability, and size, reported when a search is empty
 - A deterministic hybrid score from 0 to 100, with a per-component breakdown
 - Content similarity to a reference item, and a short list of similar products
@@ -53,7 +54,8 @@ js/metrics.js           Precision@K, NDCG@K, coverage, diversity, violations
 js/evaluate.js          baseline versus hybrid on shared candidates, including runtime
 js/benchmark.js         exhaustive candidate-generation timings
 js/format.js            display helpers
-js/main.js              form and view events
+js/main.js              questionnaire page, comparison, evaluation
+js/shopping/            questionnaire, profile, gates, intent score, explanations
 server.js               static file server
 test/                  engine tests and hand-labelled scenarios
 data/sample-import.json
@@ -64,7 +66,7 @@ Open the app through the server. Loading `index.html` directly from disk blocks 
 ## Pipeline
 
 ```text
-situation defaults (the page only; you can edit them)
+situation defaults (evaluation and the older recommend() path)
   -> validatePreferences
   -> generateCandidates          hard gates, no points
   -> drop the reference item     it is not ranked against itself
@@ -72,6 +74,19 @@ situation defaults (the page only; you can edit them)
   -> rankByRelevance or rerankMMR
   -> assignLabels
   -> buildExplanation
+
+The shopper page uses a second entry point, `recommendFromIntent()`:
+
+```text
+seven answers + practical constraints
+  -> validateQuestionnaire and validateConstraints
+  -> interpretShoppingProfile     saturated signals, one weight per signal
+  -> generateCandidates           budget, stock, size
+  -> shopping gates               category, colour, material, fit, brand, season, dress code, avoids
+  -> scoreIntentProduct
+  -> rankByRelevance or the existing MMR rerank
+  -> explanations from recorded fields
+```
 ```
 
 At this catalogue size, candidate generation is an exhaustive scan. It is not an index.
