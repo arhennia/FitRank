@@ -6,26 +6,39 @@
     <title>FitRank</title>
     <meta name="description" content="FitRank asks what you are shopping for, then ranks a synthetic fashion catalogue and explains the trade-offs.">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+      document.documentElement.dataset.route = location.hash === "#lab" ? "lab" : "shop";
+    </script>
   </head>
   <body>
     <header class="site-header">
-      <p class="eyebrow">Guided fashion discovery</p>
-      <h1>FitRank</h1>
-      <p class="lede">
-        Tell FitRank what you are shopping for today, how you want the piece to fit your wardrobe, and what you can spend.
-        It ranks a local catalogue and explains which trade-offs the shortlist actually supports.
-      </p>
-      <p class="hint">Brands, prices, and ratings here are fictional. This is not a shop, and nothing in the catalogue is real retail inventory.</p>
+      <div class="mast">
+        <a class="wordmark" href="#shop">FitRank</a>
+        <nav class="site-nav" aria-label="Sections">
+          <a href="#shop" data-nav="shop">Shop</a>
+          <a href="#lab" data-nav="lab">Lab</a>
+        </nav>
+      </div>
+      <div class="progress-rail" aria-hidden="true"><span></span></div>
+      <div class="shop-only opening">
+        <h1>Ranked for what you are buying now.</h1>
+        <p class="lede">Seven questions. A fictional catalogue. The shortlist names the trade-offs it can actually support.</p>
+      </div>
+      <div class="lab-only lab-intro">
+        <p class="experimental">Experimental</p>
+        <p class="lede">A separate experiment. It is not the shopping questionnaire.</p>
+      </div>
     </header>
 
     <main>
-      <section id="preferences-view" aria-labelledby="preferences-heading">
-        <h2 id="preferences-heading">Shopping questions</h2>
-        <p class="hint">Seven short questions, then the practical limits. This is about the purchase you are making now.</p>
+      <section id="preferences-view" class="shop-only" aria-labelledby="preferences-heading">
+        <h2 id="preferences-heading" class="sr-only">Shopping questions</h2>
         <div id="questionnaire"></div>
       </section>
 
-      <section id="results-view" hidden aria-labelledby="results-heading">
+      <section id="results-view" class="shop-only" hidden aria-labelledby="results-heading">
+        <p class="disclaimer">Brands, prices, and ratings here are fictional. This is not a shop, and nothing in the catalogue is real retail inventory.</p>
+        <p id="rank-status" class="rank-status" aria-live="polite"></p>
         <div class="view-bar">
           <h2 id="results-heading">Recommendations</h2>
           <div class="form-actions">
@@ -39,7 +52,7 @@
         <div id="results"></div>
       </section>
 
-      <section id="comparison-view" hidden aria-labelledby="comparison-heading">
+      <section id="comparison-view" class="shop-only" hidden aria-labelledby="comparison-heading">
         <div class="view-bar">
           <h2 id="comparison-heading">Comparison</h2>
           <button type="button" id="back-to-results">Back to recommendations</button>
@@ -48,7 +61,8 @@
         <div id="comparison"></div>
       </section>
 
-      <section id="retrieval-view" aria-labelledby="retrieval-heading">
+      <section id="retrieval-view" class="lab-only lab-section" aria-labelledby="retrieval-heading">
+        <p class="lab-banner">Controlled experiment on 28×28 Fashion-MNIST: validates retrieval machinery only. Not evidence about shopping quality.</p>
         <h2 id="retrieval-heading">Image and text search</h2>
         <p class="hint">
           This searches a separate Fashion-MNIST index with CLIP. It does not replace the shopper form, and class match on these 28×28 images is not a real-world fashion recommendation.
@@ -98,7 +112,7 @@
         <div id="retrieval-results"></div>
       </section>
 
-      <section id="experiment-view" aria-labelledby="experiment-heading">
+      <section id="experiment-view" class="lab-only lab-section" aria-labelledby="experiment-heading">
         <h2 id="experiment-heading">Retrieval experiment</h2>
         <p class="hint">
           Numbers come from the last saved run. They measure Fashion-MNIST class match, not shopper satisfaction.
@@ -107,7 +121,7 @@
         <div id="experiment-report"></div>
       </section>
 
-      <section id="evaluation-view" aria-labelledby="evaluation-heading">
+      <section id="evaluation-view" class="lab-only lab-section" aria-labelledby="evaluation-heading">
         <h2 id="evaluation-heading">Synthetic evaluation</h2>
         <p class="hint">
           Runs the hand-labelled shopper scenarios against the v1 baseline and the hybrid ranking.
@@ -120,6 +134,7 @@
     </main>
 
     <footer>
+      <p class="disclaimer">Brands, prices, and ratings here are fictional. This is not a shop, and nothing in the catalogue is real retail inventory.</p>
       <p>
         The shopping questions rank 60 fictional products. Category and aesthetic tags added for this questionnaire are synthetic labels. Image and text search uses a separate Fashion-MNIST index and CLIP.
         Class match on that index is not a real-world fashion recommendation. Similarity in the shopper results still means related attributes, not a duplicate listing.

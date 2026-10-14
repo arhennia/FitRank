@@ -258,3 +258,15 @@ fetch("/experiments/retrieval-results.json")
   .catch(() => renderExperiment(null));
 
 document.querySelector("#run-evaluation").addEventListener("click", renderEvaluation);
+
+function applyRoute() {
+  const route = location.hash === "#lab" ? "lab" : "shop";
+  document.documentElement.dataset.route = route;
+  for (const link of document.querySelectorAll("[data-nav]")) {
+    if (link.dataset.nav === route) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  }
+}
+
+window.addEventListener("hashchange", applyRoute);
+applyRoute();

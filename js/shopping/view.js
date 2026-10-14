@@ -20,14 +20,24 @@ function el(tag, className, text) {
   return node;
 }
 
-function optionButton(kind, id, label, pressed, extraClass = "option-card") {
+function displayLabel(label) {
+  return String(label).replace(/\.$/, "");
+}
+
+function optionButton(kind, id, label, pressed, extraClass = "option-card", marker = "circle") {
   const button = document.createElement("button");
   button.type = "button";
   button.className = extraClass;
   button.dataset.kind = kind;
   button.dataset.value = id;
   button.setAttribute("aria-pressed", pressed ? "true" : "false");
-  button.textContent = label;
+  const mark = document.createElement("span");
+  mark.className = marker === "square" ? "mark mark-square" : "mark mark-circle";
+  mark.setAttribute("aria-hidden", "true");
+  const text = document.createElement("span");
+  text.className = "option-label";
+  text.textContent = displayLabel(label);
+  button.append(mark, text);
   return button;
 }
 
@@ -43,7 +53,8 @@ function questionView(question, answers) {
   const selected = answers[question.id];
   for (const option of question.options) {
     const pressed = question.selection === "single" ? selected === option.id : selected.includes(option.id);
-    const button = optionButton("answer", option.id, option.label, pressed);
+    const marker = question.selection === "single" ? "circle" : "square";
+    const button = optionButton("answer", option.id, option.label, pressed, "option-card", marker);
     button.dataset.question = question.id;
     grid.append(button);
   }
@@ -51,17 +62,16 @@ function questionView(question, answers) {
   return wrap;
 }
 
-function chipSet(kind, options, selected, className = "chip-grid") {
+function chipSet(kind, options, selected, className = "chip-grid", marker = "square") {
   const grid = el("div", className);
   for (const option of options) {
     const id = option.id || option;
     const label = option.label || option;
-    const button = optionButton(kind, id, label, selected.includes(id), "chip");
+    const button = optionButton(kind, id, label, selected.includes(id), "chip", marker);
     if (option.swatch) {
-      button.textContent = "";
       const swatch = el("span", "swatch");
       swatch.dataset.colour = id;
-      button.append(swatch, document.createTextNode(` ${label}`));
+      button.insertBefore(swatch, button.querySelector(".option-label"));
     }
     grid.append(button);
   }
@@ -85,12 +95,12 @@ function constraintsView(state, brands) {
   budgetType.setAttribute("role", "group");
   budgetType.setAttribute("aria-label", "Budget type");
   for (const [id, label] of [["item", "Budget per item"], ["total", "Total budget for the purchase"]]) {
-    const button = optionButton("budgetType", id, label, constraints.budgetType === id, "chip");
+    const button = optionButton("budgetType", id, label, constraints.budgetType === id, "chip", "circle");
     budgetType.append(button);
   }
   const presets = el("div", "chip-grid");
   for (const preset of BUDGET_PRESETS) {
-    const button = optionButton("preset", String(preset.amount), preset.label, String(constraints.maxBudget) === String(preset.amount), "chip");
+    const button = optionButton("preset", String(preset.amount), preset.label, String(constraints.maxBudget) === String(preset.amount), "chip", "circle");
     presets.append(button);
   }
   const budgetLabel = el("label", "stack");
@@ -233,14 +243,17 @@ function reviewView(state) {
   const list = el("div", "summary-list");
   for (const row of rows) {
     const item = el("div", "summary-row");
-    const text = el("p");
+    const text = el("div", "summary-copy");
     const name = el("strong", null, row.label);
-    text.append(name, document.createTextNode(` ${row.value || "—"}`));
+    const shown = row.value && String(row.value).trim() ? row.value : "Not provided";
+    const value = el("span", "summary-value", shown);
+    text.append(name, value);
     const edit = document.createElement("button");
     edit.type = "button";
+    edit.className = "text-button";
     edit.dataset.kind = "edit";
     edit.dataset.step = String(row.step);
-    edit.textContent = "Edit";
+    edit.append(document.createTextNode("Change"), el("span", "sr-only", ` ${row.label}`));
     item.append(text, edit);
     list.append(item);
   }
@@ -252,47 +265,63 @@ export function renderQuestionnaire(root, { state, errors, brands }) {
   root.replaceChildren();
   const progress = el("p", "progress");
   progress.id = "progress";
+  const progressSteps = QUESTIONS.length + 2;
+  const fraction = String((state.step + 1) / progressSteps);
+  progress.style.setProperty("--progress", fraction);
+  document.documentElement.style.setProperty("--progress", fraction);
   if (state.step < QUESTIONS.length) {
-    progress.textContent = `${state.step + 1} of ${QUESTIONS.length}`;
+    progress.textContent = `Question ${state.step + 1} of ${QUESTIONS.length}`;
     progress.setAttribute("aria-label", `Question ${state.step + 1} of ${QUESTIONS.length}`);
   } else if (state.step === QUESTIONS.length) {
     progress.textContent = "Requirements";
+    progress.setAttribute("aria-label", "Requirements");
   } else {
     progress.textContent = "Review";
+    progress.setAttribute("aria-label", "Review");
   }
+  const track = el("span", "progress-track");
+  track.setAttribute("aria-hidden", "true");
+  track.append(el("span", "progress-fill"));
+  progress.append(track);
 
   let panel;
   if (state.step < QUESTIONS.length) panel = questionView(QUESTIONS[state.step], state.answers);
   else if (state.step === QUESTIONS.length) panel = constraintsView(state, brands);
   else panel = reviewView(state);
 
-  const errorBox = el("div");
+  const errorBox = el("div", "form-error");
   errorBox.id = "form-errors";
   errorBox.setAttribute("role", "alert");
   if (errors?.length) {
     const list = document.createElement("ul");
-    for (const error of errors) list.append(el("li", null, error));
+    for (const error of errors) list.append(el("li", null, `Error: ${String(error).replace(/^Error:\s*/, "")}`));
     errorBox.append(list);
+    const anchor = panel.querySelector(".option-grid, .choices, .chip-grid");
+    if (anchor) anchor.before(errorBox);
+    else panel.prepend(errorBox);
+    panel.classList.add("has-error");
   }
 
   const actions = el("div", "form-actions nav-actions");
   const back = document.createElement("button");
   back.type = "button";
+  back.className = "text-button";
   back.dataset.kind = "back";
   back.textContent = "Back";
-  back.disabled = state.step === 0;
+  back.hidden = state.step === 0;
   const next = document.createElement("button");
   next.type = "button";
   next.className = "primary";
   next.dataset.kind = "next";
-  next.textContent = state.step < QUESTIONS.length ? "Next" : state.step === QUESTIONS.length ? "Review" : "Show recommendations";
+  next.textContent = state.step < QUESTIONS.length ? "Continue" : state.step === QUESTIONS.length ? "Review" : "Show recommendations";
   const reset = document.createElement("button");
   reset.type = "button";
+  reset.className = "text-button";
   reset.dataset.kind = "reset";
   reset.textContent = "Reset";
   actions.append(back, reset, next);
 
-  root.append(progress, panel, errorBox, actions);
+  root.append(progress, panel, actions);
 }
 
 export function budgetDisplay(amount) {

@@ -74,6 +74,10 @@ export function mountShopper({ getProducts, setProducts }) {
 
   function render() {
     renderQuestionnaire(root, { state: flow, errors, brands: brands() });
+    const unanswered = Object.values(flow.answers).every((value) => (
+      value == null || value === "" || (Array.isArray(value) && value.length === 0)
+    ));
+    document.documentElement.dataset.intro = flow.step === 0 && unanswered ? "yes" : "no";
     const note = root.querySelector("#import-note");
     if (note && importMessage) note.textContent = importMessage;
     if (errors.length > 0) {
@@ -103,10 +107,34 @@ export function mountShopper({ getProducts, setProducts }) {
   }
 
   function runSearch() {
-    const result = recommendFromIntent(getProducts(), {
-      answers: flow.answers,
-      constraints: flow.constraints,
-    });
+    const live = document.querySelector("#rank-status");
+    const primary = root.querySelector("button.primary");
+    if (live) live.textContent = "Ranking the catalogue";
+    if (primary) {
+      primary.setAttribute("aria-busy", "true");
+      primary.disabled = true;
+    }
+    let result;
+    try {
+      result = recommendFromIntent(getProducts(), {
+        answers: flow.answers,
+        constraints: flow.constraints,
+      });
+    } catch (error) {
+      if (live) live.textContent = "";
+      if (primary) {
+        primary.removeAttribute("aria-busy");
+        primary.disabled = false;
+      }
+      errors = [error?.message || "Could not rank the catalogue."];
+      render();
+      return;
+    }
+    if (primary) {
+      primary.removeAttribute("aria-busy");
+      primary.disabled = false;
+    }
+    if (live) live.textContent = "";
     if (!result.ok) {
       errors = result.errors;
       flow = goToStep(flow, 7);
@@ -173,9 +201,6 @@ export function mountShopper({ getProducts, setProducts }) {
   function renderCard(item, index) {
     const card = document.createElement("article");
     card.className = "card";
-    const mark = document.createElement("div");
-    mark.className = "placeholder";
-    mark.textContent = "No photo";
     const body = document.createElement("div");
     const top = document.createElement("div");
     top.className = "card-top";
@@ -199,6 +224,7 @@ export function mountShopper({ getProducts, setProducts }) {
     fill.style.width = `${Math.max(0, Math.min(100, item.score))}%`;
     bar.append(fill);
     const meta = document.createElement("p");
+    meta.className = "meta";
     meta.textContent = `${attributeLine(item.product)} · ${formatInr(item.product.price)}`;
     const description = document.createElement("p");
     description.textContent = item.product.description || "";
@@ -244,7 +270,7 @@ export function mountShopper({ getProducts, setProducts }) {
       item.tradeoffs?.length ? renderLines(item.tradeoffs, "tradeoffs") : document.createElement("span"),
       actions,
     );
-    card.append(mark, body);
+    card.append(body);
     const rank = document.createElement("p");
     rank.className = "rank-label";
     rank.textContent = `Rank ${index + 1}`;
@@ -292,17 +318,37 @@ export function mountShopper({ getProducts, setProducts }) {
     const mode = result.ranking === "diverse" ? "Diversity-aware order." : "Relevance order.";
     const assumptions = result.assumptions?.length ? ` ${result.assumptions.join(" ")}` : "";
     if (!result.products.length) {
-      summaryEl.textContent = `${result.message || "No products match."}${assumptions}`;
+      summaryEl.textContent = "";
       updateCompareControls();
+      const heading = document.createElement("h2");
+      heading.textContent = "No products match these answers";
+      const list = document.createElement("ul");
+      list.className = "constraint-list";
+      const constraints = flow.constraints;
+      const lines = [];
+      if (constraints.categories?.length) lines.push(`Categories: ${constraints.categories.join(", ")}`);
+      if (constraints.maxBudget) {
+        lines.push(constraints.budgetType === "total"
+          ? `Total budget ${constraints.maxBudget}`
+          : `Budget per item ${constraints.maxBudget}`);
+      }
+      if (constraints.size) lines.push(`Size ${constraints.size}`);
+      if (constraints.requireInStock !== false) lines.push("In stock only");
+      if (result.message) lines.push(result.message);
+      for (const line of lines) {
+        const item = document.createElement("li");
+        item.textContent = line;
+        list.append(item);
+      }
       const edit = document.createElement("button");
       edit.type = "button";
-      edit.className = "primary";
-      edit.textContent = "Revise answers";
+      edit.className = "text-button";
+      edit.textContent = "Review your answers";
       edit.addEventListener("click", () => {
         flow = goToStep(flow, 8);
         showPreferences();
       });
-      resultsEl.append(edit);
+      resultsEl.append(heading, list, edit);
       return;
     }
     const spent = result.spent == null ? "" : ` Together they come to ${formatInr(result.spent)}.`;

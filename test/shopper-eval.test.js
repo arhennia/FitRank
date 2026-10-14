@@ -44,9 +44,9 @@ describe("shopper evaluation setup", () => {
     const val = readFileSync(new URL("../ml/data/judging/pool.val.csv", import.meta.url), "utf8");
     const test = readFileSync(new URL("../ml/data/judging/pool.test.csv", import.meta.url), "utf8");
     for (const text of [val, test]) {
-      const lines = text.trim().split("\n").slice(1);
+      const lines = text.trim().split(/\r?\n/).slice(1);
       assert.ok(lines.length > 0);
-      for (const line of lines) assert.ok(line.endsWith(","));
+      for (const line of lines) assert.ok(line.trim().endsWith(","));
     }
   });
 });
