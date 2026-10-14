@@ -107,3 +107,111 @@ At 45.834 ms/image, 2,800 images are about 2.1 minutes of embedding before batch
 ## What this audit did not change
 
 No new retrieval code, no new split, and no threshold change. The published retrieval results were not recomputed.
+
+## Intent flow
+
+Written 14 Oct 2026 for the v2 plan, from the code that is already on the shopper page. This section does not change scoring. Task K starts from these facts. The provisional `IntentProfile` in `PLAN.md` is not yet a module.
+
+### Where answers live
+
+The page calls `mountShopper` in `js/shopping/page.js`. State is `createFlowState()` in `js/shopping/flow.js`: `answers` for the seven questions and `constraints` for budget, category, size, and the optional gates. `setAnswer` stores one id for a single-select question and a list for a multi-select question. Choosing "A balance of several of these" clears the other priority ticks.
+
+`recommendFromIntent(products, { answers, constraints })` in `js/shopping/recommendIntent.js` is the search path. It validates, calls `interpretShoppingProfile(answers)`, applies hard gates, scores with `scoreIntentProduct`, then ranks by relevance or by the existing MMR rerank. It does not call `recommend()` and it does not call an embedding index.
+
+`recommend(products, preferences)` still serves the older preference object and the synthetic evaluation. The questionnaire does not build that object.
+
+### Seven questions
+
+Option ids are the stored values. Labels are the words on the page. Effects are summed, then saturated at 2, so a third mention of the same signal does not raise its weight.
+
+1. `trigger` — "What brought you here today?" Single select.
+   - `occasion` — I need something for a specific occasion. Sets `purchaseTrigger` and votes for mission `occasion`.
+   - `gap` — Something in my wardrobe is missing. Votes for `gap-fill` and adds wardrobe uncertainty.
+   - `replace` — I need to replace something worn out. Votes for `replace`. Adds quality and versatility evidence.
+   - `spotted` — I spotted something I like. Votes for `temptation`.
+   - `explore` — I'm exploring and looking for inspiration. Votes for `explore` and sets discovery evidence. This trigger selects diverse ranking.
+   - `deal` — I found a good deal and want to see if it's worth it. Votes for `deal-check`. Adds value and price evidence.
+
+2. `outcome` — "What would make this purchase feel worth it?" Single select.
+   - `repeat-wear` — I'll wear it again and again. Versatility evidence, mission `versatile`.
+   - `completes` — It completes outfits I already own. Mission `gap-fill`, wardrobe uncertainty, versatility.
+   - `new-look` — It gives me a new look or aesthetic. Mission `statement`, distinctiveness, novelty.
+   - `occasion-special` — It makes a particular occasion feel special. Mission `occasion`, occasion-fit evidence.
+   - `unique` — It's something unique I wouldn't normally find. Distinctiveness and novelty. Split mission vote.
+   - `deal-quality` — It's a great deal for the quality. Mission `deal-check`, value, quality.
+
+3. `role` — "How do you want this piece to fit into your wardrobe?" Single select. Sets `wardrobeRole`.
+   - `versatile` — A versatile piece that works with many outfits.
+   - `basic` — A missing basic I should already have.
+   - `connector` — A piece that connects several existing items.
+   - `statement` — A statement piece that stands out.
+   - `different` — Something different from what I usually wear.
+   - `complete-look` — A complete look built around this purchase.
+
+4. `discovery` — "Which sounds most like how you want to shop today?" Single select. Sets `discoveryMode`.
+   - `focused` — I know what I need; help me find the best option. Relevance order.
+   - `style-new` — I know my style but want to discover something new. Diverse order.
+   - `aesthetic-explore` — I want to explore a particular aesthetic. Diverse order.
+   - `compare` — I want to compare options before committing. Diverse order.
+   - `surprise` — I'm open to surprises if the recommendation makes sense. Diverse order.
+   - `temptation` — I'm tempted by something, but want to know if I should buy it. Relevance order. Adds value evidence.
+
+5. `contexts` — "Where and how will you actually wear it?" Multi select. These ids are not the catalogue occasion list. `contextSignal` maps them onto catalogue occasions `everyday`, `work`, `evening`, `travel`, and `special`.
+   - `university` — University or everyday life. Everyday, formality 2.
+   - `work` — Work, internship or interviews. Work, formality 4.
+   - `cafes` — Cafés, outings or dates. Everyday and evening.
+   - `parties` — Parties, concerts or festivals. Evening, formality 4.
+   - `weddings` — Weddings, festivals or family occasions. Special, plus a smaller evening weight. Formality 5.
+   - `travel` — Travel or holidays. Travel.
+   - `home` — At home or for comfort. A weak everyday weight, plus comfort evidence.
+   - `several` — Several different settings. Everyday, work, travel, and evening.
+
+6. `aesthetics` — "Which styles feel most like what you want right now?" Multi select. A product can carry several tags with unequal `relevance`. The score is the average of the selected tags, so one match is partial credit. Tags live in `js/shopping/annotations.js` and are merged only when the product field is empty. They are synthetic.
+   - `goth`, `grunge`, `dark-academia`, `coquette`, `fairycore`, `y2k`, `streetwear`, `vintage`, `preppy`, `minimal`, `artistic`.
+   - `open` — I'm exploring and don't have a fixed aesthetic. This does not add an aesthetic score. It sets `exploringAesthetic`. If no named aesthetic is selected, aesthetic match is not scored.
+
+7. `priorities` — "What matters most when choosing between good options?" Multi select.
+   - `versatility`, `comfort`, `distinctive`, `quality`, `value` — each adds that score component.
+   - `fit` — A flattering fit and silhouette. Collected, then forced to 0 in `scoringPreferences`. Unused for ranking.
+   - `not-owned` — Something I don't already own. Novelty and distinctiveness evidence. There is no owned-wardrobe field, so this cannot check ownership.
+   - `price` — The lowest price or a genuinely good deal. A separate price component is used only when value is inactive. Value already includes budget headroom, so the two are not stacked.
+   - `balance` — A balance of several of these. Other priority ticks are ignored. Empty trade-off keys are set to 0.5. This is not an extra bonus.
+
+### What reaches the scorer
+
+`intentWeights` in `js/shopping/scoreIntent.js` turns the profile into component weights. Base weights, before saturation, are context 26, aesthetic 18, versatility 14, distinctiveness 14, comfort 12, quality 12, value 16, price 6, wardrobe role 12. Similarity 16 and avoid 14 apply only when the shopper uses "More like this" or "Less like this".
+
+| Answer signal | Score component |
+| --- | --- |
+| Any selected context | `context`, from catalogue `occasions` and `formalityRating` |
+| Named aesthetics | `aesthetic`, from product `aesthetics` relevance |
+| Versatility evidence, unless the role already uses it | `versatility`, from `versatilityRating` or occasion count |
+| Distinctiveness evidence, unless the role already uses it | `distinctiveness`, from styles and aesthetic tags |
+| Comfort evidence | `comfort`, from `comfortRating` |
+| Quality evidence | `quality`, Bayesian smoothing of `averageRating` and `reviewCount` |
+| Value evidence | `value`, geometric mean of that quality estimate and room under the budget |
+| Price evidence when value is off | `price`, room under the budget |
+| Any wardrobe role | `wardrobeRole`, a role-specific reading of versatility, distinctiveness, occasions, or formality |
+
+`occasionFit`, `basics`, `focus`, `discovery`, and `wardrobeUncertainty` change the mission, the ranking mode, or the explanation. They do not have their own score weight. Mission is the highest vote, with `MISSION_ORDER` breaking ties. It is a label, not a multiplier.
+
+Hard constraints are not score bonuses. `js/shopping/gates.js` applies category, colour, material, fit, brand, season, dress code, and avoid rules only when the shopper set them. A missing product field fails an active rule. Budget, stock, and size go through `generateCandidates` first. Category ids are the fine list in `SHOP_CATEGORIES`. A missing `shopCategory` matches a coarse catalogue category only for handbags, sneakers, and heels.
+
+### Catalogue fields and vocabularies
+
+Published rows in `js/catalogue.js` use `id`, `name`, `category`, `brand`, `colour`, `colours`, `styles`, `silhouette`, `material`, `occasions`, `comfortRating`, `versatilityRating`, `formalityRating`, `price`, `currency`, `availability`, `sizes`, `averageRating`, `reviewCount`, `care`, and `description`.
+
+Closed lists in `js/weights.js`:
+
+- Categories: Handbags, Jackets and coats, Dresses and skirts, Heels, Flats and loafers, Accessories, Tops, Trousers, Sneakers.
+- Occasions: everyday, work, evening, travel, special.
+- Styles: minimalist, structured, classic, bold, artistic.
+- Colours: black, brown, navy, beige, white, burgundy, green, red, tan, grey.
+
+The questionnaire uses a finer category list and a finer aesthetic list than those closed lists. Aesthetic tags are not on the published rows until `withShoppingAnnotations` fills them. There is no discount, no owned wardrobe, and no flattering-fit measurement.
+
+### Collected but unused
+
+- `priorities.fit` is stored and then set to 0. It never changes a score or a gate. The separate optional fit constraint (`relaxed`, `oversized`, `regular`, `fitted`, `wide-leg`) is a hard gate when the shopper sets it. That control is not the priority answer.
+- `aesthetics.open` does not score aesthetic match. It is used only as a flag for ranking mode and the explanation, so it is not on the unused list.
+- No questionnaire answer sets `imageSeed`. Image search stays on the Fashion-MNIST panel.
