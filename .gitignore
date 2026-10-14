@@ -7,3 +7,4 @@ experiments/fashion-mnist/data/
 ml/data/idx/
 ml/node_modules/
 ml/artifacts/
+public/

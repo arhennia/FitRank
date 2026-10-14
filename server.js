@@ -105,8 +105,15 @@ export function createApp() {
   });
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  createApp().listen(port, "127.0.0.1", () => {
+const app = createApp();
+
+export default function handler(req, res) {
+  app.emit("request", req, res);
+}
+
+const launchedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (launchedDirectly && !process.env.VERCEL) {
+  app.listen(port, "127.0.0.1", () => {
     console.log(`FitRank running at http://127.0.0.1:${port}`);
   });
 }

@@ -17,7 +17,18 @@ import { lexicalClassScore, pixelVector } from "../retrieval/sources.js";
 import { searchCatalogue } from "../retrieval/search.js";
 import { loadVectorStore } from "../retrieval/vectorStore.js";
 
-const root = join(dirname(fileURLToPath(import.meta.url)), "../..");
+function projectRoot() {
+  let dir = dirname(fileURLToPath(import.meta.url));
+  for (let step = 0; step < 6; step += 1) {
+    if (existsSync(join(dir, "package.json")) && existsSync(join(dir, "js", "catalogue.js"))) return dir;
+    const parent = dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return join(dirname(fileURLToPath(import.meta.url)), "../..");
+}
+
+const root = projectRoot();
 const SIDECAR = process.env.FITRANK_SIDECAR || "http://127.0.0.1:8787";
 const HEALTH_TTL_MS = 5000;
 const CALL_TIMEOUT_MS = 3000;
