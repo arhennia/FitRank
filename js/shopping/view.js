@@ -275,7 +275,7 @@ export function renderQuestionnaire(root, { state, errors, brands }) {
     errorBox.append(list);
   }
 
-  const actions = el("div", "form-actions");
+  const actions = el("div", "form-actions nav-actions");
   const back = document.createElement("button");
   back.type = "button";
   back.dataset.kind = "back";
@@ -290,7 +290,7 @@ export function renderQuestionnaire(root, { state, errors, brands }) {
   reset.type = "button";
   reset.dataset.kind = "reset";
   reset.textContent = "Reset";
-  actions.append(back, next, reset);
+  actions.append(back, reset, next);
 
   root.append(progress, panel, errorBox, actions);
 }
