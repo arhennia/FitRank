@@ -1,0 +1,51 @@
+{
+  "version": "templates.v1",
+  "note": "Written from the questionnaire vocabulary before any retrieval result. Phrases are fixed. Open aesthetic has no phrase.",
+  "aesthetic": {
+    "goth": "dark gothic",
+    "grunge": "grunge",
+    "dark-academia": "dark academia",
+    "coquette": "coquette",
+    "fairycore": "fairycore",
+    "y2k": "y2k",
+    "streetwear": "streetwear",
+    "vintage": "vintage",
+    "preppy": "preppy",
+    "minimal": "minimal",
+    "artistic": "artistic",
+    "open": null
+  },
+  "occasion": {
+    "university": "everyday",
+    "work": "work",
+    "cafes": "cafe outing",
+    "parties": "party",
+    "weddings": "evening occasion",
+    "travel": "travel",
+    "home": "home comfort",
+    "several": "several settings"
+  },
+  "category": {
+    "tops": "top",
+    "shirts": "shirt",
+    "knitwear": "knitwear",
+    "hoodies": "hoodie",
+    "trousers": "trousers",
+    "jeans": "jeans",
+    "skirts": "skirt",
+    "dresses": "dress",
+    "shorts": "shorts",
+    "jackets": "jacket",
+    "coats": "coat",
+    "blazers": "blazer",
+    "handbags": "handbag",
+    "backpacks": "backpack",
+    "sneakers": "sneakers",
+    "boots": "boots",
+    "heels": "heels",
+    "flats": "flats",
+    "loafers": "loafers",
+    "jewellery": "jewellery",
+    "belts": "accessory"
+  }
+}
