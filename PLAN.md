@@ -2,7 +2,7 @@
 
 This file is the source of truth for FitRank 2.0 and for the active 2.1 engineering plan. If a later change conflicts with this document, update this file first and record why in `PROGRESS.md`.
 
-The 2.0 definition of done is unchanged. The section "FitRank 2.1" records what is already built. The execution plan after it is the work that follows. T0 is the required audit before any further building. Measured facts are in `docs/AUDIT.md`, and task status is in `docs/plan/TASKS.md`.
+The 2.0 definition of done is unchanged. The section "FitRank 2.1" records what is already built. The active execution plan is "FitRank 2.1 revised plan (v2)". The section "Engineering plan v1" is the Fashion-MNIST-first sprint adopted on 12 Oct 2026. Where v1 and v2 disagree, v2 governs. Measured facts are in `docs/AUDIT.md`, and task status is in `docs/plan/TASKS.md`.
 
 ## Project goal
 
@@ -366,18 +366,227 @@ What is now built, beside that page:
 
 `data/listings/pairs.json` is still the hand-labelled set. The detector did not write those labels. `prototypes/moodboard/` remains the small trial and is not what the shopper form imports.
 
+The shopper page now uses the seven-question flow in `js/shopping/`. `recommendFromIntent()` interprets those answers and ranks the fictional catalogue. That flow is the input to the v2 audit. It is not yet the `IntentProfile` contract in the revised plan, and it does not call the embedding retriever.
+
 Still unbuilt:
 
-- A retriever inside `recommend()` for the 60-product catalogue. The shopper path is still the exhaustive scan.
+- A retriever inside the shopper path for the 60-product catalogue. The shopper path is still the exhaustive attribute scan.
 - Duplicate decisions shown on the shopper cards. The 13-pair result is an experiment, and the listings have no images.
-- Aesthetic tags outside the closed style list.
+- A mapping from the questionnaire vocabulary onto a real dataset. Synthetic aesthetic tags exist only on the intent path, in `js/shopping/annotations.js`.
 - A general API over the shopper functions. Only `/api/retrieve` exists.
 
 2.1 still must not scrape retailers. Duplicate-detection labels must be written by hand, not by the detector.
 
 Other later work, also unbuilt: a database, authorised retailer feeds, persistent preferences, collaborative filtering, a ranker trained on real relevance data, verified review text, and online experiments.
 
-## Engineering plan (sprint + level 2)
+## FitRank 2.1 revised plan (v2)
+
+Adopted as the governing 2.1 execution plan. v1 built retrieval around Fashion-MNIST and left catalogue integration as one late task (T6). That split the repo into parallel experiments. v2 makes the shopping task the spine and keeps Fashion-MNIST as a labelled side track.
+
+The `IntentProfile` schema below is provisional. The questionnaire already exists in `js/shopping/`, and the catalogue fields are in `js/catalogue.js`. Task K starts only after the T0 audit writes those facts to `docs/AUDIT.md` under "Intent flow".
+
+### 1. Governing rule
+
+Every component is either **Integrated** or a labelled **Experiment**.
+
+- Integrated: called in the search path, with an evaluation arm that measures its contribution to the shopping task.
+- Experiment: separate folder, separate UI label, separate result files, and no claims about the shopper.
+
+`docs/COMPONENTS.md` is the ledger. Keep it current.
+
+| Component | Status | Call site in search path | Eval arm | Evidence file |
+| --- | --- | --- | --- | --- |
+| Questionnaire → IntentProfile | Integrated | `js/intent/` | influence test | `results/intent/` |
+| Hard gates | Integrated | `constraints.js` | violation rate = 0 | `results/shopper/` |
+| Attribute scorer (existing) | Integrated | `search.js` | baseline arm | same |
+| Text embeddings over catalogue | Integrated | `sources.js` | embed-only, hybrid | same |
+| MMR diversity | Integrated | `mmr.js` | ±MMR ablation | same |
+| Fashion-MNIST retrieval | Experiment (validates machinery) | none | its own eval | `results/fmnist/` |
+| Duplicate/listing matching | Experiment | none | smoke only | `results/matching/` |
+| Sidecar/API | Infrastructure | `server.js` | fallback tests | tests |
+
+Acceptance check: an Integrated row without a call site or an eval arm is a bug. A claim in the README or the UI that cites an Experiment row as evidence about shopping quality is a bug.
+
+### 2. One pipeline, one data contract
+
+```text
+Questionnaire answers (7 questions)
+        │  deterministic mapping, no LLM
+        ▼
+IntentProfile {
+  hard:  { budget, category[], sizes[], inStockOnly }          ← gates only
+  soft:  { aesthetics[], occasions[], priorities{weight} }     ← relevance
+  query: { text (template-built from soft fields), imageSeed? }
+  provenance: which answers produced which fields
+}
+        │
+        ├─► Candidate source A: existing attribute scorer, top-M
+        ├─► Candidate source B: text-embedding similarity (intent.query.text vs catalogue text), top-M
+        └─► (optional) Source C: image similarity when the user supplies a seed image and items have images
+        ▼
+merge by product id → HARD GATES (before scoring) → normalize signals → fuse
+(missing signals dropped + weights renormalized) → MMR → final gate assertion
+        ▼
+Recommendations { rank, score, components, signalsUsed, explanation, trade-offs, alternatives }
+        ▼
+Evaluation harness (imports the same functions) → results/*.json
+```
+
+What changes from v1:
+
+- The questionnaire produces a typed `IntentProfile`, and that profile is the only input to retrieval. Soft preferences drive both the attribute scorer and the text query, so answers change relevance rather than only filling a form.
+- The embedding signal is one input to the existing ranker, not a parallel system. The ranker is extended, and its legacy output stays reproducible.
+- Fashion-MNIST uses the same retrieval and metric modules, so it validates the same code, but it has its own entry point and no `IntentProfile`.
+
+Intent text comes from fixed, versioned templates in `intent/templates.v1.json`. A soft profile of `aesthetics=[gothic], occasions=[evening]` yields a sentence such as "dark gothic evening top". Templates are written before looking at any retrieval results. The template set is a tuned hyperparameter on validation personas only.
+
+### 3. Evaluation on the shopping task
+
+Circularity risk: if relevance labels are derived from the same attributes the scorer uses, the attribute scorer wins by construction. If labels come from embedding similarity, the embeddings win by construction. Neither is acceptable.
+
+Protocol, pooled and blind:
+
+1. Write 24 personas covering the questionnaire space: varied aesthetics, occasions, budgets, and sizes. Each persona is a complete set of questionnaire answers plus a one-sentence plain-language description of what the person wants. Split 8 validation / 16 test. Freeze the file before running any arm.
+2. For each persona, run all arms and take the union of each arm's top-10 after gates (pooling, as in TREC). Shuffle and hide which arm returned each item.
+3. A person judges each pooled item on a 0/1/2 scale (not relevant / acceptable / great) against the persona's plain description, using `docs/JUDGING.md`, written first. Expect roughly 15–25 items per persona, about 400 judgments. The report states that the judge is a single person who is also the project author.
+4. Report graded NDCG@5/10, P@5 (acceptable or better), constraint violations, diversity, and paired bootstrap confidence intervals over personas.
+
+Limits to state in the report:
+
+- With 60 items and gates active, a persona may have only 10–25 eligible candidates, so top-10 can cover most of the pool and the arms may barely differ. Use K=5 as the primary cutoff, and report eligible-pool size per persona.
+- 16 test personas give wide intervals. Treat differences under about 0.05 NDCG as noise.
+- The catalogue is fictional. Results show that the integration works and behaves sensibly. They are not evidence that FitRank gives good fashion advice. Real-shopping claims wait for the Level 2 dataset.
+- A null or negative result (embeddings add nothing at N=60) is an acceptable outcome and goes in the report.
+
+Intent-influence test, with no human labels: for each persona, perturb one answer at a time and measure top-5 overlap and Kendall tau against the original ranking. Changing an answer that should matter must change the ranking measurably. Changing a hard constraint must change eligibility. A field whose perturbation never alters results is flagged as dead.
+
+### 4. Revised three-day sprint
+
+v1 put Fashion-MNIST first and starved the integration. v2 builds the shared retrieval machinery once, validates it quickly on Fashion-MNIST, and spends the remaining time on the integrated path.
+
+Critical path: T0 → T1 → T2 → T3 → K → L → M → T7 → T8 → T9. The Fashion-MNIST evaluation (T4/T5) runs in reduced form alongside.
+
+| Task | Change from v1 | Est. active |
+| --- | --- | --- |
+| T0 Audit | Also audit the questionnaire, its option vocabularies, the catalogue fields, and which answers reach the scorer | 1.5h |
+| T1 Fmnist adapter + splits | Reduced: index 1,000 / val 100 / test 200 max, regardless of throughput | 1.5h |
+| T2 Embedding + cache | Unchanged, and catalogue text embedding is a core target | 3h |
+| T3 Retrieval core | Unchanged | 3h |
+| T4/T5 Fmnist eval (reduced) | Arms: pixel, lexical, CLIP i2i, CLIP t2i, hybrid. Ablations: each signal ± MMR only. The frozen-config guard stays | 3h total |
+| K IntentProfile + templates | New | 3h |
+| L Integrated search over catalogue | Replaces v1 T6 | 3h |
+| M Personas, pooling, judging tooling, intent-influence test, shopper eval | New | 4h |
+| T7 Sidecar/API/fallback | Unchanged | 2.5h |
+| T8 Frontend | Surface intent → results in the existing shopper flow. Fashion-MNIST moves to a separate Lab tab | 3h |
+| T9 Hardening/report | Adds the `COMPONENTS.md` check | 3h |
+
+Total is about 30 hours of active work. If time runs short, cut in this order: Fashion-MNIST ablations beyond the core set, Lab tab polish, then the sidecar image endpoint. Never cut the gate tests, the frozen-config guard, the no-query legacy-equivalence test, or phase M's blind judging protocol. M is what turns the integration from a claim into evidence.
+
+T0 has already been run for the v1 retrieval facts. The questionnaire audit in the T0 edit below is still required before K. If later tasks from v1 are already committed, record that in `docs/plan/TASKS.md` and do not repeat them.
+
+### 5. Prompts
+
+Prompts A–F stay as written for v1 tasks T0–T5, with two edits. Prompt G (old T6) is replaced by K and L. Prompt M is new. Prompts H, I, and J take the edits at the end of this section.
+
+Append this to Prompt A:
+
+```text
+Also audit the shopper flow: list the seven questionnaire questions, each question's option vocabulary and how answers are currently stored and passed to the scorer; list catalogue fields and value vocabularies; identify exactly which answers feed which scorer weights today. Write this to docs/AUDIT.md under "Intent flow". Flag any answer that is collected but unused.
+```
+
+Prompt B caps the Fashion-MNIST sets at index 1,000, validation 100, and test 200.
+
+Prompt K, IntentProfile:
+
+```text
+Task: connect the questionnaire to retrieval via a typed IntentProfile. New code in js/intent/. Do not change the existing scorer's behaviour.
+1. From AUDIT.md "Intent flow", write js/intent/buildIntent.js: pure function answers -> IntentProfile { hard:{budget,category[],sizes[],inStockOnly}, soft:{aesthetics[],occasions[],priorities{name:weight}}, query:{text, imageSeed:null}, provenance:{field:[answerIds]} }. Missing answers stay null/absent, never defaulted silently; record them in provenance.missing.
+2. Hard fields feed gates only. Soft fields feed the attribute scorer exactly as the existing code does today (adapter, not rewrite) AND the text query.
+3. js/intent/templates.v1.json: deterministic templates that turn soft fields into query text. No LLM, no randomness. Include a test that identical answers give identical text.
+4. Tests: every questionnaire option maps to something or is explicitly listed as 'unused' in a test fixture; null answers handled; legacy scorer called via the adapter produces results IDENTICAL to the current code on a fixed fixture of 10 answer sets (store the fixture and expected output from the CURRENT code before any change).
+Return: the IntentProfile schema as built, the unused-answer list, test output. L depends on the schema.
+```
+
+Prompt L, integrated search:
+
+```text
+Task: js/retrieval/search.js integrated path over the fictional catalogue. Prerequisites: T2 catalogue text embeddings, T3 modules, K IntentProfile.
+1. searchCatalogue(intentProfile, opts) -> SearchResponse. Sources: (A) existing attribute scorer top-M (M=30), (B) cosine between embedding of intent.query.text and catalogue text embeddings, top-M. Merge by product id keeping per-source scores; a missing source score is missing, not 0.
+2. Gates run on the merged pool BEFORE scoring; assert again on final output. Null attribute fails an active constraint (existing semantics).
+3. Fusion: per-query z-score over the gate-eligible pool (if pool<10 use rank-based normalization and flag it), weighted over available signals, weights from config marked weightsValidated:false until M tunes them on validation personas only. Then MMR with embedding cosine.
+4. Explanations built from actual component values and provenance (which answers drove which signal). Include trade-off lines only when computed (e.g. 'EUR 12 over your preferred budget' is NOT allowed since budget is a hard gate; instead state the soft-priority trade-off).
+5. No-query / empty-soft-profile: output must equal legacy FitRank exactly (fixture test).
+6. Arms exposed via config for the harness: legacy_baseline (js/baseline.js), current_scorer, embed_only, hybrid, hybrid_mmr.
+Tests: adversarial violator with similarity 1.0 never returned; property test over random intents for zero violations; no-query equivalence; missing-embedding item handled and counted; determinism.
+Return: sample response for 3 intents, test output.
+```
+
+Prompt M, personas, pooling, judging, and the influence test:
+
+```text
+Task: shopper-task evaluation in ml/src/eval/shopper/.
+1. Create ml/data/personas.v1.json: 24 personas, each = full questionnaire answers + one-sentence plain-language want. Cover varied aesthetics, occasions, budgets, sizes, and include 3 deliberately tight-constraint personas. Split 8 val / 16 test BEFORE running any arm. Commit the file hash.
+2. Write docs/JUDGING.md rubric (0 not relevant / 1 acceptable / 2 great) BEFORE generating any pools.
+3. Pooling tool: for each persona run all arms, take union of each arm's gated top-10, shuffle, strip arm labels, write ml/data/judging/pool.<split>.csv with columns persona_id, item_id, persona_text, item_title/description/attrs, judgment (empty). A second script ingests the filled CSV and validates it (all rows judged, values in {0,1,2}). Keep the arm->item mapping in a separate file the judge never sees.
+4. Metrics: graded NDCG@5/10, P@5 (>=1), eligible-pool size per persona, violation rate, ILD, latency; paired bootstrap CI over personas (1000 resamples, seeded). K=5 primary.
+5. Intent-influence test: for each persona perturb one answer at a time; report top-5 overlap and Kendall tau vs original; flag any questionnaire field whose perturbation never changes the ranking; hard-constraint perturbations must change eligibility.
+6. Tune fusion weights and MMR lambda on VAL personas only with the selection rule written first (maximize NDCG@5; lambda chosen as the largest ILD gain with <=0.02 NDCG@5 loss). Freeze configs/frozen.shopper.v1.json; test script refuses to run on a hash mismatch and logs every invocation.
+7. Do NOT fill in judgments yourself. Stop after generating the pool CSVs and tell the user to judge them. Resume only when the filled files are returned.
+Return: persona stats, eligible-pool size distribution, pool sizes (number of rows to judge), influence-test table, and the exact commands to ingest and evaluate.
+```
+
+Step 7 is required. Fabricated judgments invalidate the evaluation.
+
+Edits to the remaining prompts:
+
+- H (sidecar/routes): `/api/search` accepts either `{intentProfile}` for the catalogue or the Fashion-MNIST request for the lab. The route and the response carry a `dataset` field. The response states `experiment: true` for Fashion-MNIST.
+- I (frontend): the existing shopper results show why an item was recommended, including which answers drove which signals, and a backend badge. The Fashion-MNIST panel moves to a separate Lab tab with a permanent banner: "Controlled experiment on 28×28 Fashion-MNIST: validates retrieval machinery only. Not evidence about shopping quality."
+- J (handoff): add a script that validates `COMPONENTS.md`. Every Integrated row must have a call site found by search and an evidence file that exists. Run that script in the clean-state check.
+
+### 6. Level 2: the dataset serves the questionnaire
+
+v1 chose the Level 2 dataset without asking whether it could express the questionnaire. L2-0 fixes that.
+
+- Mapping layer. `data/real/vocab-map.json` maps questionnaire vocabularies (aesthetics, occasions, categories, colours) to the chosen dataset's attributes. A coverage report lists questionnaire options with no real counterpart. Those options are disabled for the real dataset or marked "text-only signal". They are not invented.
+- The dataset rubric gains a tenth criterion: questionnaire coverage, the share of questionnaire options that map to real attributes or can be supported through text or image. A dataset that scores well on license and supports 20% of the questionnaire is a weak fit.
+- The real dataset replaces the fictional catalogue as the primary evaluation target. The 60-item catalogue stays as a demo and a regression fixture. The persona and pooling protocol from phase M runs again on the real data, with at least 40 personas and, ideally, a second judge on a 20% overlap sample so agreement can be reported.
+- Image signals become real. With real product images, source C and image–text fusion are measured on the shopping task. The sprint can show them only on Fashion-MNIST.
+- Phase order is unchanged. Phase 3 (hybrid ranking) means tuned versus baseline on the shopping task with judged personas. A learned ranker is considered only once judged pairs reach about 1,000.
+
+Duplicate detection stays an Experiment. Its one legitimate hook is a result-list dedupe step that collapses near-identical listings before display. That step can become Integrated only if matching reaches documented precision on real labelled data. Until then, no UI or README claim depends on it.
+
+### 7. Checklists added by v2
+
+Sprint:
+
+- [ ] `COMPONENTS.md` exists, and its validator script passes
+- [ ] Every questionnaire option maps to a signal or is on the documented unused list
+- [ ] Legacy-equivalence fixtures (10 intents) pass byte-for-byte
+- [ ] The persona set and the judging rubric were committed before any pool was generated
+- [ ] Judgment CSVs were filled by a human, and the arm mapping was hidden during judging
+- [ ] The intent-influence table is generated, with no dead fields, or each dead field is explained
+- [ ] Shopper-task results report eligible-pool sizes and confidence intervals, and state that the catalogue is fictional
+
+Level 2:
+
+- [ ] `vocab-map.json` and a questionnaire coverage report exist for the real dataset
+- [ ] The persona and judging protocol is re-run on real data, with at least 40 personas and inter-judge agreement reported on an overlap sample
+
+Interview readiness:
+
+- [ ] Explain how a questionnaire answer travels to a ranked product, naming the function at each step
+- [ ] Explain why Fashion-MNIST results are separate from shopper results, and show the folder and UI label that enforce it
+- [ ] Describe the circularity problem and how pooled blind judging avoids it
+
+### 8. What to do next
+
+1. Run the Prompt A audit edit. Write the seven questions, option vocabularies, catalogue fields, and the current answer-to-scorer path into `docs/AUDIT.md` under "Intent flow". Flag collected answers that do not affect ranking.
+2. Run K only after that section exists. L depends on the schema K returns.
+3. Once M writes the pool CSVs, stop. Judging is a human step of about two hours. Do not fill the judgment column in code.
+
+## Engineering plan v1 (superseded)
+
+Superseded by "FitRank 2.1 revised plan (v2)" for new work. This section remains the record of the 12 Oct sprint: the T0 measurements, the retrieval-module design, and the Fashion-MNIST protocol. Do not start the v1 critical path (T0 through T6 as originally ordered). v2 reduces T1 and T4/T5, replaces T6 with K and L, and adds M.
 
 Adopted on 12 Oct 2026 as the execution plan for the work after the retrieval slice above. T0 has been run. Its measured outcome is in `docs/AUDIT.md` and `ml/results/env.json`.
 
