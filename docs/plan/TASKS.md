@@ -1,18 +1,19 @@
 # Sprint tasks
 
-Status after T4 on 13 Oct 2026. The plan text is in `PLAN.md`. Measured facts are in `docs/AUDIT.md`, `ml/results/env.json`, and `ml/results/val/`.
+Status against `PLAN.md` "FitRank 2.1 revised plan (v2)". v1 tasks T0–T4 are done and are not repeated. The committed Fashion-MNIST split stays at index 2,000 / validation 300 / test 500. v2's smaller cap applies to a fresh split, not to this one.
 
-Set sizes chosen by the T0 rule: index 2,000 (200 per class), validation 300 (30 per class), test 500 (50 per class). Those sizes are the committed split in `ml/data/splits/fmnist.v1.json`. The train gzip files were checked against the official README and are stored locally under `ml/data/idx/`, which is gitignored.
-
-- [x] T0 Audit and baseline reproduction
+- [x] T0 v1 audit and baseline reproduction
+- [x] T0 v2 intent-flow audit (`docs/AUDIT.md`, "Intent flow")
 - [x] T1 Dataset adapter and seeded splits
 - [x] T2 Embedding pipeline and cache
 - [x] T3 Retrieval core in `js/retrieval/`
 - [x] T4 Metrics, harness, and validation tuning
-- [ ] T5 Test evaluation, ablations, and failure analysis
-- [ ] T6 Integration layer
-- [ ] T7 Sidecar, API routes, and fallback
-- [ ] T8 Frontend panel
-- [ ] T9 Hardening, clean-state run, report, and handoff
+- [ ] T4/T5 reduced Fashion-MNIST test eval (experiment only)
+- [ ] K IntentProfile and templates
+- [ ] L Integrated catalogue search
+- [ ] M Personas, judging rubric, pools, influence test (judgments stay empty)
+- [ ] T7 `/api/search` with a dataset field
+- [ ] T8 Shopper explanations from provenance, Fashion-MNIST labelled as a lab
+- [ ] T9 `COMPONENTS.md` check and handoff
 
-Do not start T4 tuning on the test split. Do not treat the already published `experiments/retrieval-results.json` numbers as a validation set for this sprint.
+Do not score the Fashion-MNIST test split while tuning. Do not fill shopper judgment cells in code. Do not treat `experiments/retrieval-results.json` as evidence about shopping quality.
