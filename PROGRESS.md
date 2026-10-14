@@ -4,6 +4,8 @@
 
 The shopper page is a seven-question flow. `recommendFromIntent()` interprets those answers, applies hard gates, scores the profile, and reuses MMR when discovery should be varied. `recommend()` and the synthetic evaluation still use the older preference object. Image search, the CLIP prototype, and the retrieval experiment are unchanged.
 
+`PLAN.md` now has a governing 2.1 plan, "FitRank 2.1 revised plan (v2)". The shopping task is the spine, and Fashion-MNIST is a labelled experiment. The 12 Oct engineering plan is kept as v1 and does not govern new work. The `IntentProfile` schema is provisional until the questionnaire audit is written to `docs/AUDIT.md`.
+
 FitRank 2.0 is complete, including the candidate-generation benchmark and recommendation runtime. Two 2.1 preparations exist and are not wired into the shopper ranking: `data/listings/` and `prototypes/moodboard/`. A REST API is still only specified in `PLAN.md`.
 
 ## Audit of the v1 prototype
