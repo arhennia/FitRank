@@ -13,6 +13,10 @@
     "eval:arm": "node ml/src/eval/runEval.mjs",
     "eval:val": "node ml/src/eval/tuneVal.mjs",
     "embed-retrieval": "node experiments/embed.mjs",
-    "evaluate-retrieval": "node experiments/evaluate.mjs"
+    "shopper:pool": "node ml/src/eval/shopper/pool.mjs",
+    "shopper:ingest": "node ml/src/eval/shopper/ingest.mjs",
+    "shopper:influence": "node ml/src/eval/shopper/influence.mjs",
+    "shopper:tune": "node ml/src/eval/shopper/tune.mjs",
+    "sidecar": "node ml/src/server/inference.js"
   }
 }

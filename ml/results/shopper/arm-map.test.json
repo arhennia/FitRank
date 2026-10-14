@@ -1,0 +1,204 @@
+{
+  "note": "Hidden from the judge. Do not copy these labels into the pool CSV.",
+  "personaHash": "a1c7397d0a25c966f2d6daa0b5dea04cdd813ff85aab17c3f2df68794b918180",
+  "arms": {
+    "test-01": {
+      "p09": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p33": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p08": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p32": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-02": {
+      "p11": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p56": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p58": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p57": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p59": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-03": {
+      "p25": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p28": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p36": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-04": {
+      "p12": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p52": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p53": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p54": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-05": {
+      "p37": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p41": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-06": {
+      "p13": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p55": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-07": {
+      "p07": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p31": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p30": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-08": {
+      "p23": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p47": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p49": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-09": {
+      "p07": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p31": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p30": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-10": {
+      "p02": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p04": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p18": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p15": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p19": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p20": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p21": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p17": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-11": {
+      "p27": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p35": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-12": {
+      "p10": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-13": {
+      "p42": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-14": {
+      "p46": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "test-15": {},
+    "test-16": {}
+  }
+}

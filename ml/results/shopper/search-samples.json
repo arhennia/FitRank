@@ -1,0 +1,119 @@
+{
+  "note": "Stand-in 3-d vectors, not CLIP. Shows the search response shape. Not a relevance result.",
+  "samples": [
+    {
+      "fixture": "versatile-everyday",
+      "arm": "hybrid",
+      "queryText": "minimal everyday several settings top",
+      "normalization": "rank",
+      "weightsValidated": false,
+      "violations": 0,
+      "missingEmbeddings": 0,
+      "top": [
+        {
+          "id": "p25",
+          "score": 1,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 80 from contexts university, several; aesthetics minimal; priorities versatility, quality; role versatile. Text similarity 0.941 for the template query “minimal everyday several settings top”. Your existing wardrobe was not provided, so this does not claim to know what you already own. A stronger choice for your versatility priority, although it is less distinctive than your other options."
+        },
+        {
+          "id": "p28",
+          "score": 0.5,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 79 from contexts university, several; aesthetics minimal; priorities versatility, quality; role versatile. Text similarity 0.927 for the template query “minimal everyday several settings top”. Your existing wardrobe was not provided, so this does not claim to know what you already own. A stronger choice for your versatility priority, although it is less distinctive than your other options."
+        },
+        {
+          "id": "p36",
+          "score": 0,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 48 from contexts university, several; aesthetics minimal; priorities versatility, quality; role versatile. Text similarity 0.839 for the template query “minimal everyday several settings top”. Your existing wardrobe was not provided, so this does not claim to know what you already own."
+        }
+      ]
+    },
+    {
+      "fixture": "gap-fill",
+      "arm": "hybrid",
+      "queryText": "preppy everyday work shirt trousers",
+      "normalization": "rank",
+      "weightsValidated": false,
+      "violations": 0,
+      "missingEmbeddings": 0,
+      "top": [
+        {
+          "id": "p37",
+          "score": 0.8125,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 75 from contexts university, work; aesthetics preppy; priorities versatility; role connector. Text similarity 0.891 for the template query “preppy everyday work shirt trousers”. Your existing wardrobe was not provided, so outfit compatibility is uncertain. A stronger choice for your versatility priority, although it is less distinctive than your other options."
+        },
+        {
+          "id": "p26",
+          "score": 0.75,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 48 from contexts university, work; aesthetics preppy; priorities versatility; role connector. Text similarity 0.947 for the template query “preppy everyday work shirt trousers”. Your existing wardrobe was not provided, so outfit compatibility is uncertain."
+        },
+        {
+          "id": "p22",
+          "score": 0.625,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 82 from contexts university, work; aesthetics preppy; priorities versatility; role connector. Text similarity 0.626 for the template query “preppy everyday work shirt trousers”. Your existing wardrobe was not provided, so outfit compatibility is uncertain. A stronger choice for your versatility priority, although it is less distinctive than your other options."
+        }
+      ]
+    },
+    {
+      "fixture": "statement",
+      "arm": "hybrid",
+      "queryText": "dark gothic artistic party dress",
+      "normalization": "rank",
+      "weightsValidated": false,
+      "violations": 0,
+      "missingEmbeddings": 0,
+      "top": [
+        {
+          "id": "p08",
+          "score": 0.8333333333333333,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 11 from contexts parties; aesthetics goth, artistic; priorities distinctive; role statement. Text similarity 1.000 for the template query “dark gothic artistic party dress”. None of the recorded occasions cover the settings you selected."
+        },
+        {
+          "id": "p09",
+          "score": 0.6666666666666666,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 71 from contexts parties; aesthetics goth, artistic; priorities distinctive; role statement. Text similarity 0.962 for the template query “dark gothic artistic party dress”."
+        },
+        {
+          "id": "p32",
+          "score": 0.5,
+          "signalsUsed": [
+            "attribute",
+            "embed"
+          ],
+          "explanation": "Attribute score 10 from contexts parties; aesthetics goth, artistic; priorities distinctive; role statement. Text similarity 0.969 for the template query “dark gothic artistic party dress”. None of the recorded occasions cover the settings you selected."
+        }
+      ]
+    }
+  ]
+}

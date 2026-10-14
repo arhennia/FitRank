@@ -1,0 +1,140 @@
+{
+  "personaHash": "a1c7397d0a25c966f2d6daa0b5dea04cdd813ff85aab17c3f2df68794b918180",
+  "catalogue": "fictional",
+  "embedArms": "embed_only, hybrid, and hybrid_mmr are omitted when no catalogue text embedding is passed. They are not filled with stand-in vectors.",
+  "judgment": "empty",
+  "summary": [
+    {
+      "split": "val",
+      "rows": 27,
+      "eligible": [
+        {
+          "id": "val-01",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "val-02",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "val-03",
+          "tight": false,
+          "eligible": 1
+        },
+        {
+          "id": "val-04",
+          "tight": false,
+          "eligible": 4
+        },
+        {
+          "id": "val-05",
+          "tight": false,
+          "eligible": 4
+        },
+        {
+          "id": "val-06",
+          "tight": false,
+          "eligible": 10
+        },
+        {
+          "id": "val-07",
+          "tight": false,
+          "eligible": 2
+        },
+        {
+          "id": "val-08",
+          "tight": true,
+          "eligible": 0
+        }
+      ]
+    },
+    {
+      "split": "test",
+      "rows": 42,
+      "eligible": [
+        {
+          "id": "test-01",
+          "tight": false,
+          "eligible": 4
+        },
+        {
+          "id": "test-02",
+          "tight": false,
+          "eligible": 5
+        },
+        {
+          "id": "test-03",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "test-04",
+          "tight": false,
+          "eligible": 4
+        },
+        {
+          "id": "test-05",
+          "tight": false,
+          "eligible": 2
+        },
+        {
+          "id": "test-06",
+          "tight": false,
+          "eligible": 2
+        },
+        {
+          "id": "test-07",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "test-08",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "test-09",
+          "tight": false,
+          "eligible": 3
+        },
+        {
+          "id": "test-10",
+          "tight": false,
+          "eligible": 8
+        },
+        {
+          "id": "test-11",
+          "tight": false,
+          "eligible": 2
+        },
+        {
+          "id": "test-12",
+          "tight": false,
+          "eligible": 1
+        },
+        {
+          "id": "test-13",
+          "tight": false,
+          "eligible": 1
+        },
+        {
+          "id": "test-14",
+          "tight": false,
+          "eligible": 1
+        },
+        {
+          "id": "test-15",
+          "tight": true,
+          "eligible": 0
+        },
+        {
+          "id": "test-16",
+          "tight": true,
+          "eligible": 0
+        }
+      ]
+    }
+  ]
+}

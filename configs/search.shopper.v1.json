@@ -1,0 +1,12 @@
+{
+  "id": "search.shopper.v1",
+  "weightsValidated": false,
+  "m": 30,
+  "arms": ["legacy_baseline", "current_scorer", "embed_only", "hybrid", "hybrid_mmr"],
+  "weights": {
+    "attribute": 0.5,
+    "embed": 0.5
+  },
+  "lambda": 0.7,
+  "note": "Fusion weights stay unvalidated until persona judging tunes them. A missing signal is dropped, not treated as zero."
+}

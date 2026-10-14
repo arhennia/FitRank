@@ -110,7 +110,7 @@ No new retrieval code, no new split, and no threshold change. The published retr
 
 ## Intent flow
 
-Written 14 Oct 2026 for the v2 plan, from the code that is already on the shopper page. This section does not change scoring. Task K starts from these facts. The provisional `IntentProfile` in `PLAN.md` is not yet a module.
+Written 14 Oct 2026 for the v2 plan, from the code that is already on the shopper page. This section does not change scoring. `js/intent/` now builds the `IntentProfile` this section describes. `js/retrieval/search.js` can rank from that profile. The shopper page still calls `recommendFromIntent()` directly. Task M pools that search for human grades. The judgment column in `ml/data/judging/` is empty, and shopper fusion weights are not frozen.
 
 ### Where answers live
 

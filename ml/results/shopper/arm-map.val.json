@@ -1,0 +1,129 @@
+{
+  "note": "Hidden from the judge. Do not copy these labels into the pool CSV.",
+  "personaHash": "a1c7397d0a25c966f2d6daa0b5dea04cdd813ff85aab17c3f2df68794b918180",
+  "arms": {
+    "val-01": {
+      "p25": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p28": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p36": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-02": {
+      "p22": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p26": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p29": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-03": {
+      "p05": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-04": {
+      "p09": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p33": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p08": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p32": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-05": {
+      "p50": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p39": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p38": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p51": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-06": {
+      "p02": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p04": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p15": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p18": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p19": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p20": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p03": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p16": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p21": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p17": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-07": {
+      "p27": [
+        "legacy_baseline",
+        "current_scorer"
+      ],
+      "p35": [
+        "legacy_baseline",
+        "current_scorer"
+      ]
+    },
+    "val-08": {}
+  }
+}

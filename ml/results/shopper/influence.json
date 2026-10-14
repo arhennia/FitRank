@@ -1,0 +1,96 @@
+{
+  "note": "No human labels. A dead field never changed the current_scorer order on these 24 personas.",
+  "summary": [
+    {
+      "field": "trigger",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 0,
+      "meanTop5Overlap": 1,
+      "dead": true,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "outcome",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 2,
+      "meanTop5Overlap": 1,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "role",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 3,
+      "meanTop5Overlap": 1,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "discovery",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 7,
+      "meanTop5Overlap": 1,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "contexts",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 8,
+      "meanTop5Overlap": 0.9833333333333334,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "aesthetics",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 5,
+      "meanTop5Overlap": 1,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "priorities",
+      "kind": "answer",
+      "personas": 24,
+      "rankingChanges": 6,
+      "meanTop5Overlap": 1,
+      "dead": false,
+      "hardEligibilityMoved": null
+    },
+    {
+      "field": "budget",
+      "kind": "hard",
+      "personas": 24,
+      "rankingChanges": 21,
+      "meanTop5Overlap": 0.125,
+      "dead": false,
+      "hardEligibilityMoved": true
+    },
+    {
+      "field": "category",
+      "kind": "hard",
+      "personas": 24,
+      "rankingChanges": 21,
+      "meanTop5Overlap": 0.125,
+      "dead": false,
+      "hardEligibilityMoved": true
+    },
+    {
+      "field": "size",
+      "kind": "hard",
+      "personas": 24,
+      "rankingChanges": 22,
+      "meanTop5Overlap": 0.08333333333333333,
+      "dead": false,
+      "hardEligibilityMoved": true
+    }
+  ],
+  "hardFailures": []
+}

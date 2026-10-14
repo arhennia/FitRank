@@ -1,0 +1,17 @@
+{
+  "id": "shopper-tuning.v1",
+  "writtenBeforeScoring": true,
+  "writtenBeforeJudgments": true,
+  "note": "Selection rule for shopper fusion weights and MMR lambda. Written before any judged score. Do not fill judgments in code. The test split is not an input.",
+  "primaryMetric": "ndcgAt5",
+  "k": 5,
+  "alsoReport": ["ndcgAt10", "precisionAt5"],
+  "precisionCutoff": "grade >= 1",
+  "ndcgLossBudget": 0.02,
+  "bootstrap": { "samples": 1000, "seed": 20261014 },
+  "weights": [0.25, 0.5, 0.75],
+  "lambdas": [1, 0.9, 0.7, 0.5],
+  "selection": "On validation personas only, choose the fusion weight that maximises mean graded NDCG@5. An exact tie breaks toward 0.5, then 0.25, then 0.75. Then take the largest lambda whose intra-list diversity gain over lambda 1 is positive and whose NDCG@5 loss is at most 0.02. Otherwise lambda stays 1.",
+  "doesNotScore": "test",
+  "freeze": "configs/frozen.shopper.v1.json is written only by the tune script after the validation judgments pass ingest. It is not written from empty cells."
+}

@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+import { handleSearch, parseSearchBody } from "./js/api/searchRoute.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 const port = Number(process.env.PORT) || 5173;
@@ -43,8 +45,30 @@ function readBody(req) {
   });
 }
 
-const server = http.createServer(async (req, res) => {
+export function createApp() {
+  return http.createServer(async (req, res) => {
   const urlPath = (req.url || "/").split("?")[0];
+  if (urlPath === "/api/search" || urlPath === "/api/sample-queries") {
+    try {
+      let body = null;
+      if (req.method === "POST") {
+        const parsed = parseSearchBody(await readBody(req));
+        if (parsed.error) {
+          res.writeHead(400, { "Content-Type": "application/json; charset=utf-8" });
+          res.end(JSON.stringify({ ok: false, errors: [parsed.error] }));
+          return;
+        }
+        body = parsed.body;
+      }
+      const result = await handleSearch(req.method || "GET", urlPath, body);
+      res.writeHead(result.status, { "Content-Type": "application/json; charset=utf-8" });
+      res.end(JSON.stringify(result.body));
+    } catch (error) {
+      res.writeHead(400, { "Content-Type": "application/json; charset=utf-8" });
+      res.end(JSON.stringify({ ok: false, errors: [error.message] }));
+    }
+    return;
+  }
   if (req.method === "POST" && urlPath === "/api/retrieve") {
     try {
       const raw = await readBody(req);
@@ -78,8 +102,11 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(200, { "Content-Type": type });
     res.end(data);
   });
-});
+  });
+}
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`FitRank running at http://127.0.0.1:${port}`);
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  createApp().listen(port, "127.0.0.1", () => {
+    console.log(`FitRank running at http://127.0.0.1:${port}`);
+  });
+}

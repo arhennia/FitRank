@@ -9,10 +9,10 @@ Status against `PLAN.md` "FitRank 2.1 revised plan (v2)". v1 tasks T0–T4 are d
 - [x] T3 Retrieval core in `js/retrieval/`
 - [x] T4 Metrics, harness, and validation tuning
 - [ ] T4/T5 reduced Fashion-MNIST test eval (experiment only)
-- [ ] K IntentProfile and templates
-- [ ] L Integrated catalogue search
-- [ ] M Personas, judging rubric, pools, influence test (judgments stay empty)
-- [ ] T7 `/api/search` with a dataset field
+- [x] K IntentProfile and templates
+- [x] L Integrated catalogue search (`js/retrieval/search.js`; the shopper page still calls `recommendFromIntent`)
+- [x] M Personas, rubric, empty pools, influence test (judgments stay empty; shopper weights are not frozen)
+- [x] T7 `/api/search` with a dataset field, sidecar, and fallback
 - [ ] T8 Shopper explanations from provenance, Fashion-MNIST labelled as a lab
 - [ ] T9 `COMPONENTS.md` check and handoff
 
