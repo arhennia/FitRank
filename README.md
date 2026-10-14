@@ -65,7 +65,7 @@ The shopper page calls one pure function, `recommendFromIntent()` in `js/shoppin
 
 ### 1. Ask about the purchase
 
-There are seven questions. Four take one answer: what prompted the purchase, what would make it worth it, the piece’s role in the wardrobe, and how focused the search should be. Three take several answers: where it will be worn, which aesthetics appeal, and which trade-offs matter. Practical limits follow: a per-item or total budget, categories, size, and stock, plus optional colour, material, fit, season, dress code, brand, and features to avoid. A review step lists everything before the search runs.
+There are seven questions. Four take one answer: what prompted the purchase, what would make it feel worth it, the piece’s role in the wardrobe, and how focused the search should be. Three take several answers: where it will be worn, which aesthetics appeal, and which trade-offs matter. Practical limits follow: a per-item or total budget, categories, size, and stock, plus optional colour, material, fit, season, dress code, brand, and features to avoid. A review step lists everything before the search runs.
 
 ### 2. Interpret a shopping profile
 
