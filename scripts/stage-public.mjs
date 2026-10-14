@@ -26,4 +26,6 @@ function copyJsonFiles(from, to) {
 
 copyJsonFiles(join(root, "experiments"), join(out, "experiments"));
 copyJsonFiles(join(root, "experiments", "fashion-mnist"), join(out, "experiments", "fashion-mnist"));
+mkdirSync(join(out, "test", "fixtures"), { recursive: true });
+cpSync(join(root, "test", "fixtures", "scenarios.js"), join(out, "test", "fixtures", "scenarios.js"));
 console.log(`Staged static site in ${out}`);
